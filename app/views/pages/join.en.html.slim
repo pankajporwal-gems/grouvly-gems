@@ -1,0 +1,35 @@
+- content_for :title do
+  = t('pages.join.refer_and_get_credit', { amount: @presenter.discount_amount, currency: @presenter.currency })
+
+- content_for :jumbotron do
+  .container
+    .row
+      .col-xs-18.col-sm-12
+        .jumbotron
+          = image_tag page_presenter.referrer_normal_picture, height: 160, class: 'img-circle'
+
+          h1= page_presenter.referrer_name
+
+          h3
+            = t('pages.join.sent_you_an_invitation', { amount: @presenter.discount_amount,
+              currency: @presenter.currency}).html_safe
+          
+          .actions
+            = link_to page_presenter.login_url, class: 'btn btn-lg btn-primary', target: '_top' do
+              = icon('facebook')
+              | &nbsp &nbsp
+              = t('pages.join.accept_invitation')
+  
+.background-dark-gray
+  .container
+    .row
+      .col-xs-18.col-sm-12= render 'pages/how_it_works/jumbotron'
+
+#block-we-dare-you
+  = render 'pages/index/we_dare_you'
+    
+  p.actions
+    = link_to page_presenter.login_url, class: 'btn btn-lg btn-primary btn-inline-block', target: '_top' do
+      = icon('facebook')
+      | &nbsp &nbsp
+      = t('pages.index.lets_go').upcase

@@ -1,0 +1,80 @@
+- get_some_friends = t('user.reservations.get_some_friends')
+
+- content_for :title do
+  = get_some_friends
+
+- content_for :facebook_marketing do
+  - if @invite_wings_presenter.reservation.recently_booked?
+    | <!-- Facebook Conversion Code for Bookings3 -->
+    | <script>
+    | (function() {
+    | var _fbq = window._fbq || (window._fbq = []);
+    | if (!_fbq.loaded) {
+    | var fbds = document.createElement('script');
+    | fbds.async = true;
+    | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    | var s = document.getElementsByTagName('script')[0];
+    | s.parentNode.insertBefore(fbds, s);
+    | _fbq.loaded = true;
+    | }
+    | })();
+    | window._fbq = window._fbq || [];
+    | window._fbq.push(['track', '6024297842532', {'value':'0.00','currency':'USD'}]);
+    | </script>
+    | <noscript>
+    | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297842532&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    | </noscript>
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      .text-center
+        h3= get_some_friends
+
+      .row
+        .col-lg-8
+          = render partial: 'shared/wings', locals: { user: @invite_wings_presenter.lead,
+            participants: @invite_wings_presenter.participants, participants_count: @invite_wings_presenter.participants_count }
+
+          /.text-center= render partial: 'shared/iframe', locals: { url: join_reservation_url(@invite_wings_presenter.reservation_slug) }
+
+          #block-send-link
+            p= t('user.reservations.invite_wings.if_they_dont_pay', wing_quantity: @invite_wings_presenter.wing_quantity, friend: "friend".pluralize(@invite_wings_presenter.wing_quantity)).html_safe
+
+          .text-center= render partial: 'shared/facebook_send', locals: { url: join_reservation_url(@invite_wings_presenter.reservation_slug) }
+
+        .col-lg-4
+          #block-reservation-date
+            table.table
+              thead
+                tr
+                  th= t('user.reservations.invite_wings.date')
+                  th= t('user.reservations.invite_wings.time')
+
+              tbody
+                tr
+                  td= @invite_wings_presenter.just_the_date
+                  td= @invite_wings_presenter.just_the_time
+
+            p
+              = t('user.reservations.invite_wings.an_email_has_been_sent')
+
+          hr
+
+          #block-message
+            h5= t('user.reservations.invite_wings.send_this_message')
+
+          .block-message-details
+            = t('user.reservations.invite_wings.message_for_wings',
+              reservation_date: @invite_wings_presenter.reservation_date,
+              referral_link: join_reservation_url(@invite_wings_presenter.reservation_slug)).html_safe
+
+      .row
+        .col-lg-12.text-center
+          = link_to t('user.memberships.finish_invite_friends'), confirmed_user_reservation_path,
+            class: 'btn btn-primary btn-lg btn-finish-invite-friends'
+
+          = link_to t('user.memberships.or_do_this_later'), confirmed_user_reservation_path,
+            class: 'btn btn-link text-lowercase'
+
+

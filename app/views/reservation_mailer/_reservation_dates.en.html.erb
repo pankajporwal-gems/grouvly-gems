@@ -1,0 +1,17 @@
+<br/>
+<br/>
+<br/>
+
+<% [:first_date, :second_date, :third_date].each do |index| %>
+  <%- date = @first_reservation_mailer_presenter.send(index) %>
+  <%- url = "#{root_url}user/payment/new/?schedule=#{date}" %>
+  <%= link_to url, { style: @first_reservation_mailer_presenter.style } do %>
+    <%= "I want to go on #{date.strftime('%a, %B %d %l%p')} " %>
+  <%- end %>
+  
+  <br/>
+  <br/>
+<%- end %>
+<br/>
+<br/>
+

@@ -1,0 +1,23 @@
+Name:
+<%= @inquiry.name %>
+
+Email:
+<%= @inquiry.email_address %>
+
+Phone:
+<%= @inquiry.phone %>
+
+<% if @inquiry.website %>
+Website:
+<%= @inquiry.website %>
+<% end %>
+
+What is the message about:
+<% if @inquiry.what_is_message_about %>
+<%= @inquiry.what_is_message_about %>
+<% else %>
+Bars and Venues
+<% end %>
+
+Message:
+<%= @inquiry.message %>

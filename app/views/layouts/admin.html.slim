@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= APP_CONFIG['default_title']
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+
+    = stylesheet_link_tag 'admin', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:300,400,700', media: 'all'
+
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+    /[if lt IE 9]
+      script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
+      script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
+
+  body id=page_id class=page_class
+    header= render 'layouts/navigation_admin'
+
+    .container-fluid
+      .row
+        sidebar.col-sm-3.col-md-2.sidebar= render 'layouts/sidebar_admin'
+
+        #main-content.col-md-10.col-md-offset-2= yield
+    
+    = content_for :facebook_marketing

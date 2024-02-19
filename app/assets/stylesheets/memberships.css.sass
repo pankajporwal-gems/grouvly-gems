@@ -1,0 +1,361 @@
+
+#memberships-controller
+  .checkbox_container_label
+    font-size: 13px
+    font-weight: normal
+  .block-form
+    h3
+      margin-bottom: 30px
+      text-align: center
+
+    .date-select
+      display: inline-block
+      margin-right: 19px
+      width: 30%
+
+      &:last-child
+        margin-right: 0
+
+  @media (max-width: 1199px)
+    .block-form .date-select
+      margin-right: 14px
+
+  @media (max-width: 991px)
+    .block-form .date-select
+      margin-right: 8px
+
+  @media (max-width: 767px)
+    .block-form .date-select
+      display: block
+      width: 100%
+
+  &.create-action, &.new-action
+    .block-form
+      margin-top: -145px
+
+      .btn-continue.btn
+        padding: 10px 60px
+      .btn-continue-wing.btn
+        padding: 10px 25px
+
+    .block-h1
+      padding-bottom: 160px
+
+    .radio
+      margin-bottom: 15px
+
+      label span
+        margin-top: 0
+
+    @media (max-width: 768px)
+      .block-form
+        h3
+          font-size: 22px
+          margin-top: 0px
+
+        form
+          padding-bottom: 15px
+          padding-left: 0
+          padding-right: 0
+
+          .form-group:last-child
+            margin-bottom: 0
+
+    @media (min-width: 992px)
+      .block-form .date-select
+        margin-right: 7px
+
+    @media (min-width: 768px)
+      .background-gray>.container
+        max-width: 640px
+
+  &.new-action
+
+    .block-email
+      text-align: right
+
+      label
+        width: 100%
+        padding-top: 2px
+
+      small
+        color: #7F7F7F
+
+      @media (max-width: 767px)
+        text-align: left
+
+        label,
+        small
+          width: auto
+          display: inline-block
+
+        label
+          padding-right: 10px
+
+        small
+          margin-bottom: 5px
+
+    .block-form-submit
+
+      input, .help-block
+        margin-top: 10px
+
+  &.create-action
+    .block-form
+      padding-top: 35px
+
+      .btn-lg
+        padding: 10px 64px
+
+    @media (max-width: 768px)
+      .block-form
+        padding-top: 15px
+
+  &.apply-action, &.edit-action, &.finish-action, &.submit-application-action, &.update-action
+    background-image: none
+
+    .block-form
+      margin-top: 30px
+      padding-bottom: 30px
+      padding-left: 50px
+      padding-right: 50px
+
+    #block-application-processed
+      font-family: "Heuristica"
+      font-size: 20px
+      text-align: center
+
+    #block-estimated-wait
+      color: #726c9d
+      font-family: "Heuristica"
+      font-size: 22px
+      font-weight: bold
+      text-align: center
+
+    #block-estimated-wait-explanation
+      color: #a4a4a4
+      font-family: "Heuristica"
+      font-size: 18px
+      padding: 0 50px
+      text-align: center
+
+      ul
+        margin-top: 10px
+
+    @media (max-width: 992px)
+      #block-application-processed
+        font-size: 18px
+
+      #block-estimated-wait-explanation
+        font-size: 16px
+
+    @media (max-width: 768px)
+      .block-form
+        margin-bottom: 15px
+        margin-left: 0
+        margin-right: 0
+        margin-top: 15px
+        padding: 15px
+
+        h3
+          margin-top: 0
+
+        #block-estimated-wait-explanation ul
+          margin-bottom: 0
+
+  &.apply-action, &.edit-action, &.submit-application-action, &.update-action
+    .block-form .btn-primary
+      margin-top: 20px
+      padding: 10px 120px
+
+    .col-sm-7
+      width: 100%
+
+    #block-image
+      margin-bottom: 15px
+
+    @media (max-width: 768px)
+      .block-form
+        padding-left: 0
+        padding-right: 0
+
+        form
+          padding-bottom: 0
+          padding-left: 0
+          padding-right: 0
+
+    @media (max-width: 450px)
+      .block-form .btn-primary
+        padding-left: 0
+        padding-right: 0
+        width: 100%
+
+  &.finish-action
+    .lead
+      font-style: normal
+
+    #block-estimated-wait
+      margin-top: 10px
+
+    #block-refer
+      margin-top: 30px
+
+      iframe
+        height: 220px
+        width: 35%
+
+      .explanation
+        margin: 0 auto
+        max-width: 500px
+
+      &.block-mobile iframe
+        height: 270px
+
+    @media (max-width: 1199px)
+      #block-refer iframe
+        width: 45%
+
+    @media (max-width: 991px)
+      #block-refer iframe
+        width: 60%
+
+    @media (max-width: 633px)
+      #block-refer iframe
+        width: 65%
+
+    @media (max-width: 590px)
+      #block-refer iframe
+        width: 80%
+
+    @media (max-width: 494px)
+      #block-refer iframe
+        width: 100%
+
+    @media (max-width: 423px)
+      #block-refer iframe
+        width: 100%
+
+    @media (max-width: 409px)
+      #block-refer iframe
+        width: 103%
+
+
+  &.finish-action, &.invite-action
+    background-image: none
+
+    iframe
+      height: 260px
+      width: 80%
+
+    .block-form
+      margin-top: 30px
+      padding: 40px 60px 60px
+      text-align: center
+
+      h1
+        color: #3b6acc
+        font-size: 26px
+        margin-bottom: 40px
+        text-transform: none
+
+      .btn-primary
+        padding: 10px 30px
+
+      .explanation
+        color: #5d6162
+        font-family: 'Heuristica'
+        font-size: 16px
+        text-align: center
+
+      .referral-stats
+        margin-bottom: 40px
+
+        h5
+          color: #484848
+          margin-bottom: 20px
+          text-transform: none
+
+        .col-sm-4
+          text-align: center
+
+          .label, .value
+            color: #acacac
+
+          .label
+            font-size: 12px
+            font-weight: 400
+            text-transform: uppercase
+
+          .value
+            font-size: 26px
+            font-weight: 200
+
+            &.text-green
+              color: #559d49
+
+    .block-mobile-device
+      iframe
+        height: 320px
+
+      p
+        font-family: 'Heuristica'
+        font-size: 18px
+        margin-top: 20px
+
+      .block-form .btn-primary
+        margin-top: 30px
+
+    #block-wings
+      margin-top: 15px
+
+      a:last-child img
+        margin-right: 0
+
+    .btn-finish-invite-friends
+      text-transform: lowercase
+
+      &:hover
+        text-decoration: underline
+
+    @media (max-width: 767px)
+      .block-form
+        padding: 15px
+
+        h1
+          margin-top: 0
+
+        .referral-stats
+          .col-sm-4
+            margin-bottom: 20px
+
+    @media (max-width: 489px)
+      iframe
+        height: 272px
+
+    @media (max-width: 480px)
+      .block-mobile-device
+        #block-wings img
+          margin-bottom: 15px
+
+        .block-form
+          .explanation
+            font-size: 16px
+
+          .btn-primary
+            margin-top: 0
+
+    @media (max-width: 472px)
+      iframe
+        width: 100%
+
+    @media (max-width: 427px)
+      .block-form h1
+        font-size: 23px
+
+  &.invite-action
+    @media (max-width: 767px)
+      .block-form
+        .referral-stats
+          margin-bottom: 0
+
+

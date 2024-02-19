@@ -1,0 +1,48 @@
+.row
+  .col-md-4
+    .form-group-lg
+      = label_tag :location, t('admin.reservations.index.filters_form.location_label'),
+        class: 'col-md-4 control-label'
+
+      .col-md-8
+        = select_tag :location, options_for_select(APP_CONFIG['available_locations'], params[:location]),
+          { prompt: t('admin.reservations.index.filters_form.location_default'), class: 'form-control' }
+
+  .col-md-4
+    .form-group-lg
+      = label_tag :start_date, t('admin.reservations.index.filters_form.start_date_label'),
+        class: 'col-md-4 control-label'
+
+      .col-md-8
+        = text_field_tag :start_date, params[:start_date], class: 'form-control datepicker'
+
+  .col-md-4
+    .form-group-lg
+      = label_tag :end_date, t('admin.reservations.index.filters_form.end_date_label'),
+        class: 'col-md-4 control-label'
+
+      .col-md-8
+        = text_field_tag :end_date, params[:end_date], class: 'form-control datepicker'
+
+.row
+  .col-md-4
+    .form-group-lg
+      = label_tag :gender, t('admin.reservations.index.filters_form.gender_label'),
+        class: 'col-md-4 control-label'
+
+      .col-md-8
+        = select_tag :gender, options_for_select(APP_CONFIG['genders'], params[:gender]),
+          { prompt: t('admin.reservations.index.filters_form.gender_default'), class: 'form-control' }
+                
+  .col-md-4
+    .form-group-lg
+      = label_tag :name, t('admin.members.search.filters_form.name_label'), class: 'col-md-4 control-label'
+                
+      .col-md-8
+        = text_field_tag :name, params[:name], class: 'form-control'
+              
+.row
+  .col-md-4
+    .form-group-lg
+      .col-md-8.col-md-offset-4
+        = submit_tag t('admin.reservations.index.filters_form.search_btn'), class: 'btn btn-primary'

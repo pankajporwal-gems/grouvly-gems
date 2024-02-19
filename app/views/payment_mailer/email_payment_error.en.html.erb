@@ -1,0 +1,12 @@
+<p>Dear <%= "#{@user.first_name}" %>,</p><br/>
+<br/>
+<p>We have not been able to process your payment due to an error. Please try again.</p>
+<br/>
+DETAILS:
+<br/>
+Name: <%= "#{@user.first_name} #{@user.last_name}" %><br/>
+Email: <%= @user.email_address %><br/>
+Phone: <%= @user.phone %><br/>
+Location: <%= @user.location %><br/>
+
+Error: <%= @payment.message %>

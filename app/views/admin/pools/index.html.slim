@@ -1,0 +1,44 @@
+header.content-header-block
+  .row
+    .action-block.col-sm-12
+      = link_to t('admin.pools.new_grouvly.book_new_grouvly'), new_grouvly_admin_pools_path,
+        class: 'btn btn-primary pull-right'
+
+.block-content
+  .row
+    .container-fluid
+      .col-md-12
+        h1= "#{@presenter.location} #{t('admin.pools.index.pools')}"
+
+        table.table.table-bordered
+          thead
+            tr
+              th
+                = link_to admin_pools_path do
+                  = icon('chevron-left')
+                  = t('admin.pools.index.all_pools')
+              th.text-uppercase= t('admin.pools.index.free_guys')
+              th.text-uppercase= t('admin.pools.index.free_girls')
+              th.text-uppercase= t('admin.pools.index.matches')
+
+          tbody
+            - @presenter.pools.each do |pool|
+              tr
+                td.text-left
+                  - if @presenter.location
+                    /= link_to "#{pool[:date][1].strftime('%d %b %Y (%a) at %l:%M %p')}",
+                      /admin_pool_path({ id: pool[:location], date: pool[:date][1] })
+                    = link_to "#{pool[:date].strftime('%d %b %Y (%a) at %l:%M %p')}",
+                      admin_pool_path({ id: pool[:location], date: pool[:date] })
+                  - else
+                    = link_to pool[:location], admin_pools_path({ location: pool[:location] })
+
+                td= pool[:free_guys]
+                td= pool[:free_girls]
+                td= pool[:matched]
+
+            tr.background-gray
+              td
+              td= @presenter.total_free_guys
+              td= @presenter.total_free_girls
+              td= @presenter.total_matches

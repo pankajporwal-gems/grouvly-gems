@@ -1,0 +1,143 @@
+- content_for :title do
+  = t('terms.how_it_works')
+
+#hero-bg
+  #hero-unit.jumbotron.dark-section.text-center
+    .container.hero-unit-inner
+      h1
+        = image_tag 'how_it_works/hiw-logo-title.png', width: 182, height: 45, alt: APP_CONFIG['default_title']
+
+      p.sub-heading We hook you up with cool awesome people just like you.<br/>Bring 1 or 2 friends and enjoy the night out!
+
+
+= render partial: 'pages/index/how_it_works', locals: { show_header: false }
+
+.the-night
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1
+        .row
+          .col-xs-5.text-right
+            h2 Usual night
+
+          .col-xs-2.text-center
+            h2
+              span vs
+
+          .col-xs-5.text-left
+            h2 Grouvly night
+
+        .row.entry-container
+          .divider-vertical
+
+          .col-xs-6.usual-night.text-right
+            .night-entry
+              span.time 7:04 PM
+
+              p You whatsapp your friends: "ready to go out?"
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-2male.png', width: 32, height: 32
+
+            .night-entry
+              span.time 8:27 PM
+
+              p Your friends: "where?"
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-2male.png', width: 32, height: 32
+
+            .night-entry
+              span.time 8:50 PM
+
+              p After a long debate, you meet at some random place
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-2female.png', width: 32, height: 32
+
+            .night-entry
+              span.time 9:45 PM
+
+              p You talk and catch up
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-meet.png', width: 32, height: 32
+
+            .night-entry
+              span.time 10:31 PM
+
+              p Time to go home
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-2female.png', width: 32, height: 32
+
+          .col-xs-6.grouvly-night.text-left
+            .night-entry
+              span.time 8:30 PM
+
+              p Meet your 1 or 2 friends at the venue we picked for you
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-2male.png', width: 32, height: 32
+
+            .night-entry
+              span.time 8:40 PM
+
+              p You meet the other group (-: Awesome!
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-group.png', width: 32, height: 32
+
+            .night-entry
+              span.time 8:56 PM
+
+              p The 1st round drinks is served. No payment needed, Cheers!
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-wine.png', width: 32, height: 32
+
+            .night-entry
+              span.time 9:03 PM
+
+              p You talk, joke, laugh
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-chat.png', width: 32, height: 32
+
+            .night-entry
+              span.time 9:56 PM
+
+              p Shots time and more drinking games!
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-glass.png', width: 32, height: 32
+
+            .night-entry
+              span.time 10:29 PM
+
+              p Funny picture time for Instagram
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-image.png', width: 32, height: 32
+
+            .night-entry
+              span.time 10:45 PM
+
+              p More drinks are ordered
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-margarita.png', width: 32, height: 32
+
+            .night-entry
+              span.time 11:42 PM
+
+              p You head to a club where the night's just getting started
+
+              .thumb-circle= image_tag 'how_it_works/hiw-icon-club.png', width: 32, height: 32
+
+        .text-center
+          = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+            i.icon-fb
+            = t('pages.index.sign_up')
+
+#cta-bg
+  #call-to-action.text-center.dark-section
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          .row
+            .col-sm-7.text-left
+              h2.heading.inline-block Get started today!
+
+            .col-sm-5.text-center
+              = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+                i.icon-fb
+                = t('pages.index.sign_up')

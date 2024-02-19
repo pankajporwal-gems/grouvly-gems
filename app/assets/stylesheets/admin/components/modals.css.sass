@@ -1,0 +1,49 @@
+// Bootstrap-styled Alert / Confirm modals
+// http://bootboxjs.com/
+
+.bootbox
+  // Centered modals
+  .modal-dialog
+    height: 100%
+
+  .modal-content
+    position: absolute
+    width: 100%
+    height: auto
+    max-height: 85%
+    bottom: 50%
+    transform: translateY(50%)
+    padding: 0
+
+  .modal-footer
+    text-align: center
+    border: none
+
+    .btn
+      border-radius: 3px
+        padding: 11px 25px
+
+  &.bootbox-alert,
+  &.bootbox-confirm
+
+    .modal-dialog
+      @media (min-width: 768px)
+        width: 400px
+
+    .modal-body
+      padding: 30px 20px 20px
+      position: relative
+      text-align: center
+
+    .modal-footer
+      padding-top: 0
+
+    button.close
+      position: absolute
+      top: 20px
+      right: 15px
+
+  &.bootbox-confirm
+
+    .modal-body
+      font-weight: bold

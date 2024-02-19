@@ -1,0 +1,22 @@
+= button_tag class: "btn btn-primary btn-lg", id:"fb-send-button", onclick: "fbMessage();" do
+  i.fa.fa-facebook aria-hidden="true"
+  | &nbsp &nbsp
+  =t('user.memberships.send_facebook')
+
+div.fb-lead
+  i.fa.fa-lock aria-hidden="true"
+  | &nbsp &nbsp
+  =t('user.memberships.private_msg')
+
+.h4
+  =t('user.memberships.send_referral_link')
+
+div.fb-lead
+  =t('user.memberships.copy_past_link')
+
+.row
+  .col-md-6.col-md-offset-3
+    .referral-link
+      =link_to url, url, id: "referral-url"
+
+

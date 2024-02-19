@@ -1,0 +1,350 @@
+@import "bootstrap/bootstrap.min"
+@import "bootstrap/bootstrap-datetimepicker.min"
+@import "font-awesome-sprockets"
+@import "font-awesome"
+@import "colorbox"
+@import "sweet-alert"
+@import "selectize"
+@import "variables"
+@import "admin/components/*"
+@import "admin/applicants"
+@import "admin/matches"
+@import "admin/members"
+@import "admin/pools"
+@import "admin/venues"
+@import "admin/vouchers"
+@import "shared"
+
+body
+  background-color: #f2f2f2
+  color: #545454
+  font-family: 'Lato', sans-serif
+
+  header .navbar-inverse .navbar-nav > li > a
+    padding-top: 9px
+    padding-bottom: 7px
+
+
+/********* Others **********/
+#applicants-controller #link-applicants, #members-controller #link-members,
+#pools-controller #link-to-match, #matches-controller #link-to-pools-matched,
+#venues-controller #link-to-venues, #vouchers-controller #link-to-vouchers,
+#reservations-controller #link-to-reservations
+  background-color: transparent
+  border-left: 5px solid #d8d8d8
+  color: #a0cecb
+
+header.content-header-block
+  padding-bottom: 20px
+
+  h1
+    line-height: 30px
+    margin: 0
+    font-weight: bold
+
+    span, small
+      display: inline-block
+
+    span
+      font-size: 20px
+      text-transform: uppercase
+
+    small
+      font-size: 16px
+      text-indent: 10px
+
+  .btn
+    border-radius: 5px
+    font-size: 14px
+    margin-left: 15px
+
+.block-content
+  background-color: #ffffff
+  border-radius: 4px
+  box-shadow: 0 0 2px #ccc
+  -moz-box-shadow: 0 0 2px #ccc
+  -webkit-box-shadow: 0 0 2px #ccc
+  padding-bottom: 15px
+  padding-top: 15px
+
+.separator-horizontal
+  border-top: 1px #e8e8e8 solid
+
+.sidebar
+  background-color: #3f3f3f
+  bottom: 0
+  display: block
+  left: 0
+  overflow-x: hidden
+  overflow-y: auto
+  position: fixed
+  top: 64px
+  z-index: 1000
+
+  ul > li
+    border-bottom: 1px solid #323232
+    margin-left: -15px
+    margin-right: -15px
+
+    > a
+      color: #7f7f7f
+      font-size: 14px
+      padding: 15px
+      text-transform: uppercase
+
+      &:hover
+        background-color: transparent
+        border-left: 5px solid #d8d8d8
+        color: #a0cecb
+
+.pagination
+  margin-bottom: 0
+
+table.table
+  margin-bottom: 0
+
+  tbody td, tfoot td
+    font-family: 'Heuristica'
+    font-weight: bold
+
+  tfoot td
+    background: #f5f5f5
+
+  // Overriding Bootstrap
+  & > thead > tr > th, & > tbody > tr > td, & > tfoot > tr > td
+    padding: 12px 20px
+
+.nav-tabs
+  > li
+    border: none
+    margin-bottom: 0
+    position: relative
+    > a
+      border: none
+      color: $gray-light
+      font-weight: bold
+      font-size: 13px
+
+  > li.active
+    > a
+      border: none
+      color: #111
+
+      &:hover, &:active, &:focus
+        border: none
+
+    &:after
+      background: $brand-primary
+      bottom: -1px
+      content: ''
+      height: 2px
+      position: absolute
+      width: 100%
+
+#block-joining-details
+  background-color: #86d3e3
+  color: #ffffff
+  margin: -23px -20px 20px -20px
+  padding: 15px
+  text-align: center
+
+  span
+    font-weight: 300
+
+#block-shared-user-show
+  h3
+    font-size: 22px
+    margin-bottom: 5px
+    margin-top: 8px
+
+    .block-age
+      color: #a4a4a4
+      font-size: 22px
+      margin-left: 0
+      margin-right: 5px
+
+  p
+    font-family: 'Heuristic'
+    font-size: 16px
+    margin-bottom: 3px
+
+  .text-placeholder
+    color: $gray-light
+
+  span.middle-dot:before
+    content: "\2219"
+
+  .block-content .col-md-3
+    padding-right: 0
+
+  .block-education, .block-email, .block-likes, .block-phone, .block-work, .block-linkedin
+    p
+      color: #a4a4a4
+      font-size: 15px
+      font-weight: normal
+      margin-top: 10px
+
+    .heading
+      color: #a4a4a4
+      font-family: 'Lato', sans-serif
+      font-size: 11px
+      font-weight: bold
+      text-transform: uppercase
+
+  .block-education, .block-email, .block-likes, .block-phone, .block-linkedin
+    margin-top: 20px
+
+  .block-email, .block-phone
+    word-wrap: break-word
+
+  .block-linkedin a
+    display: block
+    margin-top: 8px
+
+  .block-status
+    color: #3c6acc
+    font-weight: bold
+    margin: 10px 0
+    padding-right: 0
+    text-align: right
+
+    i.fa-cog
+      color: #9fcdca
+      margin-left: 10px
+
+    .dropdown
+      display: inline
+
+  .container
+    width: 100%
+
+  #block-user-information
+    margin-bottom: 10px
+
+    .block-labels
+      margin-bottom: 10px
+
+      .label
+        font-size: 10px
+        margin-right: 5px
+        text-transform: uppercase
+        vertical-align: middle
+
+  #block-user-stats
+    text-align: center
+
+    .col-md-3
+      border-right: 1px #e8e8e8 solid
+      padding-bottom: 15px
+      padding-top: 15px
+      text-align: center
+
+      &:last-child
+        border-right: 0
+
+      span
+        &.number
+          font-size: 18px
+          font-weight: bold
+
+        &.heading
+          color: #a4a4a4
+          font-weight: bold
+          text-transform: uppercase
+
+  #block-user-work-education
+    margin-bottom: 15px
+    margin-top: 15px
+
+#main-content
+  height: 100%
+  margin-top: 67px
+  padding: 20px
+
+  > .col-md-6:first-child
+    padding-left: 0
+
+  .breadcrumb
+    background-color: #e3e3e3
+    margin-bottom: 0
+    margin-top: 10px
+
+#navbar
+  padding: 12px 15px
+
+
+/********** Media **********/
+@media (min-width: 768px)
+  .navbar
+    border-radius: 0
+
+@media (max-width: 768px)
+  .navbar-nav
+    margin: 0 -15px
+
+
+/********** Search **********/
+
+.block-search-filter
+  padding-bottom: 20px
+
+  select
+    text-transform: capitalize
+
+  .control-label
+    text-align: left
+    text-transform: capitalize
+    font-size: 15px
+
+  .form-control
+    font-size: 15px
+
+  .filter-age
+
+    div:nth-child(1)
+      padding-right: 0
+
+    div:nth-child(3)
+      padding-left: 0
+
+  .filter-invitation label
+    padding-top: 3px
+
+  .btn-primary
+    border-radius: 5px
+    font-size: 14px
+    padding: 8px 20px
+
+.block-search-results
+  padding: 20px 0
+  border-top: 1px solid #ddd
+.reservation_email
+  word-wrap: break-word
+
+.admin_checkbox_container_label
+  font-size: 13px
+  font-weight: normal
+.action-dropdown
+  padding: 5px 5px 5px 5px
+
+.member-date-select
+  display: inline-block
+  margin-right: 19px
+  width: 30%
+
+  &:last-child
+    margin-right: 0
+.member-label
+  margin-right: 30px
+.checkbox_container_label
+  font-size: 13px
+  font-weight: normal
+.member_update
+  border-radius: 5px !important
+
+.right-padding
+  margin-right: -20px
+
+.left-padding
+  margin-left: -20px
+

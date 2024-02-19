@@ -1,0 +1,25 @@
+- user_decorator = UserDecorator.new(user)
+
+.col-md-6.user-list-card
+  .block-image
+    = link_to user.large_profile_picture, class: "img-colorbox user-#{user.slug}" do
+      = image_tag user.large_profile_picture, width: 110
+
+    - if user.photos.present?
+      - user.photos.each do |photo|
+        = link_to '', photo, class: "img-colorbox user-#{user.slug}"
+
+  .block-body
+    h4.media-heading.text-blue
+      = user_decorator.name
+
+      span.block-age= user_decorator.age
+
+    p.block-work= user_decorator.work_history
+
+    p.block-education= user_decorator.education_history
+
+    p= link_to t('admin.terms.view'), show_user_link, class: 'btn btn-transparent btn-view'
+
+    -if params[:controller].split("/").last == "applicants"
+      p= check_box_tag 'select_ids[]', user.id

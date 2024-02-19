@@ -1,0 +1,26 @@
+- content_for :title do
+  = t('terms.why_facebook')
+
+#hero-bg
+  #hero-unit.jumbotron.dark-section.text-center
+    .container.hero-unit-inner.vertical-align
+      h1 Not now? Then when?
+      
+      p.sub-heading Live life to the fullest each and every day.
+
+      p
+        | Grouvly gives you the chance to connect with people you wouldn't normally have the chance to connect with.
+        br/
+        | Signing in with Facebook allows the registration process to be faster and it allows us to verify that you are who you are!
+        br/
+        | We won't post anything on your wall, and there won't be any public profiles.
+        br/
+        | Come on in!
+        br/
+        | Join now.        
+      
+      div
+        = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+          i.icon-fb 
+          | &nbsp &nbsp
+          = t('pages.why_facebook.okay_lets_do_this')

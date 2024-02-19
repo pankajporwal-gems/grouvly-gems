@@ -1,0 +1,21 @@
+h1= t('user.payments.confirm_your_grouvly')
+
+.main-lead
+  = t('user.payments.to_ensure_everyone_shows_up')
+
+  | <br/>
+
+  = t('user.payments.its_all_set_for', { date: @new_payment_presenter.reservation_date,
+    time: @new_payment_presenter.reservation_time }).html_safe
+
+- unless @new_payment_presenter.wing?
+  #block-change-date= link_to t('user.payments.change_date'), new_user_reservation_path
+
+- if current_user.valid_cards.present?
+  -if params[:different_card].blank?
+    #block-change-date= link_to t('user.payments.use_different_card'), new_user_payment_path(reservation: @new_payment_presenter.slug, different_card: "true")
+  -else
+    #block-change-date= link_to t('user.payments.use_saved_card'), new_user_payment_path(reservation: @new_payment_presenter.slug)
+
+
+

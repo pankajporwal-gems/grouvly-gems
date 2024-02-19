@@ -1,0 +1,18 @@
+<%- book_url = "#{root_url}user/reservations/#{@reservation_id}/roll" %>
+Dear <%= @user.first_name %>,<br/>
+<br/>
+We're sorry but we had to cancel your reservation
+<br/>
+Regardless of the reasons, we’re sorry about this and would like to make it up to you.
+</br>
+</br>
+We can offer you a 50% on your next Grouvly.
+</br>
+</br>
+Log in to <%= link_to 'www.grouvly.com', root_path %> to schedule another Grouvly!
+<br/>
+<br/>
+Grouvly
+<br/>
+<br/>
+Questions? Check out our FAQ or reach out to us at <%= mail_to @concierge_email, @concierge_email %>

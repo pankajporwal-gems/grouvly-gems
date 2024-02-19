@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'rails/commands/server'
+require 'rack'
+require 'webrick'
+require 'webrick/https'
+
+module Rails
+  class Server < ::Rack::Server
+    def default_options
+      super.merge({
+        :Port => 3000,
+        :SSLEnable => true,
+        :SSLPrivateKey => OpenSSL::PKey::RSA.new(File.open("/home/vagrant/development.key").read),
+        :SSLCertificate => OpenSSL::X509::Certificate.new(File.open("/home/vagrant/development.crt").read),
+        #:SSLCertName => [["CN", WEBrick::Utils::getservername]]
+        #:SSLCertName => [["CN", "localhost"]]
+      })
+    end
+  end
+end
+
+begin
+  load File.expand_path("../spring", __FILE__)
+rescue LoadError
+end
+
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+
+require_relative '../config/boot'
+require 'rails/commands'

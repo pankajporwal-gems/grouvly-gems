@@ -1,0 +1,792 @@
+en:
+  activerecord:
+    attributes:
+      user_info:
+        neighborhoods: "I would like to meet at"
+        current_work: "Occupation"
+        native_place: "Where are you from?"
+
+  admin:
+    applicants:
+      accept: "Accept"
+      all: "All Applicants"
+      applicant_count: "Applicant Count"
+      block: "Block"
+      hometown: "Hometown"
+      membership_type: "Membership type"
+      profession: "profession"
+      origin: "Origin"
+      lifestyle: "Lifestyle"
+      linkedin_profile: "LinkedIn Profile"
+      notes: "Notes"
+      no_applicants: "No applicants"
+      reason_for_rejection: "Reason for Rejection"
+      reason_for_rejection_error: "Reason can't be blank"
+      reject: "Reject"
+      action: "Action"
+      export_applicants: "Export Applicants"
+      selected_applicant: "(Selected Applicant)"
+
+      edit:
+        heading: "Edit %{member_name} information"
+        update_btn: "Update"
+        edit_title: "Edit Member"
+      update:
+        success: "You have successfully update information"
+
+
+    matches:
+      no_matches: "No matches"
+
+      index:
+        all_matches: "All Matches"
+        matches: "Matches"
+
+      show:
+        already_cancelled: "Reservation booking already cancelled"
+        not_refunded: "Not refunded amount successfully, that's why not cancelled booking"
+        title_list_by_location: "List by location"
+        all_paid: "Everything has been paid already. No need to recapture."
+        all_payments_captured: "All payments have been captured."
+        cancel_booking: "Grouvly Booking canceld for user %{user_name} at date %{date}"
+        are_you_sure_capture_payment: "Are you sure you want to capture this payment?"
+        book_venues: "Book Venues"
+        are_you_sure_book_venues: "Are you sure you want to book venues?"
+        book_venues_successfully:
+          one: "You have booked venues for one reservation."
+          other: "You have booked venues for %{count} reservations."
+        book_venues_wrongfully: "Sorry the system could not find any venue to book."
+        location_details: "Location Details"
+        are_you_sure_send_location_details: "Are you sure you want to send the location details?"
+        send_location_details_successfully:
+          one: "You have sent location details for one reservation."
+          other: "You have sent location details for %{count} reservations."
+        send_location_details_wrongfully: "Sorry the system could not find any reservation to send location details."
+        cancel: "No"
+        capture: "Capture"
+        refund_amount_placeholder: "Refund Amount"
+        refund: "Refund"
+        capture_error: "Capture Error"
+        capture_payment: "Capture Payment"
+        captured: "Captured!"
+        id: "ID: %{id}"
+        ok: "Yes"
+        unmatch: "Unmatch"
+        confirm_match: "Confirm Match"
+        are_you_sure_unmatch: "Are you sure you want to unmatch these reservations?"
+        unmatch_successfully: "You have unmatched the reservations successfully."
+        unmatch_wrongfully: "There was an error that prevented the system from unmatching the reservation."
+        confirm_match_successfully: "You have confirm matched the reservations successfully."
+        confirm_match_wrongfully: "There was an error that prevented the system from confirm matching the reservation."
+        are_you_sure_confirm_match: "Are you sure you want to confirm match for these reservations?"
+        matched_successfully: "Already confirm metched the reservations successfully."
+        are_you_sure_cancel: "Are you sure?"
+        cancellation_msg: "Member will get refund as soon as possible!"
+        cancelled_booking: "Cancelled Booking"
+        booking_not_cancelled: "Something wen't wrong"
+
+
+    members:
+      all: "All Members"
+      friends: "Friends"
+      in: "in"
+      joined: "Joined"
+      karma: "Karma"
+      notes: "Notes"
+      rejected: "Rejected"
+      sched: "Sched"
+      no_members: "No members"
+
+      dashboard:
+        title_member_count: "Member Count"
+        search_btn: "Search Member"
+        city: "City"
+        straight_guys: "Straight Guys"
+        straight_girls: "Straight Girls"
+        gay_guys: "Gay Guys"
+        lesbians: "Lesbians"
+
+      show:
+        credit: "Credit"
+        friends: "Friends"
+        notes: "Notes"
+        reservations: "Grouvlys"
+        submit: "Submit"
+        total_amount: "Amount"
+        total_count: "Count"
+        total_credit_available: "Available"
+        total_credit_used: "Used"
+        total_vouchers_used: "Used"
+        note_created_wronfully: "There was an error that prevented the system to add a note"
+        vouchers: "Vouchers"
+
+      search:
+
+        filters_form:
+          export_btn: "Export"
+          location_label: "City"
+          location_default: "All"
+          typical_weekend_default: "All"
+          meet_new_people_age_default: "All"
+          gender_label: "Gender"
+          gender_default: "All"
+          age_label: "Age between"
+          age_input_separator: "and"
+          height_min_label: "Taller than"
+          height_max_label: "Shorter than"
+          religion_label: "Religion"
+          origin_label: "Origin"
+          hang_out_with_label: "I hang out with"
+          typical_weekend_label: "On a typical weekend, I would be..."
+          meet_new_people_age_label: "I'd like to meet new people who are in their..."
+          neighborhoods_label: "I would like to meet at"
+          religion_default: "All"
+          origin_default: "All"
+          ethnicity_label: "Ethnicity"
+          ethnicity_default: "All"
+          name_label: "Name"
+          last_invitation_span: "Haven't received an invitation in:"
+          last_invitation_never: "Never"
+          last_invitation_one_week: "1 week"
+          last_invitation_two_weeks: "2 weeks"
+          last_invitation_three_weeks: "3 weeks"
+          last_invitation_four_weeks: "4 weeks"
+          search_btn: "Search"
+
+    pools:
+      new_grouvly:
+        book_new_grouvly: "Book New Grouvly"
+        name_label: "Name"
+        email_label: "Email"
+        available_date_label: "Available Date"
+        get_available_dates_btn: "Get Available Dates"
+        search_btn: "Search"
+        members: "Members"
+        name: "Name"
+        email: "Email"
+        available_dates: "Available Dates"
+        action: "Action"
+        book_btn: "Book"
+        user_unavailable: "Applicant unavailable, Please fill correct nformations"
+        create_reservation: "Grovly created successfully for %{user_name} at %{date}"
+        we_cannot_process_your_card: "We can not able to process %{user_name} card"
+        incomplete_profile: "Please complete Member's <a href='%{edit_profile_url}'>Profile</a> before booking."
+        pending_reservation: "Pending Grovly created for %{user_name} at %{date}"
+        no_record_found: "No record found"
+        express_fee: "Express Fee ::"
+      index:
+        all_pools: "All Pools"
+        free_girls: "Free Girls"
+        free_guys: "Free Guys"
+        matches: "Matches"
+        pools: "Pools"
+
+      capture_payment:
+        capture_payment: "Capture Payment"
+
+      show:
+        already_friends_in_facebook: "You cannot match them. They are already friends on Facebook."
+        temp_match: "Temp Match"
+        move_to: "Move To"
+        confirm: "Confirm"
+        ethnicity: "Ethnicity"
+        height: "Height"
+        loading_users: "Loading Users..."
+        matched_successfully: "You have matched two reservations successfully."
+        matched_wrongfully: "There was an error that prevented the system from matching your choices."
+        previously_matched: "You have already prepared a matched for these members"
+        moved_successfully: "You have moved reservations at date  %{date}  successfully."
+        neighborhood: "Neighborhood"
+        religion: "Religion"
+        pending_payment: "Pending payment, first please make a payment"
+        please_select_reservations: "Please select reservations for moving their schedule date"
+
+    reservations:
+      create_reservation: "Create Reservation"
+      no_reservations: "No reservations"
+
+      index:
+        all_reservations: "All Reservations"
+
+        filters_form:
+          end_date_label: "End Date"
+          gender_label: "Gender"
+          gender_default: "All"
+          location_label: "City"
+          location_default: "All"
+          name: "Name"
+          search_btn: "Search"
+          start_date_label: "Start Date"
+
+        girls: "Girls"
+        guys: "Guys"
+      refund_amount:
+        success: "%{amount} amount refunded successfully"
+        error:
+          not_settled: "This transaction not settled yet."
+          not_less_then: "Refund amount must be less then or equal to available transaction amount."
+          other_error: "Something wen't wrong."
+          no_refund_amount: "Please enter valid refund amount"
+          not_member: "Please select any member."
+
+    venues:
+      booking_manager_name: "Booking Manager Name"
+      booking_manager_email: "Booking Manager Email"
+      booking_manager_phone: "Booking Manager Phone"
+      days_available_booking: "Days Available for Booking"
+      capacity: "Capacity"
+      city: "City"
+      directions: "Directions"
+      free: "Free"
+      map_link: "Map Link"
+      name: "Venue Name"
+      neighborhood: "Neighborhood/Area"
+      no_venues: "No venues"
+      note: "Notes"
+      owners_name: "Owners Name"
+      owners_email: "Owners Email"
+      owners_phone: "Owners Phone"
+      paid: "Paid"
+      venue_type: "Type"
+
+      navigation:
+        register_venues: "Register Venues"
+        venue_availability: "Venue Availability"
+        venue_profiles: "Venue Profiles"
+
+      index:
+        venue: "Venue"
+        tuesday: "Tue"
+        wednesday: "Wed"
+        thursday: "Thurs"
+        friday: "Fri"
+        saturday: "Saturday"
+        toggle_button: "Toggle"
+
+      new:
+        save_button: "Save"
+        new_venue: "New venue"
+        venue_successfully_created: "Venue successfully created."
+        venue_error_creation: "There was an error that prevented the system to create the venue."
+
+      edit:
+        information_updated_successfully: "You have successfully updated the information for the venue."
+        edit_button: "Edit"
+        delete_button: "Delete"
+        delete_venue: "Delete venue"
+        confirm_message: "Are you sure?"
+        cancel: "Cancel"
+        ok: "Yes"
+
+    vouchers:
+      amount: "Amount"
+      back_to_vouchers: "Back to Vouchers List"
+      code: "Code"
+      create_voucher: "Create Voucher"
+      description: "Description"
+      edit_voucher: "Edit Voucher"
+      end_date: "End Date"
+      gender: "Gender"
+      new_voucher: "New Voucher"
+      no_vouchers: "No Vouchers"
+      quantity: "Quantity"
+      restriction: "Restriction"
+      start_date: "Start Date"
+      user_id: "User"
+      voucher_type: "Type"
+      action: "Action"
+      send: "Send"
+
+      edit:
+        save: "Update Voucher"
+        voucher_updated: "Voucher has been updated."
+
+      new:
+        generate_link: "Generate Link"
+        voucher_created: "Voucher has been created successfully."
+
+    terms:
+      bookings: 'Bookings'
+      all_comms: "All Comms"
+      applicants: "Applicants"
+      education: "Education"
+      my_religion_is: "My Religion Is"
+      my_ethnicity_is: "My Ethnicity Is"
+      i_would_like_to_meet_at: "I would like to meet at"
+      meet_new_people_age: "Meet New People Age"
+      hang_out_with: "Hang Out With"
+      typical_weekend: "Typical Weekend"
+      email: "Email"
+      gay: "Gay"
+      grouvly: "Grouvly"
+      lesbian: "Lesbian"
+      likes: "Likes"
+      members: "Members"
+      occupation: "Occupation"
+      phone: "Phone"
+      linkedin: "LinkedIn"
+      night: "Night"
+      pools_matched: "Pools Matched"
+      reservations: "Reservations"
+      straight_female: "Straight Female"
+      straight_male: "Straight Male"
+      to_match: "To Match"
+      venues: "Venues"
+      view: "View"
+      vouchers: "Vouchers"
+
+
+  errors:
+    messages:
+      blank: "can't be blank"
+      not_saved:
+        one: "Please fix the following entry:"
+        other: "Please fix the following entries:"
+
+  mailers:
+    credit:
+      relaunch:
+        subject: "Grouvly, the best Social Club, is back! Get %{voucher} off!"
+      referrer:
+        subject: "Congrats! You have earned %{currency}%{amount} credit on Grouvly!"
+      reminder:
+        tomorrow:
+          subject: "Hey %{first_name}, your %{currency}%{amount} credit expires tomorrow. Book your Grouvly now."
+        other_days:
+          subject: "Hey %{first_name}, your %{currency}%{amount} credit will expire soon. Book your Grouvly now."
+
+    inquiry:
+      subject: "Thanks for contacting us"
+      support_subject: "You have an inquiry"
+
+    membership:
+      accept:
+        subject: "We love having you as a part of us!!"
+      pend:
+        subject: "We received your application to Grouvly!"
+
+    payment:
+      forward_to_friends:
+        subject: "Forward this to your friends! Join me on %{date}"
+      email_payment_error:
+        subject: "Payment Error"
+      email_lead:
+        subject: "%{lead}, your Grouvly is reserved for %{date}"
+      email_pending:
+        subject: "%{lead}, enter your credit card details to confirm your Grouvly!"
+      email_receipt:
+        subject: "Grouvly payment receipt"
+      email_wing:
+        subject: "An awesome night awaits! You have made reservations for %{date}"
+
+    pools_matched:
+      notification_venue:
+        subject: "Confirmed Grouvly %{booking_day} at %{booking_time} [Venue Details]"
+      notification_venue_schedule_changed:
+        subject: "Confirmed Grouvly %{booking_day} at %{booking_time} [Time update and venue details]"
+      table_booking:
+        subject: "Grouvly Booking / %{booking_date} / %{participents_count} FREE DRINKS / NAME: Grouvly-%{girl_name}-%{guy_name}"
+
+    reservation:
+      first_reservation_invitation:
+        subject: "Welcome to the Grouvly Family!"
+      first_reservation_reminder:
+        subject: "Don't forget: Reserve your Grouvly (Book today before 9 pm)"
+      notify_about_unmatched_reservation:
+        subject: "Uh oh! We had to cancel."
+      notify_about_cancel_reservation:
+        subject: "Your Grouvly has been cancelled"
+
+  pages:
+    bars_and_venues:
+      email_us: "Email us at %{support_email} or fill out our form!"
+      you_are_a_venue_owner: "You're a venue owner or manager<br/>and you want to partner with us?"
+
+    contact_us:
+      contact_us: "Contact us: %{support_email}"
+      email_address: "Email Address"
+      message: "Message"
+      name: "Name"
+      phone: "Phone"
+      send: "Send"
+      website: "Website"
+      what_is_your_message_about: "What is your message about?"
+      your_inquiry_has_been_submitted: "Your inquiry has been submitted.<br/>Our customer service specialist will respond to you shortly."
+
+    faq:
+      frequently_asked_questions: "Frequently Asked Questions"
+
+    index:
+      apply_with: "Apply With"
+      as_featured_in: "As featured in"
+      ensures_everyone_shows_up: "It ensures that everyone shows up"
+      facebook: "Facebook"
+      from_the_first_grouvly_night: "From the first Grouvly night you accept"
+      grab_two_friends: "Grab <span class='text-blue'>2 Friends</span>."
+      how_it_works: "How It Works ?"
+      how_it_works_no_question: "How It Works"
+      how_we_use_facebook: "We use your Facebook info to match you (and to make sure you don't already know the other group). Also, no wall posting lameness, etc."
+      i_hate_having_fun: "I hate having fun"
+      im_scared: "Im Scared"
+      lets_go: "Let's go"
+      meet_the_other_group_of_three: "Meet the <span class='text-blue'>other group</span> of three."
+      people_you_dont_know_yet: "To people you don't know yet, but should."
+      pick_your_best_wingmen_wingwomen: "Pick your best wingmen or wingwomen."
+      prepay_your_first_round_of_drinks: "<span class='text-blue'>Pre-pay</span> your first round of drinks"
+      say_yes: "Say yes"
+      sign_up: "Sign Up"
+      the_rest_is_upto_you: "The rest is up to you..."
+      three_guys_three_girls: "3 girls & 3 guys"
+      until_the_last_you_remember: "Until the last you remember."
+      we_dare_you: "We dare you"
+      we_match_you_by_hand: "Then we <span class='text-blue'>match you</span> by hand."
+      we_tell_you_where_to_meet: "We tell you where <span class='text-blue'>to meet</span>."
+      we_work_with_the_best: "We work with the best bars, lounges and speakeasies."
+      what_is_grouvly_all_about: "Is a social club that sets up drinks between 2 groups of friends:"
+
+      event_bar:
+        title: "GROUVLY LAUNCH PARTY"
+        date: "April 22, 2015 | 7-9 PM @ secret venue in Central"
+        find_out_more: "Find out more"
+
+    join:
+      accept_invitation: "Accept Invitation"
+      refer_and_get_credit: "Get %{currency}%{amount} off on your first Grouvly!"
+      sent_you_an_invitation: "Sent you an invite.<br/>Sign up and get %{currency}%{amount} credit off your first Grouvly when your membership is accepted."
+
+    privacy_policy:
+      grouvly_pte_ltd: "Grouvly Limited"
+
+    why_facebook:
+      are_you_ready: "Now that is clear, are you ready?"
+      ensure_you_dont_know_them: "Also to ensure you don't already know them."
+      no_posting_on_wall: "We won't post anything on your wall."
+      no_public_profiles: "There are no public profiles."
+      okay_lets_do_this: "Okay, let's do this"
+      we_use_it_for_good: "No worries, we use it for good:"
+      we_use_it_to_find_people: "We use it to find people with similar interest to yours."
+
+  terms:
+    roll_reservation: "Roll Grouvly"
+    roll: "Roll"
+    dont_roll: "Don't Roll"
+    please_select_height: "Please select height"
+    please_select: "Please Select"
+    not_selected: "-- Not Selected --"
+    all: "All"
+    about: "About Us"
+    bars_and_venues: "Bars and Venues"
+    blog: "Blog"
+    contact_us: "Contact Us"
+    copyright: "Copyright &copy; Grouvly.com. All rights reserved."
+    do_it_right: "Do It Right"
+    edit_profile: "Edit Profile"
+    faqs: "FAQ's"
+    get_in_touch: "Get in touch"
+    get_started: "Get Started"
+    how_it_works: "How It Works ?"
+    girls: "girls"
+    grouvly_pte_ltd: "Grouvly Pte Limited"
+    guys: "guys"
+    invite_friends: "Invite Friends"
+    invite_friends_get_credits: "Give %{currency}%{amount} &nbsp;&nbsp;Get %{currency}%{amount}"
+    login: "Login"
+    logout: "Logout"
+    none: "None"
+    others: "Others"
+    press: "Press"
+    privacy_policy: "Privacy Policy"
+    reserve: "Book your Grouvly"
+    social: "Social"
+    stay_connected: "Stay Connected"
+    terms_of_service: "Terms of Service"
+    who_we_are: "Who we are"
+    why_facebook: "Why Facebook?"
+    you_need_to_login_html: "Please <a href='%{login_link}'>log in</a> to access this page"
+    update_profile: "Please update your <a href='%{url}'>Profile</a> before booking your Grouvly."
+
+  user:
+    memberships:
+      send_facebook: "Send them a message"
+      private_msg: "By Private Message"
+      send_referral_link: "Or send them this link"
+      copy_past_link: "Copy paste this link"
+      credit_available: "Credit Available"
+      education_history: "Education History"
+      email_address: "Email Address"
+      email_address_warning: "(Make sure it is up to date)"
+      female: "Female"
+      finish_invite_friends: "Finish"
+      friends_referred: "Friends Referred"
+      girls: 'Girls'
+      guys: 'Guys'
+      i_am_a: "I am a"
+      i_am_interested_in: "I'm interested in"
+      i_like: "I Like"
+      i_live_in: "I Live In"
+      i_studied_at: "I studied at"
+      i_was_born_on: "I was born on"
+      i_work_as: "I work as"
+      i_work_at: "I work at"
+      include_country_and_area_code: ""
+      interests: "Interests"
+      invite_your_friends: "Invite Your Friends"
+      let_your_wings_know: "Let your %{wings} know"
+      male: "Male"
+      my_ethnicity_is: "My ethnicity is"
+      my_height_is: "My height is"
+      my_hometown_is: "My hometown is"
+      my_neighborhood_is: "I would like to meet at"
+      native_place: "Where are you from?"
+      update_new_fields: "Please update below fields for better experience"
+      hang_out_with: "I hang out with"
+      typical_weekend: "On a typical weekend, I would be"
+      meet_new_people: "I'd like to meet new people who are in their..."
+      my_number_is: "My mobile number is"
+      my_religion_is: "My religion is"
+      or_do_this_later: "or do this later"
+      refer_and_get_credits: "Give %{currency}%{amount} and Get %{currency}%{amount}!"
+      refer_and_get_credits_explanation: "Invite your awesome friends to sign up for Grouvly. If they get accepted, you'll receive %{currency}%{amount} credit and your friends will receive %{currency}%{amount} credit off their first Grouvly."
+      referral_stats: "Referral Stats"
+      total_credit: "Total Credit Earned"
+      we_will_use_it_sparingly: "Don't worry, we'll use it sparingly"
+      work_history: "Work History"
+      check_all_that_apply: "(Check all that apply)"
+
+      apply:
+        review_your_information: "Please review and update your information, if necessary, before submitting your application"
+        submit_your_application: "Submit your application"
+
+      edit:
+        edit_your_information: "Edit Your Information"
+        update_your_info: "Update Your Info"
+        information_updated_successfully: "You have successfully updated your information."
+
+      finish:
+        start_booking: "Start booking your Grouvly today!"
+        estimated_wait_explanation: "We'll reach out when we have a good match. We'd rather you wait than meet a bunch of total randos."
+        finish: "Finish"
+        finish_application: "Finish Application"
+        follow_us: "Follow us!"
+        your_application_is_complete: "Your application is complete!<br/>We will review your application and confirm your membership asap!<br/><br/>Can’t wait to get started?"
+        thank_you: "Thank you"
+        your_application_is_rejected: "Thank you for your interest to be a part of Grouvly.<br/>The approval of your application has been deferred until a later time. Any payment made to us will be refunded to you.<br/><br/>We pride ourselves in running an ethical and honest business. If we don’t feel that our services would benefit you, we would not want to take your money and not add value to you.<br/>However, this can change as our database expands.<br/><br/>If you would like to appeal this, please contact"
+        book_my_grouvly: "Book my Grouvly!"
+        disclaimer: "<b>Disclaimer:</b> Note that your current membership status is currently tentatively approved.<br/>Grouvly reserves the right to decline your membership (if necessary) after review."
+
+      invite:
+        send_them_a_message: "Send them a message"
+
+      new:
+        skip: "Skip"
+        agree_to_terms: "By continuing, you agree to the <a href='/terms-of-service'>Terms of Service</a>"
+        basic_information: "Basic Information"
+        continue: "Continue"
+        example_drinks: "ex. Tequila"
+        finish_application: "Finish Application"
+        membership_application: "Membership Application"
+
+      errors:
+        cannot_change_location: "You have an upcoming Grouvly. Changing location is not allowed."
+
+    payments:
+      grouvly_info:
+        first_pergraph: "I understand that the group we are matched with might be a group of 2, or a group of 3 (it may not always be 2+2 or 3+3)."
+        second_pergraph: "I'm the type of person who honours my commitments! I agree to set the necessary time aside for my Grouvly and arrive punctually. If I am going to be late or need to change the time, I will let Grouvly know ASAP."
+        third_pergraph: "I understand that the staff at Grouvly try their best to ensure that all Grouvlies go smoothly, however, on very rare exceptions, there may be Grouvlies that don't work out. That's a bummer, but I'll make it my mission to still have a fun night out with my friends anyway!"
+        fourth_paragraph: "I accept to receive emails from Grouvly of any updates."
+        fifth_paragraph: "Note that when you book a Grouvly, you will be charged for you and your friend(s). Then when your friend(s) signs up, we will refund their portion to you."
+      address: "Address"
+      as_it_appears_on_the_card: "(as it appears on the credit card)"
+      cancellation_policy: "Our Cancellation Policy"
+      last_minute_booking_policy: "Please note: Last Minute Bookings"
+      last_minute_booking_statement: "Since this is a last minute booking, we will try our BEST to find you a match -- but no promises! Keep your fingers crossed! Don't worry, you will be refunded immediately if we don't manage to find you a last-minute Grouvly."
+      cancellation_statement: "No refunds will be given if you cancel less than 72 hours in advance."
+      card_number: "Card Number"
+      change_date: "Change date"
+      use_different_card: "Use a different card"
+      use_saved_card: "Use a saved card"
+      city: "City"
+      confirm: "Confirm"
+      confirm_your_grouvly: "Prepay your first round of drinks"
+      continue: "Continue"
+      country: "Country"
+      credits_available: "You have %{currency}%{amount} credit available."
+      credits_to_use: "You are going to use %{currency}%{amount} credit in this booking."
+      cvv: "CVV"
+      expiration: "This page will expire in"
+      pending_payment_info: "You have a Grouvly booked for %{date}."
+      expiry: "Expiry"
+      last_minute_booking_fee_included: "First round of drinks + Table booking +<br/> Last minute booking fee"
+      first_drink_included: "First round of drinks + Table booking"
+      have_questions: "Have Questions?"
+      its_all_set_for: "It's all set for <strong>%{date} at %{time}</strong>"
+      name: "Name"
+      one_grouvly_ticket: "1 Grouvly Ticket + 2 Grouvly Wing%{gender} tickets."
+      oops: "Oops!"
+      page_has_expired: "This page has expired."
+      payment: "Payment"
+      payment_error: "There was an issue processing your card. Please call your bank for further details."
+      payment_transaction_error: "There was an issue processing your payment. Please email us at %{support_email} with your payment and reservation details."
+      policies: "Policies"
+      price_of_grouvly: "150 HKD"
+      promotional_code: "Do you have a promotional code?"
+      ok: "Ok"
+      redeem: "Redeem"
+      reload_page: "Click ok to reload the page and finish confirming."
+      secure_payment: "Secure Payment"
+      securely_submit: "Securely Submit"
+      securely_submitting: "Securely Submitting..."
+      state: "State"
+      street1: "Street 1"
+      street2: "Street 2"
+      to_ensure_everyone_shows_up: "To ensure everyone shows up"
+      validating: "Validating..."
+      accept_condition: "Please accept this condition"
+      we_cannot_process_your_card: "There was a problem processing your credit card, please double check your details and try again, or contact us for support."
+      what_this_covers: "What this covers:"
+      zipcode: "Zip"
+      update_profile: "Please first update your profile."
+      check_conditions: "Please check all the conditions"
+
+      errors:
+        cannot_be_used: "cannot be used. You still have available credit."
+        is_invalid: 'is invalid.'
+        needs_proper_wing_gender: "%{user} needs %{wing} for this Grouvly date."
+        paid_reservation_exists_error: "You already have an existing paid reservation on your chosen date. Please choose another one."
+        you_have_already_paid_for_this_reservation: "You have already paid for this reservation."
+        voucher_cannot_be_used: "You have credit available. You cannot use this promotional code."
+        voucher_invalid: "Voucher code is invalid."
+
+    reservations:
+      an_awesome_night_awaits: "An Awesome Night Awaits"
+      busy_on_thursday: "Busy on %{date}?"
+      cannot_process_payment: "We are having problems processing your payment. Please try again."
+      confirm_this_grouvly: "Confirm this date"
+      date: "Date"
+      go_on: "Go on"
+      feeling_spontaneous: "Feeling spontaneous?"
+      last_minute_booking: "Book a <strong> Last-Minute Grouvly </strong> now!"
+      prepay: "Pay now to confirm your booking"
+      if_they_dont_pay: "If they don't pay, you'll be charged their share and you can settle up later"
+      invite_them_or_send_this_link: "Invite them or send this link"
+      get_some_friends: "Get your friends to join you"
+      invite_your_friends: "Invite your friends!"
+      join: "Join"
+      on_date: "On"
+      or_find_another_time: "Or find another time:"
+      or_roll_your_unmatched_grouvly: "Or roll your unmatched grouvly"
+      pick_a_day: "Pick A Day"
+      time: "Time"
+      wingmen: "Wingmen"
+      wingwomen: "Wingwomen"
+      you_have_already_preordered: "Yayy! You have already pre-ordered your grouvly ticket"
+      you_have_already_selected_invites: 'You have already selected your friends. You can change them by clicking on the X button at the top of their pictures.'
+      you_will_receive_an_email: "You'll receive an email with the location of your Grouper and a reservation name in the afternoon of %{one_day_before_reservation_date}"
+
+      confirmed:
+        apply_for_membership: "Apply for Membership"
+        arrive_to_date: "Arrive to your Grouvly night"
+        date: "Date"
+        invite_your_wings: "Invite your wings"
+        pay_for_your_grouvly: "Pay For Your Grouvly"
+        pick_your_wings: "Pick Your %{wing}"
+        receive_location_details: "Receive Location Details"
+        schedule_your_grouvly: "Schedule Your Grouvly"
+        time: "Time"
+        timeline: "Timeline"
+        upcoming_grouvly_confirmed: "Upcoming Grouvly Confirmed"
+        upcoming_pending_grouvly: "Upcoming Grouvly Pending"
+        want_to_become_a_member: "Want to become a member and lead your own Grouvly?"
+        where: "Where"
+        working_on_it: "Working on it"
+      roll:
+        title: "Roll grouvly"
+        roll_grouvly: "Roll my Grouvly booking!"
+        schedule_label: "(1) Roll my booking to:"
+        is_roll_label: "(2) Keep rolling my booking till I get a match!"
+        rolling_info: "(We'll start rolling it from the date selected in (1))"
+        confirm: "Confirm"
+        msg_roll_true: "Thank you! You have rolled your Grouvly booking to date:( %{date} ) and we will keep rolling your Grouvly until you get a match"
+        msg_roll_false: "Thank you! You have rolled your Grouvly booking to date: (%{date}) and we will not keep rolling your Grouvly until you get a match"
+        need_to_cancel: "Need to cancel? Email us at hello@grouvly.com"
+        refund_grouvly_amount: "No I don't wish to roll my Grouvly"
+        unmatched_info: "Occasionally, we might not be able to find you a suitable match for a Grouvly due to mismatch of gender numbers and/or age groups. Rolling allows you to automatically push your booking to the following week if there is no match for the current week."
+      refund_amount:
+        refunded_successfully: "Your reservation cancelled successfully and you will get refund amount as soon as possible."
+        refunded_failed: "Something wen't wrong! please contact grouvly support team."
+      wing_qunatity:
+        select_wing_quantity: "Can't wait for my Grouvly! I will be bringing"
+        confirm: "confirm"
+        male: "Wingmen."
+        female: "Wingwomen."
+
+
+
+      errors:
+        messages:
+          already_have_a_reservation: "You already have a reservation on %{reservation_date}."
+          this_grouvly_date_is_already_full: "This Grouvly date is already full."
+          you_have_not_chosen_a_valid_schedule: "Chosen schedule is invalid"
+          you_have_reached_maximum_reservation: "You have active/pending reservations for all the dates given."
+
+      invite_wings:
+        confirm_your_grouvly: "Confirm your grouvly"
+        date: "Date"
+        grab_two_friends: "Grab two friends to come with you"
+        if_they_dont_pay: "You have signed up to bring %{wing_quantity} of your %{friend} to join you! <br/>It’s going to be an awesome night out!"
+        message_for_wings: "Hey! Come join me for drinks on %{reservation_date}! We can hang out and meet cool new people!<br/><br/>%{referral_link}<br/><br/>Click on this link to join me!"
+        or_send_this_link: "Or send this link"
+        send_them_an_invite: "Send them an Invite"
+        time: "Time"
+        to_save_you_the_work: "to save you the work"
+        send_this_message: "Send this message to your friends!"
+        an_email_has_been_sent: "An e-mail has been sent to you confirming the date and time of your Grouvly. An additional e-mail will be sent to you confirming the location nearer the date."
+
+      join:
+        accept_invitation: "Accept Invite to Join"
+        details: "Details"
+        # friend_is_already_confirmed_with_us: "%{user} is already confirmed with us."
+        join_your_friend: "Join your friend for an awesome night out on<br/><b>%{date} at %{time}!</b><br/>The cost of admission includes your first drink!"
+        please_note_that: "Please note that"
+        cancellation_condition_1: "1) No refunds will be given for any cancellations made less than 72 hours in advance."
+        cancellation_condition_2: "2) If your friend cancelled the reservation less than 72 hours in advance, then your reservation will also be cancelled and no refunds will be given."
+        # it_will_be_on: "It will be <strong>on %{date} at %{time}</strong>."
+        # its_per_person: "It's %{fee} per person."
+        her: "her"
+        his: "his"
+        join_grouvly: "Join %{user} for an awesome night out!"
+        on_date: "On %{date}"
+        our_cancellation_policy: "Our cancellation policy"
+        we_wont_post_anything: "We won't post anything on your wall."
+        join_now: "Join now!"
+
+      venue_notification:
+        confirm: "Great :)"
+
+    sessions:
+      join:
+        applicant: "You have already signed up for Grouvly before. You cannot accept the invite of your friend."
+        member: "You have already signed up for Grouvly before. You cannot accept the invite of your friend."
+        new_applicant: "You have already signed up for Grouvly before. You cannot accept the invite of your friend. Please fill up the form."
+
+    users:
+      dashboard:
+        always_happy_to_help: "%{name}'s always happy to help. :-)"
+        director_of_member_experience: "Director of Member Experience"
+        get_in_touch_with_your_guide: "While we find you a great group of %{gender_preference}, feel free to get in touch with your guide."
+        welcome_to_the_club: "Welcome to the Club - You're kind of a big deal now."
+        you_can_call_your_guide: "You can call your guide anytime you want or need."
+        your_guide: "Your Guide"
+
+      wing:
+        become_a_member: "Become a member"
+        hey: "Hey, %{name}"
+        want_to_become_a_member: "Want to become a member and lead your own Grouvly?<br/>Apply for membership."
+
+  venues:
+
+    feedback:
+      confirm: "Thanks! :)"
+      reject: "Thanks, no worries, next time! :)"
+      close_link: "close"

@@ -1,0 +1,12 @@
+.row
+  .container-fluid
+    .flash-messages
+      - if flash[:notice]
+        = content_tag :div, class: 'alert alert-success' do
+          = icon('check')
+          = flash[:notice]
+      - elsif flash[:error]
+        = content_tag :div, class: 'alert alert-danger' do
+          = icon('times')
+          = raw flash[:error]
+      - flash.clear

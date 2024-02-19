@@ -1,0 +1,149 @@
+.col-md-12.text-center= error_messages!(presenter.membership)
+
+.col-md-6
+  .form-group
+    = f.label :email_address, t('user.memberships.email_address')
+    = f.email_field :email_address, autofocus: true, readonly: true, class: 'form-control input-lg'
+
+  .form-group
+    = f.label :birthday, t('user.memberships.i_was_born_on')
+  .row
+    .col-md-12
+      = f.date_select :birthday, { order: [:month, :day, :year] },
+        class: 'form-control input-lg member-date-select'
+
+  .form-group
+    = f.label :gender, t('user.memberships.i_am_a')
+
+    .radio
+      label.member-label
+        = f.radio_button :gender, presenter.genders['male']
+        span= t('user.memberships.male')
+
+      label.member-label
+        = f.radio_button :gender, presenter.genders['female']
+        span= t('user.memberships.female')
+
+  .form-group
+    = f.label :gender_to_match, t('user.memberships.i_am_interested_in')
+
+    .radio
+      label.member-label
+        = f.radio_button :gender_to_match, presenter.genders['male']
+        span= t('user.memberships.guys')
+
+      label.member-label
+        = f.radio_button :gender_to_match, presenter.genders['female']
+        span= t('user.memberships.girls')
+
+  .form-group
+    = f.label :location, t('user.memberships.i_live_in')
+    = f.select :location, presenter.available_locations, {}, { autofocus: true,
+      class: 'form-control input-lg' }
+
+  .form-group
+    = f.label :phone, t('user.memberships.my_number_is')
+    = f.text_field :phone, autofocus: true, class: 'form-control input-lg'
+
+    span.help-block
+      = t('user.memberships.include_country_and_area_code')
+      | &nbsp
+      = t('user.memberships.we_will_use_it_sparingly')
+
+  .form-group
+    = f.label :current_work, t('user.memberships.i_work_as')
+    = f.text_field :current_work, autofocus: true, class: 'form-control input-lg'
+
+  .form-group
+    = f.label :current_employer, t('user.memberships.i_work_at')
+    = f.text_field :current_employer, autofocus: true, class: 'form-control input-lg'
+
+  .form-group
+    = f.label :work_history, t('user.memberships.work_history')
+    .clearfix.mb-15 = presenter.work_history
+
+  .form-group
+    = f.label :studied_at, t('user.memberships.i_studied_at')
+    = f.text_field :studied_at, autofocus: true, class: 'form-control input-lg'
+
+  .form-group
+    = f.label :education_history, t('user.memberships.education_history')
+    .clearfix.mb-15 = presenter.education_history
+
+.col-md-6
+  .form-group
+    = f.label :religion, t('user.memberships.my_religion_is')
+  .row
+    .col-sm-12
+      = f.select :religion, presenter.available_religions, {}, { autofocus: true,
+        class: 'form-control input-lg' }
+
+
+  .form-group
+    = f.label :ethnicity, t('user.memberships.my_ethnicity_is')
+
+  .row
+    .col-sm-12
+      = f.select :ethnicity, presenter.available_ethnicities, {}, { autofocus: true,
+        class: 'form-control input-lg' }
+
+  -if @user_decorator.location == "Hong Kong"
+    .form-group
+      = f.label :neighborhoods, t('user.memberships.my_neighborhood_is'), class: 'display-block'
+    .row
+      .pl-15.col-sm-7
+        -presenter.available_neighborhoods.each do |value|
+          .col-sm-2
+            = f.check_box(:neighborhoods, { :multiple => true }, value, nil)
+          .col-sm-10
+            = f.label :neighborhoods, value, class: 'checkbox_container_label'
+
+    .form-group
+      = f.label :native_place, t('user.memberships.native_place')
+    .row
+      .col-sm-12
+        = f.country_select :native_place, {priority: %w(SG HK)}, {autofocus: true, class: 'form-control input-lg'}
+
+
+  .form-group
+    = f.label :meet_new_people_ages, t('user.memberships.meet_new_people')
+  .row
+    .col-sm-12
+      -presenter.available_ages.each do |value|
+        .col-sm-2
+          = f.check_box(:meet_new_people_ages, { :multiple => true }, value, nil)
+        .col-sm-10
+          = f.label :meet_new_people_ages, value, class: 'checkbox_container_label'
+
+  .form-group
+    = f.label :hang_out_with, t('user.memberships.hang_out_with')
+
+  .row
+    .col-sm-12
+      = f.select :hang_out_with, presenter.available_hang_outs, {prompt: t('terms.please_select')}, { autofocus: true,
+        class: 'form-control input-lg' }
+
+  .form-group
+    = f.label :typical_weekends, t('user.memberships.typical_weekend')
+
+  .row
+    .col-sm-12
+      -presenter.available_weekends.each do |value|
+        .col-sm-2
+          = f.check_box(:typical_weekends, { :multiple => true }, value, nil)
+        .col-sm-10
+          = f.label :typical_weekends, value, class: 'checkbox_container_label'
+
+
+  .form-group
+    = f.label :height, t('user.memberships.my_height_is')
+    = f.select :height, presenter.available_hights, {prompt: t("terms.please_select_height")}, {autofocus: true, class: 'form-control input-lg'}
+
+
+  .form-group
+    = f.label :likes, t('user.memberships.interests')
+    .clearfix.mb-15 = presenter.interests
+
+.col-md-12
+  .form-group.text-center
+    = f.submit t('admin.applicants.edit.update_btn'), class: 'btn member_update btn-primary btn-lg'

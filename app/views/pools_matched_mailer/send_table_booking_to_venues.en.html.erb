@@ -1,0 +1,37 @@
+Hello,
+<br/>
+<br/>
+It’s us from Grouvly!
+<br/>
+<br/>
+We would like to book a table for:
+<br/>
+<% @venue_bookings.each_with_index do |venue_booking, index| %>
+<% venue_booking_mailer_presenter = VenueBookingMailerPresenter.new(venue_booking) %>
+<%= content_tag :strong, "GROUVLY CREW ##{(index + 1)}", style: 'text-decoration: underline' if @is_multiple_table_booking %>
+<%= render partial: 'pools_matched_mailer/reservation_details', locals: {
+                                                                  participents_count: venue_booking_mailer_presenter.participents_count,
+                                                                  booking_date: venue_booking_mailer_presenter.booking_date,
+                                                                  booking_time:  venue_booking_mailer_presenter.booking_time,
+                                                                  first_reservation_name: venue_booking_mailer_presenter.first_reservation_name,
+                                                                  second_reservation_name: venue_booking_mailer_presenter.second_reservation_name
+                                                              } %>
+<% end %>
+Please confirm the booking by clicking OK below or NO if you don’t have availability for that date and time.
+<br/>
+<br/>
+<%= link_to 'OK', venue_confirm_booking_url(booking: @venue_bookings_slugs, protocol: 'https'), { style: @venue_booking_mailer_presenter.style_yes_button } %>&nbsp;&nbsp;&nbsp;<%= link_to 'No', venue_reject_booking_url(booking: @venue_bookings_slugs, protocol: 'https'), { style: @venue_booking_mailer_presenter.style_no_button } %>
+<br/>
+<br/>
+Note: If you need to cancel the booking after you confirmed please email us.
+<br/>
+<br/>
+<br/>
+Best regards,
+<br/>
+<br/>
+<br/>
+Cheers,
+<br/>
+Grouvly
+

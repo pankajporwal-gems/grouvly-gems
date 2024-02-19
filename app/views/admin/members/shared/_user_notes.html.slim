@@ -1,0 +1,22 @@
+#user-notes.tab-pane.active
+  = form_tag create_note_admin_member_path(user_decorator.user), class: 'clearfix'
+    = error_messages!(user_decorator.user)
+
+    .form-group
+      = label_tag :content, t('admin.members.show.notes'), { class: 'sr-only' }
+      
+      = text_area_tag :content, (params[:content] if params[:content]), { class: 'form-control input-lg',
+        required: true }
+    
+    .form-group
+      = submit_tag t('admin.members.show.submit'), class: 'btn btn-primary pull-right'
+
+  .block-user-notes
+    - if user_decorator.user.user_notes.any?
+      - user_decorator.user.user_notes.each do |note|
+        .block-user-note.row
+          .col-md-8.pl-0
+            p= note.content
+          
+          .col-md-4.pr-0.text-right
+            = time_ago_in_words(note.created_at)

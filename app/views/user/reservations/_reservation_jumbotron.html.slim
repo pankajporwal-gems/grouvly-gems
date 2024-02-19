@@ -1,0 +1,15 @@
+.jumbotron.text-white.text-center
+  .center-block
+    h1= t('user.reservations.an_awesome_night_awaits')
+    
+    /h3 All dates are fully booked.
+  
+  .lead= "#{t('user.reservations.on_date')} #{first_date.strftime("%A %B %d")}" 
+
+  .actions
+    - css = available_dates.include?(first_date) ? '' : 'disabled'
+    
+    = link_to '#', id: 'btn-confirm', class: "btn btn-lg btn-primary #{css}", data: { value: first_date } do
+      = icon('calendar-o')
+      | &nbsp &nbsp
+      = t('user.reservations.confirm_this_grouvly')

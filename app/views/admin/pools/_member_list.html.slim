@@ -1,0 +1,27 @@
+h4=t('admin.pools.new_grouvly.members')
+
+table.table.table-bordered
+  thead
+    tr
+      th.text-uppercase= t('admin.pools.new_grouvly.name')
+      th.text-uppercase= t('admin.pools.new_grouvly.email')
+      th.text-uppercase= t('admin.pools.new_grouvly.available_dates')
+      th.text-uppercase= t('admin.pools.new_grouvly.action')
+
+  tbody
+    -@users.each do |user|
+      tr
+        td
+          = link_to user.name, admin_member_path(user)
+        td
+          = user.email_address
+          = hidden_field_tag :lead_user_id, user.id
+        td
+          - reservation = get_reservation(user, params[:schedule])
+          -if reservation.present?
+            = select_tag 'reservation_schedule', options_for_select(reservation.admin_available_dates, params[:schedule]), prompt: t('admin.pools.new_grouvly.available_date_label'),class: 'input-lg form-control', id: "reservation_schedule_#{user.id}",  data: { id: user.id}, onclick: 'grouvlyBooking($(this));'
+
+        td
+          = submit_tag( t('admin.pools.new_grouvly.book_btn'), name: 'submit', id: "grouvly_booking_btn_#{user.id}", "data-toggle" => "modal", "data-target" => "#myModal",class: 'btn btn-primary disabled')
+
+= render "last_minute_booking"

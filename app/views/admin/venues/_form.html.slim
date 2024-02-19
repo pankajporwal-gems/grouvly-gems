@@ -1,0 +1,117 @@
+= error_messages!(presenter.venue)
+
+.row
+  .col-sm-6
+    .row.form-group
+      = f.label :name, t('admin.venues.name'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_field :name, autofocus: true, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :venue_type, t('admin.venues.venue_type'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.select :venue_type, options_for_select(presenter.venue_types, presenter.venue.venue_type),
+                   { include_blank: true }, { class: 'form-control input-lg', required: true, disabled: @read_only_inputs.present? }
+
+    .row.form-group
+      = f.label :location, t('admin.venues.city'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.select :location, options_for_select(presenter.available_locations, presenter.venue.location),
+                   { include_blank: true }, { class: 'form-control input-lg', required: true, disabled: @read_only_inputs.present? }
+
+    .row.form-group
+      = f.label :neighborhood, t('admin.venues.neighborhood'), class: 'control-label col-sm-12'
+      .col-sm-10
+        div class=('col-sm-6 pl-0' if presenter.is_other_neighborhood?)
+          = f.select :neighborhood, options_for_select(presenter.available_neighborhoods, ( presenter.is_other_neighborhood? ? t('terms.others') : presenter.venue.neighborhood ) ),
+                     { include_blank: true }, { class: 'form-control input-lg', required: true, disabled: @read_only_inputs.present? }
+        .col-sm-6#block-venue-other-neighborhood.pr-0 class=('hide' unless presenter.is_other_neighborhood?)
+          = text_field_tag 'venue[other_neighborhood]', (presenter.venue.neighborhood if presenter.is_other_neighborhood?), class: 'form-control input-lg'
+
+    .row.form-group
+      = f.label :owner_name, t('admin.venues.owners_name'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_field :owner_name, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :owner_email, t('admin.venues.owners_email'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.email_field :owner_email, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :owner_phone, t('admin.venues.owners_phone'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_field :owner_phone, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group.block-is-free
+      .col-sm-10
+        .row
+          = f.label :is_paid, nil, class: 'col-sm-6' do
+            = f.radio_button :is_free, false, id: 'venue_is_paid', readonly: @read_only_inputs.present?
+            = t('admin.venues.paid')
+          = f.label :is_free, nil, class: 'col-sm-6' do
+            = f.radio_button :is_free, true, id: 'venue_is_free', readonly: @read_only_inputs.present?
+            = t('admin.venues.free')
+
+    .row.form-group
+      = f.label :map_link, t('admin.venues.map_link'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.url_field :map_link, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :directions, t('admin.venues.directions'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_area :directions, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :capacity, t('admin.venues.capacity'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.number_field :capacity, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?, min: 1, step: 1
+
+  .col-sm-6
+    .row.form-group
+      = f.label :manager_name, t('admin.venues.booking_manager_name'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_field :manager_name, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :manager_email, t('admin.venues.booking_manager_email'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.email_field :manager_email, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .row.form-group
+      = f.label :manager_phone, t('admin.venues.booking_manager_phone'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_field :manager_phone, class: 'form-control input-lg', required: true, readonly: @read_only_inputs.present?
+
+    .fieldset.row.block-booking-availability
+      .col-sm-10
+        legend
+          = t('admin.venues.days_available_booking')
+        ul.list-unstyled
+          - presenter.booking_days.each do |day|
+            = content_tag :li, class: 'row' do
+              = content_tag :label, day, class: 'control-label col-xs-10'
+              = content_tag :div, class: 'col-xs-2' do
+                = check_box_tag "venue[booking_availability][#{day.downcase}]",
+                                1,
+                                presenter.venue.booking_availability[day.downcase] == '1',
+                                id: "venue_booking_availability_#{day.downcase}",
+                                class: 'pull-right',
+                                disabled: @read_only_inputs.present?
+
+    .row.form-group.mt-20
+      = f.label :note, t('admin.venues.note'), class: 'control-label col-sm-12'
+      .col-sm-10
+        = f.text_area :note, class: 'form-control input-lg', readonly: @read_only_inputs.present?
+
+    - unless @read_only_inputs.present?
+      .row.form-group
+        .col-sm-10
+          = f.submit t('admin.venues.new.save_button'), class: 'btn btn-primary btn-lg btn-block'
+
+    - if presenter.venue.id.present?
+      .row.mt-20.block-edit-action
+        .col-sm-10
+          = link_to t('admin.venues.edit.edit_button'), edit_admin_venue_path(presenter.venue) , class: 'btn btn-link' unless ['edit','update'].include?(controller.action_name)
+          = link_to t('admin.venues.edit.delete_button'), admin_venue_path(presenter.venue), class: 'btn btn-link', method: 'delete'

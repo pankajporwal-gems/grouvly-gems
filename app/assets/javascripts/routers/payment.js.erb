@@ -1,0 +1,189 @@
+modulejs.define('paymentRouter', ['jquery', 'underscore', 'braintree', 'i18n'], function($, _, braintree,
+  i18n) {
+
+
+
+  function setCountDown() {
+    if ($('.block-countdown').length > 0) {
+      var Tock = modulejs.require('tock');
+      var I18n = modulejs.require('i18n');
+
+      var timer = new Tock({
+        countdown: true,
+          interval: 10,
+          callback: function () { $('.block-countdown').html(timer.msToTime(timer.lap())); },
+          complete: function() {
+            swal({
+              title: I18n.t('user.payments.page_has_expired'),
+              text: I18n.t('user.payments.reload_page'),
+              showCancelButton: false,
+              confirmButtonColor: '#3b6acc',
+              confirmButtonText: I18n.t('user.payments.ok')
+            }, function() { location.reload(); });
+          }
+      });
+
+      timer.start(timer.timeToMS('5:00'));
+    }
+  };
+
+  function loadBraintree() {
+    if ($('#new_payment .btn-submit').val() !== I18n.t('user.payments.confirm')) {
+      braintree.setup(gon.client_token, 'custom', { id: 'new_payment' });
+    }
+  }
+
+  function alertError(title, body, that) {
+    swal({
+      title: title,
+      text: body,
+      showCancelButton: false,
+      confirmButtonColor: '#3b6acc',
+      confirmButtonText: I18n.t('user.payments.ok')
+    }, function() {
+      if (that) {
+        $(that).val(i18n.t('user.payments.redeem'));
+        $(that).removeClass('disabled');
+      }
+    });
+  }
+
+  function validateVoucher(that) {
+    var value = $('#payment_voucher_code').val();
+    var url = "<%= Rails.application.routes.url_helpers.validate_voucher_user_payment_path %>";
+    var last_minute_booking = $("#last_minute_booking").val();
+
+    if ($('.block-credits-info').length) {
+      alertError(I18n.t('user.payments.oops'), I18n.t('user.payments.errors.voucher_cannot_be_used'), that);
+    } else {
+      $(that).val(i18n.t('user.payments.validating'));
+      $(that).addClass('disabled');
+
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        data: { payment: { voucher_code: value, last_minute_booking: last_minute_booking } },
+        method: 'POST',
+        success: function(response) {
+          $(that).val(i18n.t('user.payments.redeem'));
+          $(that).removeClass('disabled');
+          selected_wings = $("#payment_reservation_attributes_wing_quantity option:selected").val();
+          $('.fee').html(updateFee(selected_wings, response.amount));
+
+          if (response.amount === 0) {
+            $('#new_payment .form-group:not(".not-hide")').remove();
+            $('#new_payment .btn-submit').val(I18n.t('user.payments.confirm'));
+          }
+        },
+        error: function(response) {
+          var data = response.responseJSON.error;
+          alertError(data.title, data.body, that);
+        }
+      });
+    }
+  }
+
+  var subroute = Backbone.SubRoute.extend({
+    routes: {
+      'new': 'goToDefault',
+      '': 'goToDefault'
+    },
+
+    goToDefault: function() {
+      setCountDown();
+      var ruleSet1 = { required: true };
+      var msgSet1 = i18n.t('user.payments.accept_condition')
+
+      $('#new_payment').validate({
+        errorElement: 'div',
+        errorClass: 'vd_red',
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+          condition_first: ruleSet1,
+          condition_second: ruleSet1,
+          condition_third: ruleSet1,
+          condition_fourth: ruleSet1,
+          condition_fifth: ruleSet1
+        },
+        messages: {
+          condition_first: msgSet1,
+          condition_second: msgSet1,
+          condition_third: msgSet1,
+          condition_fourth: msgSet1,
+          condition_fifth: msgSet1
+        },
+        errorPlacement: function(error, element) {
+          error.insertBefore(element);
+        }
+      });
+      $('.btn-submit').click(function(e) {
+        var isvalidate = $("#new_payment").valid();
+        if(!isvalidate)
+        {
+          e.preventDefault();
+        }
+        else {
+          loadBraintree();
+          $(this).val(i18n.t('user.payments.securely_submitting'));
+          $(this).addClass('disabled');
+        }
+
+      });
+
+      $('.btn-redeem').click(function(e) {
+        e.preventDefault();
+        validateVoucher(this);
+      });
+    }
+  });
+
+  $(document).on('change', "#payment_reservation_attributes_wing_quantity", function() {
+    lead_user_amount = $("#payment_reservation_attributes_wing_quantity").data("lead-fee");
+    if(!checkVoucher()){
+      updateFee($(this).val(), lead_user_amount)
+    }
+  });
+
+  $(document).ready(function() {
+    lead_user_amount = $("#payment_reservation_attributes_wing_quantity").data("lead-fee");
+    selected_wings = $("#payment_reservation_attributes_wing_quantity option:selected").val();
+    updateFee(selected_wings, lead_user_amount)
+  });
+
+  function checkVoucher(){
+    var voucher_value = $('#payment_voucher_code').val();
+    if(voucher_value.length > 0){
+      var url = "<%= Rails.application.routes.url_helpers.validate_voucher_user_payment_path %>";
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        data: { payment: { voucher_code: voucher_value} },
+        method: 'POST',
+        success: function(response) {
+          selected_wings = $("#payment_reservation_attributes_wing_quantity option:selected").val();
+          $('.fee').html(updateFee(selected_wings, response.amount));
+          return true
+        },
+        error: function(response) {
+          return false
+        }
+      });
+    }
+    else{
+      return false
+    }
+  }
+
+
+  function updateFee(selected_wings, lead_user_amount){
+    var no_of_wings = parseInt(selected_wings);
+    wing_user_amount = $("#payment_reservation_attributes_wing_quantity").data("wing-fee");
+    $('#block-price #fee').html((no_of_wings*wing_user_amount) + lead_user_amount);
+  }
+  
+
+
+
+  return subroute;
+});

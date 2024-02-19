@@ -1,0 +1,18 @@
+- content_for :title do
+  = t('user.users.wing.become_a_member')
+
+- content_for :jumbotron do
+  .container
+    .row
+      .col-xs-18.col-sm-12
+        .jumbotron
+          h1= t('user.users.wing.hey', name: @user_decorator.name)
+          
+          h3= t('user.users.wing.want_to_become_a_member').html_safe
+          
+          .actions
+            = link_to apply_user_membership_path, class: 'btn btn-lg btn-primary btn-inline-block' do
+              = icon('facebook')
+              | &nbsp &nbsp
+              = t('pages.index.lets_go').upcase
+

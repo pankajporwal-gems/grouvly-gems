@@ -1,0 +1,16 @@
+.block-timeline.clearfix
+  .col-xs-5.clearfix
+    - if defined? first_date 
+      .date-timeline= first_date 
+   
+    - if defined? first_statement
+      p.clearfix= first_statement 
+  
+  .col-xs-2
+    <br/><br/>
+    .img-timeline &nbsp; 
+
+  .col-xs-5
+    .date-timeline.pull-left= second_date
+    
+    p.clearfix= second_statement

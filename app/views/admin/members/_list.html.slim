@@ -1,0 +1,19 @@
+.block-content
+  - if @presenter.members.present?
+    - @presenter.members.in_groups_of(2) do |members|
+      .row
+        .container-fluid
+          - members.each do |member|
+            - unless member.blank?
+              = render partial: 'admin/shared/user_list_card', locals: { user: member,
+                show_user_link: admin_member_path(member) }
+  - else
+    .row
+      .container-fluid
+        .col-md-12
+          p.text-center.mt-20= t('admin.members.no_members') 
+        
+  .row
+    .container-fluid
+      .col-md-12.text-center= paginate @presenter.members
+

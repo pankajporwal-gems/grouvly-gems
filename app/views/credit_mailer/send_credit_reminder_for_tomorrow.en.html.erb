@@ -1,0 +1,74 @@
+<html>
+  <%= render 'shared/newsletter_head' %>
+  <%= render 'shared/newsletter_logo' %>
+
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" name="2">
+    <tr>
+      <td width="100%" valign="top">    
+        <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+          <tr>
+            <td height="22"></td>
+          </tr>
+
+          <tr>
+            <td style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;" class="textCenter">
+              <p>Hey <%= @presenter.first_name %>,</p>
+
+              <p>
+                Your <strong><%= @presenter.credit.currency %> <%= @presenter.amount %> in credit</strong> to book your first Grouvly <strong>expires tomorrow!</strong> Make sure to book your Grouvly now to enjoy your credit. :)
+              </p> 
+
+              <p>Do you really want to miss this much fun? Oh no!</p> 
+            </td>
+          </tr>
+
+          <tr>
+            <td height="15"></td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= image_tag 'credit_reminders/banner-4.jpg', class: 'img-responsive' %>
+            </td>
+          </tr>
+
+          <tr>
+            <td height="15"></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div style="padding: 20px 0;">
+                <%= link_to 'Schedule Now!', new_user_reservation_url, style: "text-decoration: none; color: #ffffff; font-family: 'proxima_novasemibold', Helvetica, Arial, sans-serif; padding: 15px 40px; background: #3b6acc; border-radius: 40px", class: 'colorResult' %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td height="15"></td>
+          </tr>
+
+          <tr>
+            <td style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;" class="textCenter">
+              <p>Check our <%= link_to 'blog', blog_url, target:"_blank" %> for some users stories and testimonials.</p> 
+
+              <p>Have a nice day!</p>
+            </td>
+          </tr>
+          
+          <tr>
+            <td height="15"></td>
+          </tr>
+
+          <%= render 'shared/newsletter_concierge' %>
+
+          <tr>
+            <td height="15"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <%= render 'shared/newsletter_footer' %>
+</html>

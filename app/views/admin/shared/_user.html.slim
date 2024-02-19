@@ -1,0 +1,38 @@
+- user = user_decorator.user
+- user_reservation_scope = UserReservationScope.new(user)
+
+#block-shared-user-show
+  .block-content
+    #block-user-information
+      = render partial: 'admin/shared/user_information', locals: { user_decorator: user_decorator }
+
+    = render 'admin/shared/separator'
+
+    #block-user-work-education
+      .row
+        .col-md-12
+          .col-md-11
+            = render partial: 'admin/shared/user_work_education_likes', locals: { user_decorator: user_decorator }
+          .col-md-1
+            = link_to edit_admin_member_path, title: t("admin.applicants.edit.edit_title") do
+              i.fa.fa-pencil-square-o.fa-lg aria-hidden="true"
+
+    = render 'admin/shared/separator'
+
+    #block-user-stats.row
+      .container-fluid
+        .col-md-3
+          span.number= user_reservation_scope.total_matched_and_paid_reservations.count
+          span.heading Grouvly
+
+        .col-md-3
+          span.number 0
+          span.heading Karma
+
+        .col-md-3
+          span.number= user_decorator.available_credits
+          span.heading Credit
+
+        .col-md-3
+          span.number= user.valid_referrals.count
+          span.heading Referred

@@ -1,0 +1,71 @@
+script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"
+javascript:
+  $(document).ready(function () {
+    $("#roll_form").validate({
+      debug: true,
+      rules: {
+      "schedule": {required: true}
+      },
+      errorElement: "div",
+      submitHandler: function (form) {
+        var $form = $(form);
+        $form.submit(function() {
+          var valuesToSubmit = $(this).serialize();
+          $.ajax({
+            type: "POST",
+            url: "/user/reservations/roll_confirmed",
+            data: valuesToSubmit,
+            success: function(response) {
+              swal(response.msg)
+            }
+          })
+        });
+      }
+    });
+  });
+
+- content_for :title do
+  = t('user.reservations.roll.title')
+
+.col-sm-12.text-center= error_messages!(@reservation)
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      .text-center
+        h3
+          = t('user.reservations.roll.roll_grouvly')
+
+      .row
+        .bottom-affix
+          = form_tag "#", id: "roll_form" do |f|
+
+            .col-md-12
+              .col-md-5
+                = label_tag t('user.reservations.roll.schedule_label')
+                small= "(#{@reservation.schedule.strftime('%d %b %Y (%a) at %l:%M %p')})"
+
+              .col-md-7
+                = select_tag 'schedule', options_for_select(@presenter.available_valid_dates(@reservation.user)), prompt: t('admin.pools.show.move_to'), class: 'form-control input-lg'
+                = hidden_field_tag :id, @reservation.id
+
+            .col-md-12
+              .col-md-5
+                =label_tag t('user.reservations.roll.is_roll_label')
+                small= t('user.reservations.roll.rolling_info')
+              .col-md-7
+                =check_box_tag :is_roll, {}, checked: @reservation.is_roll
+
+            .col-md-12
+              .pull-right
+                =submit_tag t('user.reservations.roll.confirm'), class: "btn btn-primary btn-md #{@reservation.current_state != 'cancelled' ? '' : 'disabled'} "
+      .row
+        .bottom-affix
+          .col-md-12
+            .text-center
+              =link_to t('user.reservations.roll.refund_grouvly_amount'), refund_amount_user_reservation_path(@reservation.id), data: { confirm: 'Are you sure?' }
+              /
+                .roll-color
+                  p =t('user.reservations.roll.need_to_cancel')
+
+

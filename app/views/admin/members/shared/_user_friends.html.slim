@@ -1,0 +1,21 @@
+#user-friends.tab-pane
+  - friends.in_groups_of(2) do |friends|
+    .row.mt-15
+      .container-fluid
+        - friends.each do |friend|
+          - if friend.present?
+            .col-md-6
+              .media
+                .media-left.media-middle
+                  = link_to friend.large_profile_picture, class: "img-colorbox img-circle friend-#{friend.slug}"
+                    = image_tag friend.small_profile_picture, class: 'img-circle', height: 50
+                  
+                  - if friend.photos.present?
+                    - friend.photos.each do |photo|
+                      = link_to '', photo, class: "img-colorbox user-#{friend.slug}"
+
+                .media-body
+                  - if friend.accepted?
+                    = link_to "#{friend.first_name} #{friend.last_name}", admin_member_path(friend)
+                  - else
+                    = "#{friend.first_name} #{friend.last_name}"

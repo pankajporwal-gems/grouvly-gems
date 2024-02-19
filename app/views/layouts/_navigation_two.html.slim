@@ -1,0 +1,57 @@
+- if current_user.present?
+  ul
+    - if current_user.accepted?
+      li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
+        = icon('calendar-o')
+        | &nbsp &nbsp
+        = t('terms.reserve')
+
+    - if referral_program_enabled?
+      - if !current_user.new?
+        li
+          = link_to invite_user_membership_path, class: 'link-invite-get-credits hidden-xs hidden-sm btn btn-blue' do
+            = icon('gift', '', class: 'fa-lg')
+            | &nbsp &nbsp
+            = t('terms.invite_friends_get_credits', { amount: referral_reward, currency: referral_currency }).html_safe
+
+      - if current_user.accepted?
+        li
+          .hidden-xs.hiddex.sm.header-available-credit-info
+            = "#{referral_currency}#{current_user.available_credits.to_i} #{t('user.memberships.credit_available')}"
+
+    li.dropdown
+      = link_to '#', class: 'dropdown-toggle text-white', data: { toggle: 'dropdown' } do
+        = image_tag small_profile_picture, height: 35, width: 40, class: 'img-circle'
+        span.name = current_user.first_name
+        = icon('angle-down')
+
+      ul.dropdown-menu[role='menu']
+        - if current_user.accepted?
+          - if referral_program_enabled?
+            li
+              .visible-xs-block.header-available-credit-info
+                = "#{referral_currency}#{current_user.available_credits.to_i} #{t('user.memberships.credit_available')}"
+
+          li
+            = link_to new_user_reservation_path, class: 'link-new-reservation visible-xs-block' do
+              = icon('calendar-o')
+              | &nbsp &nbsp
+              = t('terms.reserve')
+
+        li= link_to t('terms.edit_profile'), edit_user_membership_path
+
+        li= link_to t('terms.logout'), logout_path, method: :post
+-else
+  ul
+    li= link_to t('terms.how_it_works'), how_it_works_path
+    li= link_to t('terms.about'), about_us_path
+    li= link_to t('terms.faqs'), faq_path({ location: params[:location] })
+    li.highlight= link_to t('terms.login'), page_presenter.login_url, target: '_top' if page_presenter.present?
+
+    li#map-hk.map
+      = link_to root_url({ location: 'Hong Kong' }) do
+        = image_tag 'icons/icon-map-hk.png'
+
+    li#map-sg.map
+      = link_to root_url({ location: 'Singapore' }) do
+        = image_tag 'icons/icon-map-sg.png'

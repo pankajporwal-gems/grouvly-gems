@@ -1,0 +1,129 @@
+.block-content
+  .row
+    .container-fluid
+      .block-search-filter.clearfix
+        .col-md-12
+            = form_tag search_admin_members_path, method: :get, class: 'form-horizontal form-filter-members col-xs-12'
+              .row
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :location, t('admin.members.search.filters_form.location_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :location, options_for_select(@search_member_presenter.available_locations, params[:location]), { prompt: t('admin.members.search.filters_form.location_default'), class: 'form-control' }
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :gender, t('admin.members.search.filters_form.gender_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :gender, options_for_select(@search_member_presenter.genders, params[:gender]), { prompt: t('admin.members.search.filters_form.gender_default'), class: 'form-control' }
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :age, t('admin.members.search.filters_form.age_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      .row.filter-age
+                        .col-xs-4
+                          = text_field_tag :age_min, params[:age_min], class: 'form-control'
+                        .col-xs-4.text-center
+                          = label_tag :age, t('admin.members.search.filters_form.age_input_separator'), class: 'control-label'
+                        .col-xs-4
+                          = text_field_tag :age_max, params[:age_max], class: 'form-control'
+              .row
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :height_min, t('admin.members.search.filters_form.height_min_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :height_min, options_for_select(@search_member_presenter.available_hights, params[:height_min]), {prompt: t("terms.please_select"), autofocus: true, class: 'form-control input-lg' }
+
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :height_max, t('admin.members.search.filters_form.height_max_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :height_max, options_for_select(@search_member_presenter.available_hights, params[:height_max]), {prompt: t("terms.please_select"),autofocus: true, class: 'form-control input-lg' }
+                .col-md-4
+                    .form-group-lg
+                      = label_tag :origin, t('admin.members.search.filters_form.origin_label'), class: 'col-md-4 control-label'
+                      .col-md-8
+                        = select_tag :origin, options_for_select(@search_member_presenter.origins, params[:origin]), {prompt: t('admin.members.search.filters_form.origin_default'), class: 'form-control' }
+
+                /
+                  .col-md-4
+                    .form-group-lg
+                      = label_tag :religion, t('admin.members.search.filters_form.religion_label'), class: 'col-md-4 control-label'
+                      .col-md-8
+                        = select_tag :religion, options_for_select(@search_member_presenter.religions, params[:religion]), { prompt: t('admin.members.search.filters_form.religion_default'), class: 'form-control' }
+              .row
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :ethnicity, t('admin.members.search.filters_form.ethnicity_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :ethnicity, options_for_select(@search_member_presenter.ethnicities, params[:ethnicity]), { prompt: t('admin.members.search.filters_form.ethnicity_default'), class: 'form-control' }
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :name, t('admin.members.search.filters_form.name_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = text_field_tag :name, params[:name], class: 'form-control'
+
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :neighborhoods, t('admin.members.search.filters_form.neighborhoods_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      - @search_member_presenter.available_neighborhoods.each do |value|
+                        .col-md-3.control-label
+                          = check_box_tag 'neighborhoods[]', value, params[:neighborhoods].present? && params[:neighborhoods].include?(value)
+                        .col-md-9.control-label
+                          = label_tag :neighborhoods, value, class: 'admin_checkbox_container_label'
+
+                /.col-md-4
+                /  .form-group-lg.filter-invitation
+                /    = label_tag :last_invitation_span, t('admin.members.search.filters_form.last_invitation_span'), class: 'col-md-4 control-label'
+                /    .col-md-8
+                /      = select_tag :last_invitation_span, options_for_select(@search_member_presenter.last_invitation, params[:last_invitation_span]), { include_blank: true, class: 'form-control' }
+
+              .row
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :meet_new_people_ages, t('user.memberships.meet_new_people'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      - @search_member_presenter.ages.each do |value|
+                        .col-md-3.control-label
+                          = check_box_tag 'meet_new_people_ages[]', value, params[:meet_new_people_ages].present? && params[:meet_new_people_ages].include?(value)
+                        .col-md-9.control-label
+                          = label_tag :meet_new_people_ages, value, class: 'admin_checkbox_container_label'
+
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :typical_weekends, t('user.memberships.typical_weekend'), class: 'col-md-4 control-label'
+
+                    .col-md-8
+                      - @search_member_presenter.typical_weekends.each do |value|
+                        .col-md-3.control-label
+                          = check_box_tag 'typical_weekends[]', value, params[:typical_weekends].present? && params[:typical_weekends].include?(value)
+                        .col-md-9.control-label
+                          = label_tag :typical_weekends, value, class: 'admin_checkbox_container_label'
+
+                .col-md-4
+                  .form-group-lg
+                    = label_tag :hang_out_with, t('admin.members.search.filters_form.hang_out_with_label'), class: 'col-md-4 control-label'
+                    .col-md-8
+                      = select_tag :hang_out_with, options_for_select(@search_member_presenter.hang_outs, params[:hang_out_with]), {prompt: t("terms.please_select"), class: 'form-control' }
+              .row
+                .col-md-6
+                  .form-group-lg
+                    .col-md-3
+                      = submit_tag t('admin.members.search.filters_form.search_btn'), name: "search", class: 'btn btn-primary pull-right'
+                    .col-md-3
+                      = submit_tag t('admin.members.search.filters_form.export_btn'), name: "export", class: 'btn btn-primary pull-left'
+
+      .block-search-results.clearfix
+        - if @members.present?
+          .col-md-12
+
+            - @members.in_groups_of(2) do |members|
+              - members.each do |member|
+                - unless member.blank?
+                  = render partial: 'admin/shared/user_list_card', locals: {user: member, show_user_link: admin_member_path(member)}
+
+          .col-md-12.text-center= paginate @members
+
+        - else
+          .col-md-12
+            p.text-center.mt-20= t('admin.members.no_members')

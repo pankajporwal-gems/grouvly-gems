@@ -1,0 +1,320 @@
+modulejs.define('membershipRouter', ['jquery', 'underscore', 'backbone', 'tracking'],
+  function($, _, Backbone, tracking) {
+
+  var changeLocation = function() {
+    $('#user_info_location').change(function(e) {
+      var url = "<%= Rails.application.routes.url_helpers.location_neighborhoods_path %>";
+      url += '/?location=' + $(this).val();
+
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        success: function(response) {
+          revertNeighborhood();
+          changeNeighborhoodOptions(response);
+        }
+      });
+    });
+  };
+
+  var changeNeighborhoodOptions = function(data) {
+    var element = $('#user_info_neighborhood');
+    element.find('option').remove().end();
+
+    _.each(data.locations, function(d) {
+      var el = '<option value="' + d + '">' + d + '</option>';
+      element.append(el);
+    });
+  };
+
+  var changeNeighborhood = function(element) {
+    var parentEl = $(element).parent();
+    var labelEl = $(element).siblings('label');
+
+    $('<div class="col-sm-6 pl-0"></div>').insertBefore(element);
+    $(parentEl.find('.col-sm-6')[0]).append(element);
+    $('#block-user-info-other-neighborhood').removeClass('hide');
+  };
+
+  var revertNeighborhood = function() {
+    var element = $('#user_info_neighborhood');
+    var parentEl = $(element).parents('.form-group').find('.col-sm-7');
+    var labelEl = $(element).siblings('label');
+
+    $(parentEl).prepend(element);
+    $(parentEl).find('.col-sm-6').not('#block-user-info-other-neighborhood').remove();
+    $('#block-user-info-other-neighborhood').addClass('hide');
+  };
+
+   var changeNativePlace = function(element) {
+    var parentEl = $(element).parent();
+    var labelEl = $(element).siblings('label');
+
+    $('<div class="col-sm-6 pl-0"></div>').insertBefore(element);
+    $(parentEl.find('.col-sm-6')[0]).append(element);
+    $('#block-user-info-other-native-place').removeClass('hide');
+  };
+
+  var revertNativePlace = function() {
+    var element = $('#user_info_native_place');
+    var parentEl = $(element).parents('.form-group').find('.col-sm-7');
+    var labelEl = $(element).siblings('label');
+
+    $(parentEl).prepend(element);
+    $(parentEl).find('.col-sm-6').not('#block-user-info-other-native-place').remove();
+    $('#block-user-info-other-native-place').addClass('hide');
+  };
+
+  var bindNeighborhood = function() {
+    $('#user_info_neighborhood').change(function(e) {
+      if ($(this).val() == 'Others') {
+        changeNeighborhood(this);
+      } else {
+        revertNeighborhood();
+      }
+    });
+  };
+
+  var bindNativePlace = function() {
+    $('#user_info_native_place').change(function(e) {
+      if ($(this).val() == 'Others') {
+        changeNativePlace(this);
+      } else {
+        revertNativePlace();
+      }
+    });
+  };
+
+  var eventTracking = (function(tracking) {
+    var bindEmail = function(){
+      var $element = $('[name="user_info[email_address]"');
+
+      $element.on('focus', function() {
+        var eventName = 'Form 1 - Entered email',
+        prefilled = $element.val() ? 'yes' : 'no';
+        tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+      });
+    };
+
+    var bindGender = function() {
+      var $element = $('[name="user_info[gender_to_match]"]'),
+          eventName = 'Form 1 - Gender',
+          prefilled = $element.is(':checked') ? 'yes' : 'no';
+
+      tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+    };
+
+    var bindInterest = function() {
+      var $element = $('[name="user_info[gender_to_match]"]'),
+          eventName = 'Form 1 - Selected interest';
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName);
+      });
+    };
+
+    var bindCity = function() {
+      var $element = $('[name="user_info[location]"]'),
+          eventName = 'Form 1 - Selected city',
+          prefilled = $element.val() ? 'yes' : 'no';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+      });
+    };
+
+    var bindPhone = function() {
+      var $element = $('[name="user_info[phone]"]'),
+          eventName = 'Form 1 - Entered mobile';
+
+      $($element).on('keyup', function(){
+        if ($($element).val()){
+          tracking.trackEvent(eventName, {}, true);
+        }
+      });
+    };
+
+    var bindSubmitForm = function() {
+      var $element = $('#submit-step-one'),
+          eventName = 'Completed Form 1';
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName);
+      });
+    };
+
+    var registrationFirstStep = function() {
+      bindEmail();
+      bindGender();
+      bindInterest();
+      bindCity();
+      bindPhone();
+      bindSubmitForm();
+    };
+
+    var bindWork = function(){
+      var $element = $('[name="user_info[current_work]"]'),
+          eventName = 'Form 2 - Works as',
+          prefilled = $element.val() ? 'yes' : 'no';
+
+      $($element).on('keyup', function(){
+        if ($($element).val()){
+          tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+        }
+      });
+    };
+
+    var bindEmployer = function(){
+      var $element = $('[name="user_info[current_employer]"]'),
+          eventName = 'Form 2 - Works at',
+          prefilled = $element.val() ? 'yes' : 'no';
+
+      $($element).on('keyup', function(){
+        if ($($element).val()){
+          tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+        }
+      });
+    };
+
+    var bindStudy = function(){
+      var $element = $('[name="user_info[studied_at]"]'),
+          eventName = 'Form 2 - Study',
+          prefilled = $element.val() ? 'yes' : 'no';
+
+      $($element).on('keyup', function(){
+        if ($($element).val()){
+          tracking.trackEvent(eventName, { 'Prefilled from fb': prefilled }, true);
+        }
+      });
+    };
+
+    var bindReligion = function(){
+      var $element = $('[name="user_info[religion]"]'),
+          eventName = 'Form 2 - Religion';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindEthnicity = function(){
+      var $element = $('[name="user_info[ethnicity]"]'),
+          eventName = 'Form 2 - Ethnicity';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindNeighborhood = function(){
+      var $element = $('[name="user_info[neighborhood]"]'),
+          eventName = 'Form 2 - Neighborhood';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindNativePlace = function(){
+      var $element = $('[name="user_info[native_place]"]'),
+          eventName = 'Form 2 - NativePlace';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindNativePlace = function(){
+      var $element = $('[name="user_info[native_place]"]'),
+          eventName = 'Form 2 - NativePlace';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindMeetNewPeopleAge = function(){
+      var $element = $('[name="user_info[meet_new_people_age]"]'),
+          eventName = 'Form 2 - MeetNewPeopleAge';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindHangOutWith = function(){
+      var $element = $('[name="user_info[hang_out_with]"]'),
+          eventName = 'Form 2 - HangOutWith';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+    var bindTypicalWeekend = function(){
+      var $element = $('[name="user_info[typical_weekend]"]'),
+          eventName = 'Form 2 - TypicalWeekend';
+
+      $($element).on('click', function(){
+        tracking.trackEvent(eventName, {}, true);
+      });
+    };
+
+
+    var bindHeight = function(){
+      var $element = $('[name="user_info[height]"]'),
+          eventName = 'Form 2 - Height';
+
+      $($element).on('keyup', function(){
+        if ($($element).val()){
+          tracking.trackEvent(eventName, {}, true);
+        }
+      });
+    };
+
+    var registrationSecondStep = function() {
+      bindWork();
+      bindEmployer();
+      bindStudy();
+      bindReligion();
+      bindEthnicity();
+      bindNeighborhood();
+      bindNativePlace();
+      bindMeetNewPeopleAge();
+      bindHangOutWith();
+      bindTypicalWeekend();
+      bindHeight();
+    };
+
+    return {
+      registrationFirstStep: registrationFirstStep,
+      registrationSecondStep: registrationSecondStep
+    }
+  })(tracking);
+
+  var subroute = Backbone.SubRoute.extend({
+    routes: {
+      '': 'goToNew',
+      'new': 'goToNew',
+      'apply': 'goToEdit',
+      'edit': 'goToEdit',
+      'submit_application': 'goToEdit'
+    },
+
+    // New user sign up
+    goToNew: function() {
+      bindNeighborhood();
+      bindNativePlace();
+      changeLocation();
+      eventTracking.registrationFirstStep();
+      eventTracking.registrationSecondStep();
+    },
+
+    goToEdit: function() {
+      $('.img-colorbox').colorbox({ rel: 'img-colorbox' });
+      bindNeighborhood();
+      bindNativePlace();
+      changeLocation();
+    },
+  });
+
+  return subroute;
+});

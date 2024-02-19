@@ -1,0 +1,45 @@
+- user = user_decorator.user
+
+.row
+  .container-fluid
+    .col-md-3
+      .media= render partial: 'shared/user_image', locals: { user: user, css: 'img-circle' }
+
+    .col-md-9
+      .clearfix
+        h3.col-md-8.pl-0
+          span.block-age= user_decorator.age
+          = user_decorator.name
+
+        .block-status.col-md-4
+          span= user.current_state.humanize
+
+          .dropdown.display-inline
+            = link_to('', id: 'block-choose-status', data: { target: '#', toggle: 'dropdown' },
+              'aria-haspopup' => 'true', 'aria-expanded' => 'false') do
+
+              = icon('cog', '', class: 'fa-lg')
+
+            ul.dropdown-menu[role='menu' aria-labelledby='block-choose-status']
+              - if user.pending?
+                li= link_to t('admin.applicants.accept'), accept_admin_applicant_path(user)
+                li= link_to t('admin.applicants.reject'), reject_admin_applicant_path(user)
+
+              li= link_to t('admin.applicants.block'), block_admin_applicant_path(user) if user.accepted?
+
+      .block-labels
+        span.label.label-primary= user.membership_type
+        span.label.label-info= user.origin
+        span.label.label-warning= user.lifestyle
+        span.label.label-success= user.work_category
+
+      p.clearfix
+        span= link_to user.location, '#'
+        span.middle-dot= link_to [user.neighborhoods].join(','), '#'
+
+      p
+        span.text-placeholder= "#{t('admin.applicants.hometown')}: "
+        span.text-gray= user.native_location
+      p
+        span= user_decorator.gender
+        span.middle-dot.text-gray= "#{APP_CONFIG['user_heights'].key(user.height)}"

@@ -1,0 +1,12 @@
+.row
+  .col-sm-4
+    .value= "#{referral_currency} #{total_credits}"
+    .label= t('user.memberships.total_credit')
+  
+  .col-sm-4
+    .value.text-green= "#{referral_currency} #{available_credits}"
+    .label= t('user.memberships.credit_available')
+  
+  .col-sm-4
+    .value= referral_count 
+    .label= t('user.memberships.friends_referred')

@@ -1,0 +1,31 @@
+.block-content
+  .row
+    .container-fluid
+      .col-md-12
+        table.table.table-bordered
+          thead
+            tr
+              th.text-uppercase= t('admin.members.dashboard.city')
+              th.text-uppercase= t('admin.members.dashboard.straight_guys')
+              th.text-uppercase= t('admin.members.dashboard.straight_girls')
+              th.text-uppercase= t('admin.members.dashboard.gay_guys')
+              th.text-uppercase= t('admin.members.dashboard.lesbians')
+          
+          tbody
+            - @presenter.summaries.each do |summary|
+              - params = { location: summary[:location] }
+
+              tr
+                td= link_to summary[:location], admin_applicants_path(params)
+                td= link_to summary[:straight_guys], admin_applicants_path(params.merge({ gender: 'straight_guys' })) 
+                td= link_to summary[:straight_girls], admin_applicants_path(params.merge({ gender: 'straight_girls' })) 
+                td= link_to summary[:gay_guys], admin_applicants_path(params.merge({ gender: 'gay_guys' })) 
+                td= link_to summary[:lesbians], admin_applicants_path(params.merge({ gender: 'lesbians' })) 
+
+          tfoot
+            tr
+              td= nil
+              td= @presenter.total_straight_guys
+              td= @presenter.total_straight_girls
+              td= @presenter.total_gay_guys
+              td= @presenter.total_lesbians

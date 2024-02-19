@@ -1,0 +1,88 @@
+- content_for :title do
+  = t('user.payments.payment')
+
+script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"
+
+- content_for :facebook_marketing do
+  | <!-- Facebook Conversion Code for Payment with Facebook3 -->
+  | <script>
+  | (function() {
+  | var _fbq = window._fbq || (window._fbq = []);
+  | if (!_fbq.loaded) {
+  | var fbds = document.createElement('script');
+  | fbds.async = true;
+  | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+  | var s = document.getElementsByTagName('script')[0];
+  | s.parentNode.insertBefore(fbds, s);
+  | _fbq.loaded = true;
+  | }
+  | })();
+  | window._fbq = window._fbq || [];
+  | window._fbq.push(['track', '6024297868532', {'value':'0.00','currency':'USD'}]);
+  | </script>
+  | <noscript>
+  | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297868532&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+  | </noscript>
+
+.row#block-expiration
+  .container
+    .col-sm-12
+      span= t('user.payments.expiration')
+      span.block-countdown
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      = render 'heading'
+
+      .row.pt-20
+        .col-md-7
+          .visible-xs.block-sidebar= render 'ticket_description'
+
+          = form_for(@new_payment_presenter.payment, url: user_payment_path, method: 'create',
+            html: { role: 'form', class: 'form-horizontal', id: 'new_payment' }) do |f|
+
+            - if @new_payment_presenter.has_credits? && @new_payment_presenter.voucher.blank?
+              .form-group.block-credits-info
+                .col-sm-3.hidden-xs &nbsp;
+
+                .col-sm-9.text-center.mb-25
+                  = t('user.payments.credits_available', { amount: @new_payment_presenter.available_credits,
+                    currency: referral_currency })
+
+                  | <br/>
+
+                  strong= t('user.payments.credits_to_use', { amount: @new_payment_presenter.credits_to_use,
+                    currency: referral_currency })
+
+            - if @new_payment_presenter.payment.errors.any?
+              .form-group
+                .col-sm-3.hidden-xs &nbsp;
+
+                .col-sm-9= error_messages!(@new_payment_presenter.payment)
+
+
+            = render partial: 'form', locals: { f: f, presenter: @new_payment_presenter}
+
+          -if @new_payment_presenter.last_minute_booking
+            = render 'last_minute_booking_note'
+          -else
+            = render 'cancellation'
+
+          .col-sm-3.hidden-xs &nbsp;
+
+          .col-sm-9.text-center.highlight.block-address= APP_CONFIG['default_address']
+
+        .col-md-5.clearfix
+          .block-sidebar
+            .hidden-xs= render 'ticket_description'
+
+            hr.hidden-xs
+            = render 'secure_payment'
+
+            hr
+
+            .row.pt-0
+              .col-sm-7= render 'questions_block'
+
+              .col-sm-5= render 'policies_block'

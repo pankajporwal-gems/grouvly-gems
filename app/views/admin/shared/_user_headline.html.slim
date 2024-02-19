@@ -1,0 +1,8 @@
+- css = 'background-color: red' if user_decorator.user.blocked? || user_decorator.user.rejected?
+
+#block-joining-details[style="#{css}"]
+  strong= user_decorator.name
+  
+  | &nbsp;
+  
+  span= user_decorator.headline

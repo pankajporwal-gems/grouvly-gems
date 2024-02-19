@@ -1,0 +1,14 @@
+= render 'admin/shared/flash_messages'
+
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.applicants.edit.heading', member_name: @user_decorator.name)
+= render 'admin/shared/separator'
+
+.row
+  .col-md-12
+    = form_for(@presenter.membership, url: admin_member_path, html: { role: 'form' }) do |f|
+      = render partial: 'form', locals: { presenter: @presenter, f: f,
+      btn: t('user.memberships.edit.update_your_info') }

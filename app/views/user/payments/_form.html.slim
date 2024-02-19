@@ -1,0 +1,67 @@
+- unless @new_payment_presenter.fee == 0
+  .form-group
+    = f.label :name, t('user.payments.name'), class: 'col-sm-3 text-right'
+
+    .col-sm-9
+      = f.text_field :name, autofocus: true, value: @card.present? ? @card.cardholder_name : '',class: 'form-control input-lg'
+
+      small= t('user.payments.as_it_appears_on_the_card')
+
+  .form-group
+    = f.label :card_number, t('user.payments.card_number'), class: 'col-sm-3 text-right'
+
+    .col-sm-6
+      = text_field_tag :payment_card_number, @card.present? ? @card.last_4.rjust(16, '*') : '', 'data-braintree-name'=> 'number', class: 'form-control input-lg', readonly: @card.present? ? true : false
+
+    = f.label :cvv, t('user.payments.cvv'), class: 'col-sm-1 text-right'
+
+    .col-sm-2
+      = text_field_tag :payment_cvv, @card.present? ? '***' : '', 'data-braintree-name'=> 'cvv', class: 'form-control input-lg', readonly: @card.present? ? true : false
+
+  .form-group
+    = f.label :expiry_month, t('user.payments.expiry'), class: 'col-sm-3 text-right'
+
+    .col-sm-4
+      = select_month @card.present? ? @card.expiration_month.to_i : 14, { field_name: 'expiry_month', prefix: 'payment', use_two_digit_numbers: true },
+        { autofocus: true, class: 'form-control input-lg', 'data-braintree-name' => 'expiration_month', disabled: @card.present? ? true : false}
+
+    .col-sm-5
+      = select_year Date.today, { field_name: 'expiry_year', prefix: 'payment', start_year: @card.present? ? @card.expiration_year.to_i : Time.now.year,
+        end_year: (Time.now + 10.years).year }, { autofocus: true, class: 'form-control input-lg',
+        'data-braintree-name' => 'expiration_year', disabled: @card.present? ? true : false }
+      = hidden_field_tag :different_card, params[:different_card]
+
+= f.fields_for :reservation do |reservation_form|
+  = reservation_form.hidden_field :schedule
+  - unless @new_payment_presenter.wing?
+    = render partial: 'wing_quantity', locals: { reservation_form: reservation_form}
+
+.form-group.not-hide
+  .col-sm-3.hidden-xs &nbsp;
+  .col-sm-9
+    = render 'grouvly_info'
+
+/- unless @new_payment_presenter.wing?
+.form-group.not-hide
+  .col-sm-3.hidden-xs &nbsp;
+
+  .col-sm-9
+    .text-center= f.label :voucher_code, t('user.payments.promotional_code'), class: 'mt-0'
+
+    .row
+      .col-xs-8
+        = f.text_field :voucher_code, class: 'form-control input-lg'
+        = hidden_field_tag :last_minute_booking, @new_payment_presenter.last_minute_booking
+
+      .col-xs-4
+        = f.submit t('user.payments.redeem'), class: 'btn btn-info btn-redeem'
+
+
+.form-group.not-hide
+  .col-sm-3.hidden-xs &nbsp;
+
+  .col-sm-9
+    - if @new_payment_presenter.fee == 0 && @new_payment_presenter.wing?
+      = f.submit t('user.payments.continue'), class: 'btn btn-primary btn-lg width-100 btn-submit'
+    - else
+      = f.submit t('user.payments.securely_submit'), class: 'btn btn-primary btn-lg width-100 btn-submit'

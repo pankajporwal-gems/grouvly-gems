@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='description' content="#{APP_CONFIG['default_meta_tag']}"
+    meta property='og:image' content="#{asset_url('grouvly_white01.png')}"
+
+    link rel="shortcut icon" href="#{asset_url('favicon.ico')}"
+
+    = stylesheet_link_tag 'feedback', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:300,400,700', media: 'all'
+
+    = Gon::Base.render_data({ init: true })
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+    /[if lt IE 9]
+      script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
+      script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
+
+  body id=page_id class="#{page_class}"
+
+    .container-fluid
+      .row
+        = yield

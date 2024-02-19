@@ -1,0 +1,14 @@
+.container
+  h3= t('pages.index.we_dare_you')
+
+  .col-xs-6.col-sm-6#block-column-one
+    = image_tag 'wedareyou-1.jpg', alt: APP_CONFIG['default_title'], height: 250,
+      class: 'img-responsive img-first'
+
+    p= t('pages.index.from_the_first_grouvly_night')
+
+  .col-xs-6.col-sm-6#block-column-two
+    = image_tag 'wedareyou-2.jpg', alt: APP_CONFIG['default_title'], height: 250,
+      class: 'img-responsive img-last'
+
+    p= t('pages.index.until_the_last_you_remember')

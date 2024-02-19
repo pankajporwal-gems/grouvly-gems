@@ -1,0 +1,11 @@
+- content_for :title do
+  = t('terms.edit_profile')
+
+.background-gray
+  .container
+    .block-form.col-lg-12.clearfix
+      h3= t('user.memberships.edit.edit_your_information')
+      
+      = form_for(@presenter.membership, url: user_membership_path, html: { role: 'form' }) do |f|
+        = render partial: 'user/memberships/form', locals: { presenter: @presenter, f: f,
+          btn: t('user.memberships.edit.update_your_info') }

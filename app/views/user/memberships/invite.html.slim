@@ -1,0 +1,23 @@
+- content_for :title do
+  = t('user.memberships.invite_your_friends')
+
+.background-gray
+  - css_class = mobile_device? ? 'block-mobile-device' : ''
+
+  .container.container-sm[class="{css_class}"]
+    .block-form.col-lg-12
+      h1= t('user.memberships.refer_and_get_credits', { amount: referral_reward, currency: referral_currency })
+
+      p.explanation= t('user.memberships.refer_and_get_credits_explanation', { amount: referral_reward, currency: referral_currency })
+
+      .text-center
+        /= render partial: 'shared/iframe', locals: { url: join_referral_url(current_user.code), campaign_id: @campaign_id }
+
+        = render partial: 'shared/facebook_send', locals: { url: join_referral_url(current_user.code) }
+
+      - if show_referral_stats?
+        .referral-stats
+          h5= t('user.memberships.referral_stats')
+
+          = render partial: 'user/memberships/credit_info', locals: { total_credits: @user_decorator.total_credits,
+            available_credits: @user_decorator.available_credits, referral_count: current_user.valid_referrals.count }

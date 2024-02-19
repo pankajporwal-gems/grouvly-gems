@@ -1,0 +1,17 @@
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.vouchers.new_voucher') 
+    
+    .action-block.col-sm-4
+      = link_to t('admin.vouchers.back_to_vouchers'), admin_vouchers_path, class: 'btn btn-info pull-right'
+
+.block-content
+  .row
+    .container-fluid
+      .clearfix
+        .col-md-12
+          = form_for(@voucher, url: admin_vouchers_path, html: { role: 'form' }) do |f|
+            = render partial: 'form', locals: { f: f, submit_button: t('admin.vouchers.new.generate_link') }

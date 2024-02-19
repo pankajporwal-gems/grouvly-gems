@@ -1,0 +1,21 @@
+- gender = @new_payment_presenter.gender == "male" ? "men" : "women"
+h4= t('user.payments.one_grouvly_ticket', gender: gender)
+
+small= t('user.payments.what_this_covers')
+
+| <br/>
+
+-if @new_payment_presenter.last_minute_booking
+  small= t('user.payments.last_minute_booking_fee_included').html_safe
+-else
+  small= t('user.payments.first_drink_included').html_safe
+
+#block-price.center-block
+  span#fee.fee= @new_payment_presenter.fee
+  |&nbsp;
+  span= @new_payment_presenter.currency
+
+.block-card
+  = image_tag 'visa.png'
+  = image_tag 'mc.png'
+  = image_tag 'ssl.png'

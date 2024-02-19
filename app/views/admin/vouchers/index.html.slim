@@ -1,0 +1,50 @@
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.terms.vouchers')
+
+    .action-block.col-sm-4
+      = link_to t('admin.vouchers.create_voucher'), new_admin_voucher_path, class: 'btn btn-primary pull-right'
+
+.block-content
+  .row
+    .container-fluid
+      .col-md-12
+        table.table.table-bordered
+          thead
+            tr
+              th.text-uppercase= t('admin.vouchers.description')
+              th.text-uppercase= t('admin.vouchers.voucher_type')
+              th.text-uppercase= t('admin.vouchers.amount')
+              th.text-uppercase= t('admin.vouchers.start_date')
+              th.text-uppercase= t('admin.vouchers.end_date')
+              th.text-uppercase= t('admin.vouchers.quantity')
+              th.text-uppercase= t('admin.vouchers.gender')
+              th.text-uppercase= t('admin.vouchers.user_id')
+              th.text-uppercase= t('admin.vouchers.restriction')
+              th.text-uppercase= t('admin.vouchers.code')
+
+          tbody
+            - if @vouchers.any?
+              - @vouchers.each do |voucher|
+                - voucher_decorator = VoucherDecorator.new(voucher)
+
+                tr
+                  td= link_to voucher.description, edit_admin_voucher_url(voucher)
+                  td= voucher_decorator.type
+                  td= voucher.amount
+                  td= voucher_decorator.start_date
+                  td= voucher_decorator.end_date
+                  td= voucher.quantity
+                  td= voucher_decorator.gender
+                  td= voucher_decorator.user
+                  td= voucher_decorator.restriction
+                  td= voucher.slug
+            - else
+              td.text-center[colspan=10]= t('admin.vouchers.no_vouchers')
+
+  .row
+    .container-fluid
+      .col-md-12.text-center= paginate @vouchers

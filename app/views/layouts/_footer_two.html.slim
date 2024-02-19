@@ -1,0 +1,68 @@
+#footer
+  .container
+    .row
+      .col-md-3.col-sm-3
+        = image_tag 'grouvly-logo-dark.png', class: 'footer-logo', alt: APP_CONFIG['default_title'], width: 130
+
+      .col-md-2.col-sm-2
+        h4= t('terms.do_it_right')
+
+        ul
+          li= link_to t('terms.how_it_works'), how_it_works_path
+          li= link_to t('terms.faqs'), faq_path
+          li= link_to t('terms.privacy_policy'), privacy_policy_path
+          li= link_to t('terms.terms_of_service'), terms_of_service_path
+
+      .col-md-2.col-sm-2
+        h4= t('terms.get_in_touch')
+
+        ul
+          li= link_to t('terms.contact_us'), contact_us_path
+          li= link_to t('terms.bars_and_venues'), bars_and_venues_path
+          li= link_to t('terms.get_started'), page_presenter.login_url, target: '_top' if page_presenter.present?
+
+      .col-md-3.col-sm-3
+        h4= t('terms.stay_connected')
+
+        .fb-like[data-href='https://www.facebook.com/grouvly' data-layout='standard' data-action='like' data-show-faces='true' data-share='false']
+
+    .row
+      .col-sm-12
+        .footer-bottom
+          .col-sm-4
+            small.copyright= t('terms.copyright').html_safe
+
+          .col-sm-4.terms-privacy.text-center
+            = link_to t('terms.terms_of_service'), terms_of_service_path
+
+            | &nbsp; | &nbsp;
+
+            = link_to t('terms.privacy_policy'), privacy_policy_path
+
+          .col-sm-4.text-right
+            .social-media
+              ul
+                li.facebook
+                  = link_to 'https://www.facebook.com/grouvly' do
+                    i.icon-circle.small-circle.icon-social-fb
+
+                li.twitter
+                  = link_to 'https://twitter.com/Grouvly' do
+                    i.icon-circle.small-circle.icon-social-twitter
+
+                li.instagram
+                  = link_to 'http://instagram.com/grouvly' do
+                    i.icon-circle.small-circle.icon-social-ig
+
+#fb-root
+
+javascript:
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+
+    if (d.getElementById(id)) return;
+
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=#{ENV['FACEBOOK_APP_ID']}";
+    fjs.parentNode.insertBefore(js, fjs);
+  } (document, 'script', 'facebook-jssdk'));

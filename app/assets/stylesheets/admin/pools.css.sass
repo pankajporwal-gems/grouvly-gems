@@ -1,0 +1,124 @@
+#pools-controller, #matches-controller, #reservations-controller
+  &.index-action
+    h1
+      font-size: 20px
+
+    table.table
+      thead th
+        text-align: center
+
+        &:first-child
+          text-align: left
+
+          i
+            font-size: 12px
+            margin-right: 5px
+
+      tbody td
+        font-family: 'Heuristica'
+        font-weight: bold
+
+      th, td
+        padding: 12px 20px
+
+#pools-controller
+  &.show-action
+    .admin_schedule_date
+      font-size: 14px
+      font-weight: bold
+      color: #0000FF
+    .alert
+      text-align: center
+
+      i
+        margin-right: 5px
+
+    .block-match-user
+      border: 1px #dddddd solid
+      margin-bottom: 15px
+      padding: 15px 0
+
+      &:last-child
+        margin-bottom: 0
+
+      &:hover
+        cursor: pointer
+
+      &.active
+        background-color: #f3f8fe
+        border: 1px #aad1fa solid
+
+      table
+        background-color: #ffffff
+        color: #545454
+        margin-top: 15px
+        margin-bottom: 0
+
+        th
+          border-bottom: 0
+
+        td
+          color: #7f7f7f
+          font-family: 'Heuristic'
+
+        &.background-gray
+          background-color: #f5f5f5
+
+    #block-chosen-pool
+      margin-bottom: 20px
+
+    #block-match-button
+      margin-top: 20px
+
+      > .container-fluid
+        border-top: 2px #e0e0e0 solid
+        margin-left: 15px
+        margin-right: 15px
+        padding-left: 0
+        padding-right: 0
+        padding-top: 15px
+
+    #block-match-first .row:last-child .block-match-user
+      margin-bottom: 0
+
+    .block-user-information
+      color: #3c6acc
+      font-weight: bold
+
+      span
+        margin-right: 5px
+
+      .block-user-column
+        margin-left: 15px
+
+        &:first-child
+          margin-left: 0
+
+      .label
+        font-size: 8px
+        text-transform: uppercase
+        vertical-align: middle
+
+    .block-education, .block-gender, .block-likes
+      color: #7f7f7f
+
+    .block-work
+      color: #545454
+      font-weight: bold
+
+    .roll-count
+      color: #4169E1
+      font-weight: bold
+
+
+    .block-education, .block-gender, .block-likes, .block-work
+      font-family: 'Heuristica'
+      font-size: 15px
+      margin-top: 10px
+
+      p
+        margin-bottom: 0
+
+    .block-education, .block-gender, .block-likes, .block-user-information, .block-work
+      .container-fluid
+        padding-left: 0

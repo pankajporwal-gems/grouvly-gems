@@ -1,0 +1,79 @@
+- content_for :title do
+  = t('user.reservations.an_awesome_night_awaits')
+
+- unless updated_profile?
+  - content_for :jumbotron do
+    .background-gray
+      .container
+        .col-md-12
+          .text-center
+            p.text-danger= t('terms.update_profile', {url: Rails.application.routes.url_helpers.edit_user_membership_path}).html_safe
+
+
+-if @pending_reservation.present? && @pending_reservation.schedule.to_datetime > DateTime.now.to_datetime
+  - content_for :jumbotron do
+      .jumbotron.text-red.text-center
+        div.center-pending-block
+          #pending_payment_box
+            .row
+              .col-sm-12
+                .h4= t('user.payments.pending_payment_info', date: @pending_reservation.schedule.strftime('%d %b %Y (%a) at %l:%M %p')).html_safe
+            .row
+              .col-sm-12
+                #prepay-link
+                  = link_to '#', id: 'btn-confirm', data: { value: @pending_reservation.schedule} do
+                    .h4.text-red.font-weight
+                      span.underline= t('user.reservations.prepay')
+
+= form_for @new_reservation_presenter.reservation, url: user_reservations_path do |f|
+  = f.hidden_field :schedule
+  = f.hidden_field :last_minute_booking
+
+- content_for :jumbotron do
+  = render partial: 'reservation_jumbotron', locals: { first_date: @new_reservation_presenter.first_date,
+    available_dates: @new_reservation_presenter.available_admin_dates }
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      h3= t('user.reservations.busy_on_thursday', date: @new_reservation_presenter.first_date.strftime("%A, %B %d"))
+
+      .row
+        .col-sm-12
+          .actions
+            - ['second_date', 'third_date'].each do |index|
+              - date = @new_reservation_presenter.send(index)
+              - css = @new_reservation_presenter.available_admin_dates.include?(date) ? '' : 'disabled'
+
+              = link_to '#', id: "btn-#{index.split('_')[0]}-reservation", class: "btn btn-lg \
+                btn-transparent btn-primary btn-inline-block #{css}", data: { value: date } do
+
+                span.italic= t('user.reservations.go_on')
+                span= date.strftime("%A, %B %d")
+
+      .row
+        .col-sm-12#block-find-another-time
+          p= t('user.reservations.or_find_another_time')
+
+          .col-xs-offset-2.col-sm-offset-4.col-xs-8.col-sm-4.col-xs-offset-2.col-sm-offset-4#block-input
+            = select_tag 'custom_reservation_date', options_for_select(@new_reservation_presenter.custom_dates,disabled: @new_reservation_presenter.unavailable_dates), prompt: t('user.reservations.pick_a_day'),
+              class: 'input-lg form-control'
+
+      -if is_last_minute_booking?(@new_reservation_presenter.last_minute_booking_date)
+        .row
+          .col-sm-offset-3.col-sm-6.col-sm-offset-3
+            .last_minute_grouvly
+              .top-mergin
+                .text-center
+                  #block-find-another-time
+                    p.feeling_spontaneous= t('user.reservations.feeling_spontaneous')
+                    .last_minute_booking = t('user.reservations.last_minute_booking').html_safe
+                  -date = @new_reservation_presenter.last_minute_booking_date
+                  = link_to '#',id: "last_minute_grouvly_booking", class: "btn btn-lg btn-primary", data: { value:  date} do
+                    span= date.strftime("%A, %B %d")
+
+
+
+
+
+

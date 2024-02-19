@@ -1,0 +1,28 @@
+.block-content
+  .row
+    .container-fluid
+      = render partial: 'nav_venues'
+
+      .block-venues-listing.clearfix.mt-20
+        .col-md-12
+          - if @venues_by_location.any?
+            - @venues_by_location.each do |location_venues|
+              h4= link_to location_venues[:location], admin_venues_path( location: location_venues[:location] )
+              table.table.table-bordered
+                thead
+                  tr
+                    th.text-uppercase= t('admin.venues.index.venue')
+                tfoot
+                  tr
+                    td= location_venues[:venues].count
+                tbody
+                  - if location_venues[:venues].any?
+                    - location_venues[:venues].each do |venue|
+                      tr
+                        td= link_to venue.name, admin_venue_path(venue)
+                  - else
+                    tr
+                      td.text-center= t('admin.venues.no_venues')
+
+          - else
+            p.text-center.mt-20= t('admin.venues.no_venues')

@@ -1,0 +1,51 @@
+- if current_user.present?
+  ul.nav.navbar-nav.navbar-right
+    li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
+      = icon('calendar-o')
+      | &nbsp &nbsp
+      = t('terms.reserve')
+    
+    - if referral_program_enabled?
+      - if !current_user.new? 
+        li
+          = link_to invite_user_membership_path, class: 'link-invite-get-credits hidden-xs hidden-sm btn btn-blue' do
+            = icon('gift', '', class: 'fa-lg')
+            | &nbsp &nbsp
+            = t('terms.invite_friends_get_credits', { amount: referral_reward, currency: referral_currency }).html_safe
+
+        li
+          .hidden-xs.hiddex.sm.header-available-credit-info
+            = "#{referral_currency}#{current_user.available_credits.to_i} #{t('user.memberships.credit_available')}"
+
+    li.dropdown
+      = link_to '#', class: 'dropdown-toggle text-white', data: { toggle: 'dropdown' } do
+        = image_tag small_profile_picture, height: 35, width: 40, class: 'img-circle'
+        span.name = current_user.first_name
+        = icon('angle-down')
+
+      ul.dropdown-menu[role='menu']
+        - if referral_program_enabled?
+          li
+            .visible-xs-block.header-available-credit-info
+              = "#{referral_currency}#{current_user.available_credits.to_i} #{t('user.memberships.credit_available')}"
+
+        li
+          = link_to new_user_reservation_path, class: 'link-new-reservation visible-xs-block' do
+            = icon('calendar-o')
+            | &nbsp &nbsp
+            = t('terms.reserve')
+
+        li= link_to t('terms.edit_profile'), edit_user_membership_path
+        
+        li= link_to t('terms.logout'), logout_path, method: :post
+- else
+  ul.nav.nav-pills.pull-right.pt-15.pb-15
+    li
+      = link_to t('terms.get_started').upcase, page_presenter.login_url, class: 'btn btn-primary hidden-xs',
+        target: '_top'
+
+    li
+      = link_to page_presenter.login_url, class: 'text-white btn-not', target: '_top' do
+        = t('terms.login')
+        | &nbsp &nbsp
+        = icon('angle-right')

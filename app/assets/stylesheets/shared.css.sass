@@ -1,0 +1,290 @@
+@font-face
+  font-family: 'Heuristica'
+  src: asset-url('fonts/Heuristica-Regular.otf')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Heuristica'
+  src: aseset-url('fonts/Heuristica-Italic.otf')
+  font-weight: normal
+  font-style: italic
+
+@font-face
+  font-family: 'Heuristica'
+  src: asset-url('fonts/Heuristica-Bold.otf')
+  font-weight: bold
+  font-style: normal
+
+@font-face
+  font-family: 'Heuristica'
+  src: asset-url('fonts/Heuristica-BoldItalic.otf')
+  font-weight: bold
+  font-style: italic
+
+::-webkit-scrollbar
+  width: 14px
+  height: 18px
+
+::-webkit-scrollbar-track
+  background: #f5f5f5
+  border-left: 1px #e8e8e8 solid
+
+::-webkit-scrollbar-thumb
+  height: 60px
+  border: 4px solid rgba(0, 0, 0, 0)
+  background-clip: padding-box
+  background-color: rgba(0, 0, 0, 0.15)
+  border-radius: 7px
+  -webkit-border-radius: 7px
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05)
+
+body
+  label
+    text-transform: uppercase
+
+  .background-gray
+    background-color: #f2f2f2
+
+  .background-transparent
+    background-color: transparent
+
+    .mask
+      background-color: #333333
+      left: 0
+      min-width: 100%
+      min-height: 110%
+      opacity: 0.75
+      position: absolute
+      z-index: -1
+
+
+/********* Alerts **********/
+.alert
+  h4
+    text-transform: uppercase
+
+  &.alert-danger
+    text-align: left
+
+
+/********* Buttons *********/
+.btn
+  border: 0
+  font-size: 12px
+  font-weight: bold
+  text-transform: uppercase
+
+  &:focus, &:active:focus, &.active:focus
+    outline: none
+    outline: 0
+    outline-offset: 0
+
+  &.btn-blue
+    background: #69d6da
+    color: #ffffff
+
+    &:hover, &:active
+      background: #57BDC1
+
+  &.btn-inline-block
+    display: inline-block
+    min-width: 290px
+
+  &.btn-lg
+    border-radius: 30px
+    font-size: 14px
+    padding: 15px 30px
+
+  &.btn-primary
+    background-color: #3b6acc
+
+  &.btn-transparent
+    background-color: transparent
+    border: 1px #808080 solid
+
+    &:hover
+
+
+.nav-pills > li > a
+  &.btn-not
+    &:hover, &:focus
+      background-color: transparent
+      color: #ffffff
+
+.btn, .nav-pills > li > a
+  border-radius: 15px
+  padding: 8px 20px
+
+.btn.btn-primary, .btn.btn-transparent
+  &:hover
+    background-color: #5383e8
+    border-color: #285e8e
+
+  &:focus
+    background-color: #3865c2
+    border-color: #285e8e
+
+.nav > li > a.dropdown-toggle
+  &:hover
+    background-color: #323133
+    border-color: #323133
+    color: #ffffff
+
+  &:focus
+    background-color: #323133
+    border-color: #323133
+    color: #ffffff
+
+.navbar.navbar-inverse
+  background-color: #323133
+  border-radius: 0
+  border-color: #323133
+  margin-bottom: 0
+  min-height: 64px
+
+  .navbar-nav
+    > li > a
+      &:hover, &:focus
+        color: #a0cecb
+
+      &.dropdown-toggle
+        padding: 0
+
+      .name
+        font-size: 12px
+        margin: 0 6px 0 9px
+        text-transform: uppercase
+
+    > .open a
+      background-color: transparent
+      color: #a0cecb
+
+      &:hover, &:active, &:focus
+        background-color: transparent
+        color: #a0cecb
+
+    .dropdown-menu
+      top: 143%
+
+      > li > a
+        color: #262626
+        text-transform: uppercase
+
+        &:hover, &:focus
+          background-color: whitesmoke
+          color: #262626
+          text-decoration: none
+
+.navbar-toggle .icon-bar
+  background-color: #ffffff
+
+
+/*********** Form **********/
+.form-control.input-lg, .form-horizontal .form-group-lg .form-control,
+.input-group-lg>.form-control, .input-group-lg>.input-group-btn>.form-control.btn
+  height: 40px
+  margin-bottom: 15px
+  padding: 7px 16px
+
+.form-control
+  background-color: whitesmoke
+  border-color: #e8e8e8
+  border-radius: 4px
+  box-shadow: 0 0 0
+  -moz-box-shadow: 0 0 0
+  -webkit-box-shadow: 0 0 0
+  color: #7f7f7f
+  font-size: 14px
+  margin-bottom: 20px
+  margin-top: 2px
+
+.form-group
+  margin-bottom: 0
+
+.help-block
+  color: #7f7f7f
+  font-size: 13px
+  margin-bottom: 10px
+  margin-top: -10px
+
+.inline-help-block
+  color: #7f7f7f
+  font-size: 12px
+  margin-bottom: 10px
+  margin-top: -5px
+  font-style: italic
+
+
+/********* Formats *********/
+.mb-0
+  margin-bottom: 0
+
+.mb-15
+  margin-bottom: 15px
+
+.mb-25
+  margin-bottom: 25px
+
+.mb-30
+  margin-bottom: 30px
+
+.mt-0
+  margin-top: 0
+
+.mt-15
+  margin-top: 15px
+
+.mt-20
+  margin-top: 20px
+
+.mt-27
+  margin-top: 27px
+
+.mt-60
+  margin-top: 60px
+
+.pl-0
+  padding-left: 0
+
+.pl-10
+  padding-left: 10px
+
+.pl-15
+  padding-left: 15px
+
+.pr-0
+  padding-right: 0
+
+.pt-0
+  padding-top: 0
+
+
+/******** Selectize ********/
+.selectize-input
+  background-color: whitesmoke
+  background-image: none
+  border: 1px solid #e8e8e8
+  border-radius: 4px
+  box-shadow: 0 0 0
+  -moz-box-shadow: 0 0 0
+  -webkit-box-shadow: 0 0 0
+  color: #7f7f7f
+  display: block
+  font-size: 14px
+  height: 40px
+  line-height: 1.33
+  margin-bottom: 0
+  margin-top: 2px
+  padding: 9px 16px
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+  width: 100%
+
+  &.input-active, &.full, &.focus
+    background-color: whitesmoke !important
+    border: 1px solid #e8e8e8 !important
+    box-shadow: 0 0 0 !important
+    -moz-box-shadow: 0 0 0 !important
+    -webkit-box-shadow: 0 0 0 !important

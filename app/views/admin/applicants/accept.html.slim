@@ -1,0 +1,32 @@
+.block-content.clearfix
+  .col-md-12
+    = form_for(@accept_applicant_presenter.user, url: accept_member_admin_applicant_path, method: 'create',
+      html: { role: 'form' }) do |f|
+
+      = error_messages!(@accept_applicant_presenter.user)
+
+      .form-group
+        = f.label :membership_type, t('admin.applicants.membership_type')
+        = f.select :membership_type, options_for_select( @accept_applicant_presenter.available_membership_types, @accept_applicant_presenter.default_membership_type ), {},
+          { autofocus: true, class: 'form-control input-lg' }
+
+      .form-group
+        = f.label :work_category, t('admin.applicants.profession')
+        = f.select :work_category, @accept_applicant_presenter.available_work_categories, {},
+          {autofocus: true, class: 'form-control input-lg'}
+
+      .form-group
+        = f.label :lifestyle, t('admin.applicants.lifestyle')
+        = f.select :lifestyle, @accept_applicant_presenter.available_lifestyles, {},
+        {autofocus: true, class: 'form-control input-lg'}
+
+      .form-group
+        = f.label :linkedin_link, t('admin.applicants.linkedin_profile')
+        = f.text_field :linkedin_link, { class: 'form-control input-lg', autocomplete: false }
+
+      .form-group
+        = label_tag 'user_note', t('admin.applicants.notes')
+        = text_area_tag 'user[note]', (params[:user][:note] if params[:user]), { class: 'form-control input-lg' }
+
+      .form-group
+        = f.submit t('admin.applicants.accept'), class: 'btn btn-primary'

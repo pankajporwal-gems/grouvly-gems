@@ -1,0 +1,308 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>Grouvly</title>
+
+<!-- Hotmail ignores some valid styling, so we have to add this -->
+<style type="text/css">
+  /* iPad Text Smoother */
+  div, p, a, li, td {
+    -webkit-text-size-adjust:none;
+  }
+
+  /* This is the color to change the all the mind green content:  #67cbb0; */
+  .ReadMsgBody {
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .ExternalClass {
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  body {
+    width: 100%;
+    background-color: #ffffff;
+    margin:0; 
+    padding:0; 
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    width: 100%;
+  }
+
+  @font-face {
+    font-family: 'proxima_novalight';
+    src: <%= asset_url('font/proximanova-light-webfont.eot') %>;
+    src: <%= asset_url('font/proximanova-light-webfont.eot?#iefix') %> format('embedded-opentype'),
+      <%= asset_url('font/proximanova-light-webfont.woff') %> format('woff'),
+      <%= asset_url('font/proximanova-light-webfont.ttf') %> format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: <%= asset_url('font/proximanova-regular-webfont.eot') %>;
+    src: <%= asset_url('font/proximanova-regular-webfont.eot?#iefix') %> format('embedded-opentype'),
+      <%= asset_url('font/proximanova-regular-webfont.woff') %> format('woff'),
+      <%= asset_url('font/proximanova-regular-webfont.ttf') %> format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'nexa_boldregular';
+    src: <%= asset_url('font/nexa_bold-webfont.eot') %>;
+    src: <%= asset_url('font/nexa_bold-webfont.eot?#iefix') %> format('embedded-opentype'),
+      <%= asset_url('font/nexa_bold-webfont.woff') %> format('woff'),
+      <%= asset_url('font/nexa_bold-webfont.ttf') %> format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'proxima_novasemibold';
+    src: <%= asset_url('font/proximanova-semibold-webfont.eot') %>;
+    src: <%= asset_url('font/proximanova-semibold-webfont.eot?#iefix') %> format('embedded-opentype'),
+      <%= asset_url('font/proximanova-semibold-webfont.woff') %> format('woff'),
+      <%= asset_url('font/proximanova-semibold-webfont.ttf') %> format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  table {
+    font-size: 16px;
+    font-family: 'proxima_nova_rgregular', Myriad Pro, helvetica, Arial, sans-serif;
+    color: #9b9b9b; 
+  }
+
+  .imgFull img {
+    width: 280px;
+    height: auto;
+    border-radius: 3px!important;
+  }
+
+  .smallImg img {
+    width: 175px; 
+    height: auto; 
+    border-radius: 3px!important;
+  }
+  
+  .headerImg img {
+    width: 590px; 
+    height: auto; 
+    border-radius: 3px!important;
+  }
+  
+  .img-responsive{ 
+    width: 100%; 
+    height: auto; 
+  }
+  
+  hr {
+    border: none; 
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  /* With This Code you make a Newsletter Responsive */
+  @media only screen and (max-width: 640px) {
+    table[class=full] { width: 100%; clear: both; }
+    table[class=mobile] { width: 100%; padding-left: 30px; padding-right: 30px; clear: both; }
+    table[class=fullCenter] { width: 100%; text-align: center!important; clear: both; }
+    td[class=fullCenter] { width: 100%; text-align: center!important; clear: both; }
+
+    table[class=imgFull] {width: 100%!important; text-align: center!important; clear: both;}
+    table[class=smallImgFull] {width: 175px!important; text-align: center!important; clear: both;}
+    table[class=headerImg] {width: 100%!important; padding-left: 30px; padding-right: 30px; text-align: center!important; clear: both;}
+    .imgFull img {border-radius: 3px!important; width: 100%!important; height: auto;}
+    .smallImgFull img {border-radius: 3px!important; width: 100%!important; height: auto;}
+    .headerImg img {width: 100%!important; height: auto!important; border-radius: 3px!important;}
+    img[class=headerImg] {width: 100%!important; height: auto!important;}
+    td[class=height40] {height: 50px!important;}
+  }
+		
+  /* This Code is Extra for Mobile Version */		
+  @media only screen and (max-width: 479px) {
+    img[class=fullImage] { width: 100%!important; height: auto!important; }
+    .imgFull img {width: 100%!important; border-radius: 3px!important;}
+    .smallImgFull img {width: 100%!important; border-radius: 3px!important;}
+    table[class=imgFull] {width: 100%!important; text-align: left!important; clear: both;}
+    table[class=imgFull] {width: 100%!important; text-align: center!important; clear: both;}
+    table[class=smallImgFull] {width: 100%!important; text-align: center!important; clear: both;}
+  }
+</style>
+
+<!-- HEADER TOP -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" name="0">
+  <tr>
+    <td bgcolor="#323133" class="bgColorResult">
+      <!-- Nav Mobile Wrapper -->
+      <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+        <tr>
+          <td width="100%">
+            <!-- Start Nav -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+              <tr>
+                <td width="100%" height="15"></td>
+              </tr>
+              <tr>
+                <td width="100%" valign="middle">
+                  <!-- Logo -->
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" class="fullCenter">
+                    <tr>
+                      <td height="" valign="middle" width="100%" style="text-align: center;" class="fullCenter">
+                        <a href="http://www.grouvly.com/" style="color: white; text-decoration: none; font-family: 'proxima_novasemibold' Myriad Pro, helvetica, Arial, sans-serif; font-size: 18px;">
+                          <%= image_tag 'logo.png', alt: 'Grouvly' %>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td width="100%" height="15"></td>
+              </tr>
+            </table><!-- End Nav -->
+          </td>
+        </tr>
+      </table><!-- End Nav Mobile Wrapper -->
+    </td>
+  </tr>
+</table><!-- END HEADER TOP -->
+
+
+<!-- TEXT BODY -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" name="2">
+  <tr>
+    <td width="100%" valign="top">		
+      <!-- Text Header -->
+      <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+        <tr>
+          <td height="22"></td>
+        </tr>
+        <tr>
+          <tr>
+            <td style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;" class="textCenter">
+              <p>Hey <%= @presenter.first_name %>,</p> 	
+
+              <p><strong>Congratulations for a successful referral!</strong></p>
+
+              <p>Your friend <%= @presenter.referral_first_name %> has been accepted to Grouvly. You got <%= @presenter.currency %><%= @presenter.amount %> credit. You can now use it to book a Grouvly and spend a different night with your friends meeting awesome people.</p>
+
+              <div style="padding: 20px 0;">
+                <%- url = "#{root_url}user/reservations/new" %>
+                <a href=<%= url%> style="text-decoration: none; color: #ffffff; font-family: 'proxima_novasemibold', Helvetica, Arial, sans-serif; padding: 15px 40px; background: #3b6acc; border-radius: 40px;" class="colorResult">Book a Grouvly</a>
+              </div>
+
+              <hr>
+              
+              <div style="padding: 20px 0; text-align: center;">
+                <%- url = "#{root_url}user/membership/invite" %>
+                <a href=<%= url%> style="text-decoration: none; color: #ffffff; font-family: 'proxima_novasemibold', Helvetica, Arial, sans-serif; padding: 15px 40px; background: #3dbfd9; border-radius: 40px;" class="colorResult">Refer More Friends</a>
+              </div>
+            </td>
+          </tr>	
+          <tr>
+            <td height="22"></td>
+          </tr>
+        </table>
+        <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+          <tr>
+            <div style="margin-bottom: 20px; text-align: center; text-transform: uppercase; font-weight: bold; color: #333;"><small>Referral Stats</small></div>
+            <td style="text-align: center;">
+              <h2 style="font-size: 30px; font-weight: normal; font-family: 'proxima_novalight'; margin: 0;"><%= @presenter.currency %><%= @presenter.total_credits %></h2>
+              <small style="font-weight: bold; display: block; text-transform: uppercase; color: #808080;">Total Credit Earned</small>
+            </td>
+            <td style="text-align: center;">
+              <h2 style="color: #33a14d!important; font-size: 30px; font-weight: normal; font-family: 'proxima_novalight'; margin: 0;"><%= @presenter.currency %><%= @presenter.available_credits %></h2>
+              <small style="font-weight: bold; display: block; text-transform: uppercase; color: #808080;">Credit Available</small>
+            </td>
+            <td style="text-align: center;">
+              <h2 style="font-size: 30px; font-weight: normal; font-family: 'proxima_novalight'; margin: 0;"><%= @presenter.referral_count %></h2>
+              <small style="font-weight: bold; display: block; text-transform: uppercase; color: #808080;">Friends Referred</small>
+            </td>
+          </tr>
+          <tr>
+            <td height="22"></td>
+          </tr>
+        </table>	
+      </td>
+    </tr>
+  </table><!-- END  TEXT BODY-->
+
+
+
+  <!-- SPACE -->
+  <table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" align="center" class="full" name="7">
+    <tr>
+      <td width="100%" height="20">									
+      </td>
+    </tr>
+  </table>
+  <!-- END SPACE -->
+
+
+  <!-- FOOTER -->
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#323133" class="full" name="8">
+    <tr>
+      <td bgcolor="#323133" class="bgColorResult">
+
+        <!-- Space -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+          <tr>
+            <td width="100%" height="30">									
+            </td>
+          </tr>
+        </table>
+
+        <!-- Wrapper -->
+        <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+          <tr>
+            <td width="100%">
+              <!-- Start Footer -->
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+                <tr>
+                  <td width="100%" valign="middle">
+                    <!-- Footer Logo --> 
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; text-align: center;" class="fullCenter">	
+                      <tr>
+                        <td valign="middle">
+                          <a href="https://www.facebook.com/grouvly">
+                            <%= image_tag 'icon-facebook-round.png', style: "padding-bottom: 4px; vertical-align: middle;" %>
+                          </a>  
+                            
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          
+                          <a href="https://instagram.com/grouvly/">
+                            <%= image_tag 'icon-instagram-round.png', style: "padding-bottom: 4px; vertical-align: middle;" %>
+                          </a>  
+
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          
+                          <a href="https://twitter.com/Grouvly">
+                            <%= image_tag 'icon-twitter-round.png', style: "padding-bottom: 4px; vertical-align: middle;" %>
+                          </a>  
+                        </td>
+                      </tr>
+                    </table>										
+                  </td>
+                </tr>
+              </table><!-- End Footer -->
+
+            </td>
+          </tr>
+        </table><!-- End Wrapper -->
+
+        <!-- Space -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+          <tr>
+            <td width="100%" height="20">									
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table><!-- END FOOTER -->

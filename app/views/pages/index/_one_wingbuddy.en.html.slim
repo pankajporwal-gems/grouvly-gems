@@ -1,0 +1,18 @@
+#one_wingbuddy_image
+  #one_wingbuddy
+    .container
+      .text-center
+        p
+          .sub-heading Only have <b> ONE </b> wingbuddy?
+          .no-problem No problem!
+          .sub-line Groups of two can go on Grouvly too!
+
+        = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+          i.icon-fb
+          | Sign Up
+
+        p
+          small We won't ever post to your wall
+
+        span.arrow-down
+        /= icon('angle-down', '', class: 'fa-2x')

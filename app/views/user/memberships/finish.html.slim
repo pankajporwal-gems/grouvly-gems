@@ -1,0 +1,69 @@
+- content_for :title do
+  = t('user.memberships.finish.finish_application')
+
+- content_for :facebook_marketing do
+  - if current_user.recently_completed_application?
+    | <!-- Facebook Conversion Code for Registered3 -->
+    | <script>
+    | (function() {
+    | var _fbq = window._fbq || (window._fbq = []);
+    | if (!_fbq.loaded) {
+    | var fbds = document.createElement('script');
+    | fbds.async = true;
+    | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    | var s = document.getElementsByTagName('script')[0];
+    | s.parentNode.insertBefore(fbds, s);
+    | _fbq.loaded = true;
+    | }
+    | })();
+    | window._fbq = window._fbq || [];
+    | window._fbq.push(['track', '6024297862732', {'value':'0.00','currency':'USD'}]);
+    | </script>
+    | <noscript>
+    | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297862732&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    | </noscript>
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      - unless current_user.rejected?
+        h3= t('user.memberships.finish.finish')
+
+        #block-application-processed.lead= t('user.memberships.finish.your_application_is_complete').html_safe
+
+        #block-estimated-wait= t('user.memberships.finish.start_booking')
+
+        = link_to t('user.memberships.finish.book_my_grouvly'), new_user_reservation_path,
+          class: 'btn btn-primary after-finish-go-to-dashboard'      
+
+        #disclaimer= t('user.memberships.finish.disclaimer').html_safe
+        - if referral_program_enabled?
+          hr
+
+          - css_class = mobile_device? ? 'block-mobile' : ''
+
+          #block-refer[class="#{css_class}"]
+            h1= t('user.memberships.refer_and_get_credits', { amount: referral_reward, currency: referral_currency })
+
+            p.explanation= t('user.memberships.refer_and_get_credits_explanation', { amount: referral_reward, currency: referral_currency })
+
+
+            .text-center
+              /= render partial: 'shared/iframe', locals: { url: join_referral_url(current_user.code), campaign_id: '4678' }
+
+              = render partial: 'shared/facebook_send', locals: { url: join_referral_url(current_user.code) }
+      - else
+        h3= t('user.memberships.finish.thank_you')
+
+        #block-application-processed.lead="#{t('user.memberships.finish.your_application_is_rejected')} #{link_to support_email, 'mailto:'+support_email}".html_safe
+
+      hr
+
+      #block-estimated-wait-explanation
+        /= t('user.memberships.finish.estimated_wait_explanation').html_safe
+
+        = t('user.memberships.finish.follow_us')
+
+        = render 'shared/social'
+
+img[style='position:absolute; visibility:hidden' src="https://www.ref-r.com/campaign_user/mc1/home?brandid=4346&campaignid=4128&bid_e=46CBEA98222F20C4FD628B2475220848&t=420&email=#{current_user.email_address}&fname=#{current_user.first_name}"]

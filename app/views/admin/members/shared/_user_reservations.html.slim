@@ -1,0 +1,57 @@
+#user-reservations.tab-pane
+  .row
+    .col-md-6
+      h5= "#{t('admin.members.show.total_count')}: #{user.total_reservations}"
+
+    .col-md-6
+      h5= "#{t('admin.members.show.total_amount')}: #{user.total_reservation_amount.to_i}"
+
+  .row.mt-15
+    .col-md-12
+      - if user.valid_reservations.any?
+        - user.valid_reservations.each do |reservation|
+          .block-user-note.row
+            .col-md-1.pl-0
+              p
+                - if reservation.user == user
+                  = 'lead'
+                - else
+                  = 'wing'
+            .col-md-5
+              p
+                div.reservation_email
+                  = 'lead_member :: ' + reservation.reservation_emails
+                -if reservation.wings.present?
+                  div.reservation_email
+                    = 'wingmen/wingwomen :: ' + reservation.reservation_wing_emails
+
+            .col-md-2
+              p
+                - if reservation.cancelled?
+                  = 'cancelled'
+                - else
+                  - if reservation.is_matched?
+                    - if reservation.matched_reservations.in_state(:completed).any? || reservation.inverse_matched_reservations.in_state(:completed).any?
+                      = 'completed'
+                    - else
+                      = 'matched'
+                  -else
+                    = 'unmatched'
+            .col-md-2
+              p
+                - schedule = reservation.schedule.strftime("%A, %B %d")
+                - currency = reservation.all_valid_payments.first.currency
+                - location = APP_CONFIG['fee_currency'].keys.select { |c| APP_CONFIG['fee_currency'][c] == currency }
+
+                - if reservation.cancelled?
+                  = schedule
+                - else
+                  - if reservation.is_matched?
+                    = link_to schedule, admin_match_path({ id: location, date: reservation.schedule }),
+                      target: '_blank'
+                  - else
+                    = link_to schedule, admin_pool_path({ id: location, date: reservation.schedule }),
+                      target: '_blank'
+
+            .col-md-2.pr-0.text-right
+              = time_ago_in_words(reservation.created_at)

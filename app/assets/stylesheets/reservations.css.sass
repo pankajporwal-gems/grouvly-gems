@@ -1,0 +1,533 @@
+#reservations-controller
+  #pending_payment_box
+    background: #FFFFFF
+    border-radius: 15px
+    padding: 20px
+    opacity: 0.7
+
+  #prepay-link a:link
+    text-decoration: none
+
+  .center-pending-block
+    display: table
+    margin: 0 auto
+
+  .center-block
+    display: block
+    margin-right: auto
+    margin-left: auto
+
+
+  .text-red
+    color: #FF0000
+
+  .font-weight
+    font-weight: bold
+
+  .underline
+    border-bottom: 1px solid #FF0000
+
+
+  @media (max-width: 480px)
+    .btn-primary
+      font-size: 14px
+      padding: 17px 15px
+
+  &.confirmed-action,&.roll-action, &.invite-wings-action
+    #block-unmatched-info
+      margin-top: 40px
+      font-family: "Heuristica"
+      font-size: 16px
+
+    .roll-btn
+      margin-top: 30px
+      margin-bottom: 30px
+      min-width: 100px
+
+    div.error
+      color: #FF0000
+
+    .roll-color
+      color: #4169E1
+
+    table
+      font-family: 'Heuristic'
+
+      thead tr
+        background: #3c3b3d
+        border-left: 1px solid #3c3b3d
+        border-right: 1px solid #3c3b3d
+        color: #fff
+        font-size: 13px
+        text-transform: uppercase
+        font-weight: normal
+
+        > th
+          border: 0
+          text-align: center
+
+      tbody td
+        border: 1px solid #e8e8e8
+        font-size: 18px
+        padding: 8px 8px 3px 8px
+        text-align: center
+        vertical-align: middle
+
+        &:last-child
+          font-size: 24px
+
+    .block-form
+      margin-top: 30px
+      padding: 60px 60px 80px
+
+    .bottom-affix
+      margin-top: 30px
+
+
+    .btn-finish-invite-friends
+      font-size: 12px
+      margin-top: 18px
+      padding: 10px 25px
+      text-transform: lowercase
+
+    @media(max-width: 1199px)
+      .block-form
+        padding: 40px 60px 60px
+
+    @media(max-width: 768px)
+      .block-form
+        margin-bottom: 15px
+        margin-top: 15px
+        padding: 15px
+
+        h3
+          margin-bottom: 15px
+          margin-top: 0
+
+    @media(max-width: 449px)
+      #block-wings a img
+        margin-top: 15px
+
+  &.create-action, &.new-action
+    .jumbotron
+      h1
+        font-size: 36px
+        margin-bottom: 25px
+
+      .actions
+        margin-top: 25px
+
+        .btn-primary
+          font-size: 16px
+          max-width: 100%
+          padding: 17px 60px
+
+  &.confirmed-action
+    h3, h5
+      text-align: center
+
+    p
+      font-family: 'Heuristic'
+      font-size: 16px
+      line-height: 1.38em
+      color: #808080
+
+    table
+      margin-bottom: 30px
+      margin-top: 60px
+
+      tbody td:last-child
+        font-size: 18px
+
+    #block-timeline ul
+      font-family: 'Heuristic'
+      list-style: none
+      padding: 0
+
+      li
+        border-bottom: 1px solid #e8e8e8
+        font-size: 16px
+        padding: 13px 0
+
+        &.timeline-finish
+          color: #808080
+
+        img
+          float: right
+
+    #block-want-to-become-a-member
+      margin-top: 30px
+
+      span
+        color: #808080
+        font-family: 'Heuristic'
+        font-size: 18px
+        padding-right: 15px
+
+      .btn
+        font-size: 11px
+        letter-spacing: 0.25em
+
+    #block-wings
+      margin-bottom: 15px
+      text-align: left
+      vertical-align: top
+
+    @media(max-width: 768px)
+      table
+        margin-top: 20px
+
+      #block-invite-wings
+        margin-bottom: 40px
+        text-align: center
+
+        #block-wings
+          text-align: center
+
+  &.invite-wings-action
+    iframe
+      height: 255px
+      width: 50%
+
+    hr
+      margin: 30px 0
+
+    p
+      font-family: 'Heuristic'
+      font-size: 18px
+      line-height: 1em
+
+    .block-message-details
+      background: #f4f4f6
+      border: 1px solid #e8e8e8
+      color: #808080
+      font-family: 'Heuristic'
+      font-size: 16px
+      line-height: 1.38em
+      padding: 15px
+
+    .block-mobile-device
+      iframe
+        width: 100%
+        height: 325px
+
+    .block-send-an-invite
+      color: #808080
+      font-size: 16px
+      line-height: 1.38em
+      text-align: center
+      margin: 30px 0
+
+    .btn-confirm
+      margin-top: 40px
+      padding: 10px 60px
+
+    .btn-link.text-lowercase
+      margin-top: 20px
+      text-transform: lowercase
+
+    #block-message, #block-reservation-date, #block-send-link
+      p
+        color: #808080
+        font-size: 16px
+        line-height: 1.38em
+
+    #block-reservation-date, #block-wings
+      margin-top: 60px
+
+    #block-message
+      text-align: center
+
+    #block-send-link
+      text-align: center
+
+      .block-message-details
+        border-radius: 3px
+        display: inline-block
+        margin-bottom: 15px
+        min-width: 360px
+        padding: 15px
+
+        a
+          color: #3b6acc
+          font-size: 16px
+
+    @media(max-width: 1199px)
+      #block-reservation-date
+        p
+          text-align: center
+
+    @media(max-width: 991px)
+      iframe
+        height: 290px
+        width: 53%
+
+    @media(max-width: 657px)
+      iframe
+        height: 290px
+        width: 95%
+
+    @media(max-width: 768px)
+      .btn-confirm
+        margin-top: 20px
+
+      .btn-link.text-lowercase
+        padding-bottom: 0
+
+      #block-reservation-date
+        margin-top: 40px
+
+      #block-wings
+        margin-top: 20px
+
+    @media(max-width: 449px)
+      #block-send-link .block-message-details
+        min-width: 300px
+
+    @media(max-width: 480px)
+      .btn-confirm
+        padding: 10px 30px
+
+  &.join-action  
+    #questions
+      font-family: "Proxima Nova Light",sans-serif !important
+      color: #767779 
+      font-size: 16px 
+      font-weight: normal 
+      line-height: 165% 
+      .icon-square
+        background-color: #69d6da
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: auto 20px
+        display: inline-block
+        width: 54px
+        height: 54px
+        position: relative
+        z-index: 1
+      .icon-plus
+        background-image: asset-url('icons/icon-accordion-plus.png')
+
+      .icon-minus
+        background-image: asset-url('icons/icon-accordion-minus.png')
+
+      .icon-left
+        float: left
+        margin-right: 20px
+        padding: 60px 0
+
+      .heading
+        margin-bottom: 60px
+        color: #262223
+        text-transform: uppercase
+
+      h2.heading
+        font-size: 32px
+        font-weight: 500
+
+      .tab-heading
+        background: #ecf8f8
+        cursor: pointer
+        border-radius: 3px
+        overflow: hidden
+        margin-bottom: 10px
+
+        i
+          float: left
+
+        p
+          font-size: 14px
+          margin: 0
+          overflow: hidden
+          padding: 14px
+          text-align: left !important
+
+      .tab-content
+        font-size: 14px
+        padding: 20px 30px
+        background: #ecf8f8
+        border-radius: 3px
+        margin-bottom: 10px
+        line-height: 1.5em
+        display: none
+
+        p
+          text-align: left !important
+
+      small
+        margin-top: 10px
+        position: relative
+        color: #387074
+        display: inline-block
+        font-size: 14px
+
+        a
+          font-family: "Proxima Nova Bold", sans-serif
+          color: #69d6da
+
+    .user-image-profile
+      background-size: cover
+      background-position: center center
+      height: 160px
+      overflow: hidden
+      margin: 0 auto
+      width: 160px
+
+    h1
+      font-size: 34px
+
+    .actions p
+      font-family: 'Heuristica'
+      font-size: 16px
+
+    .alert.alert-info
+      margin-bottom: 0
+      margin-top: 20px
+      opacity: 0.75
+      text-align: center
+
+    .block-form
+      padding: 60px
+      text-align: center
+
+      h3
+        margin-top: 0
+
+      hr
+        margin-bottom: 30px
+        margin-top: 30px
+
+      p
+        &.small
+          color: #726c9d
+          font-size: 16px
+          margin-bottom: 0
+      .detail
+        font-family: 'Heuristica'
+        font-size: 18px
+        line-height: 1.75em
+
+    .btn-lets-go
+      margin-bottom: 15px
+      min-width: 360px
+      padding: 16px 30px
+
+    .jumbotron
+      h3
+        font-family: "Heuristica"
+        font-size: 21px
+        font-style: italic
+        margin-bottom: 30px
+        font-weight: normal
+        text-transform: none
+
+    @media(max-width: 768px)
+      hr
+        margin-bottom: 20px
+        margin-top: 20px
+
+      .block-form
+        padding: 15px
+
+    @media(max-width: 480px)
+      .btn-lets-go
+        min-width: 250px
+
+  &.create-action, &.new-action
+    .top-mergin
+      margin-top: 80px
+      margin-bottom: 80px
+
+    .block-form
+      padding-bottom: 35px
+      text-align: center
+
+      .actions
+        margin-bottom: 30px
+
+    .btn-inline-block
+      color: #323133
+
+      .italic
+        font-family: "Heuristica"
+        font-style: italic
+        font-weight: normal
+        margin-right: 5px
+        text-transform: none
+
+    .jumbotron
+      margin-top: 15px
+      padding-bottom: 70px
+
+      h1
+        margin-top: 0
+
+      .actions
+        margin-top: 35px
+
+      .lead
+        font-size: 23px
+
+    #block-find-another-time p
+      font-family: "Heuristica"
+      font-size: 20px
+
+
+    #btn-second-reservation
+      margin-right: 30px
+
+    @media (max-width: 992px)
+      #btn-second-reservation
+        margin-right: 5px
+
+    @media (max-width: 760px)
+      #btn-second-reservation
+        margin-right: 10px
+
+    @media (max-width: 755px)
+      #btn-second-reservation
+        margin-right: 9px
+
+    @media (max-width: 671px)
+      #btn-second-reservation
+        margin-bottom: 15px
+        margin-right: 0
+
+    @media (max-width: 480px)
+      .block-form
+        padding-bottom: 10px
+
+        h3
+          font-size: 22px
+          margin-bottom: 10px
+          margin-top: 0px
+
+.feeling_spontaneous
+  font-size: 35px !important
+  color: #FFFFFF
+
+
+.last_minute_grouvly
+  background-image: asset-url('last_minute_bg.jpg')
+  background-position: center top
+  background-size: cover
+  background-color: transparent
+  background-repeat: no-repeat
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  margin-top: 50px
+  border-width: 5px
+  border-style: solid
+  border-color: #A9A9A9
+  border-radius: 25px
+
+.last_minute_booking
+  font-size: 16px
+  color: #FFFFFF
+  margin-bottom: 20px
+  margin-top: 30px
+  font-family: "Heuristica"
+  font-weight: normal
+  margin-right: 5px
+  text-transform: none

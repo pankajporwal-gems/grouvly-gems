@@ -1,0 +1,22 @@
+Hi <%= @inquiry.name %>,
+<br/>
+Thanks for contacting us, we will get in touch with you shortly!
+<br/>
+Below is a copy of your message:
+<br/>
+<%- if @inquiry.what_is_message_about %>
+What is your message about:<br/>
+<%= @inquiry.what_is_message_about %>
+<%- end %>
+<br/>
+Message:
+<br/>
+<%= @inquiry.message %>
+<br/>
+<br/>
+Cheers,
+<br/>
+Grouvly
+<br/>
+<%= link_to 'www.grouvly.com', root_path %> 
+

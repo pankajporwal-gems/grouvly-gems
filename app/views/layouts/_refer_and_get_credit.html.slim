@@ -1,0 +1,7 @@
+- if current_user.present? && !current_user.new? && referral_program_enabled?
+  #block-refer-and-get-credit.visible-xs-block.visible-sm-block
+    .alert.alert-info[role='alert']
+      = link_to invite_user_membership_path do
+        = icon('gift', '', class: 'fa-lg')
+        | &nbsp &nbsp
+        = t('terms.invite_friends_get_credits', { amount: referral_reward, currency: referral_currency }).html_safe

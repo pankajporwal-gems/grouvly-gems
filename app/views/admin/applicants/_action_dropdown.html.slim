@@ -1,0 +1,15 @@
+.btn-group
+  button.btn.btn-primary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+    =t('admin.applicants.action')
+  .dropdown-menu.dropdown-menu-right
+    .dropdown-item.action-dropdown
+      = link_to t('admin.applicants.accept'), "#", onclick: "acceptUser();"
+      small= t('admin.applicants.selected_applicant')
+    .dropdown-item.action-dropdown
+      = link_to t('admin.applicants.reject'), "#", onclick: "rejectUser();"
+      small= t('admin.applicants.selected_applicant')
+
+
+
+
+

@@ -1,0 +1,23 @@
+<p>Hey <%= @payment_mailer_presenter.user.first_name %>,</p><br/>
+<br/>
+<p>
+Thank you for your payment!<br/>
+Reservations have been made!!
+</p>
+Details as follows<br/><br/>
+<strong>
+Date: <%= @payment_mailer_presenter.only_date %><br/>
+Time: <%= @payment_mailer_presenter.only_time %><br/>
+</strong>
+<br/>
+<p>We have made reservations with the venue and will get back to you when they have confirmed the reservation!</p><br/>
+<br/>
+<small>
+<p>Please note</p>	
+<ol>
+<li>No refunds will be given for any cancellations made less than 72 hours in advance.</li>
+<li>If you cancel the reservation less than 72 hours in advance, then your friend’s reservation will also be cancelled and no refunds will be given</li>
+<li>The confirmation of the location will be sent to you as soon as we receive confirmation from our partner venues.</li>
+</ol>
+</small>
+

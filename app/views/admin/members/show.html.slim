@@ -1,0 +1,62 @@
+- content_for :facebook_marketing do
+  - if @user_decorator.user.recently_accepted?
+    | <!-- Facebook Conversion Code for Accepted3 -->
+    | <script>
+    | (function() {
+    | var _fbq = window._fbq || (window._fbq = []);
+    | if (!_fbq.loaded) {
+    | var fbds = document.createElement('script');
+    | fbds.async = true;
+    | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    | var s = document.getElementsByTagName('script')[0];
+    | s.parentNode.insertBefore(fbds, s);
+    | _fbq.loaded = true;
+    | }
+    | })();
+    | window._fbq = window._fbq || [];
+    | window._fbq.push(['track', '6024297871732', {'value':'0.00','currency':'USD'}]);
+    | </script>
+    | <noscript>
+    | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297871732&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    | </noscript>
+  - elsif @user_decorator.user.recently_rejected?
+    | <!-- Facebook Conversion Code for Rejected -->
+    | <script>
+    | (function() {
+    | var _fbq = window._fbq || (window._fbq = []);
+    | if (!_fbq.loaded) {
+    | var fbds = document.createElement('script');
+    | fbds.async = true;
+    | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    | var s = document.getElementsByTagName('script')[0];
+    | s.parentNode.insertBefore(fbds, s);
+    | _fbq.loaded = true;
+    | }
+    | })();
+    | window._fbq = window._fbq || [];
+    | window._fbq.push(['track', '6024297874332', {'value':'0.00','currency':'USD'}]);
+    | </script>
+    | <noscript>
+    | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297874332&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    | </noscript>
+
+= render partial: 'admin/shared/user_headline', locals: { user_decorator: @user_decorator }
+
+.col-md-6.pl-0
+  = render partial: 'admin/shared/user', locals: { user_decorator: @user_decorator }
+
+.col-md-6.pr-0.pl-10
+  #block-user-other-details
+    .block-content
+      = render 'admin/members/shared/navigation'
+
+      .tab-content
+        = render partial: 'admin/members/shared/user_notes', locals: { user_decorator: @user_decorator }
+        
+        = render partial: 'admin/members/shared/user_credits', locals: { user_decorator: @user_decorator }
+        
+        = render partial: 'admin/members/shared/user_vouchers', locals: { user_decorator: @user_decorator }
+        
+        = render partial: 'admin/members/shared/user_friends', locals: { friends: @user_decorator.user.all_friends }
+        
+        = render partial: 'admin/members/shared/user_reservations', locals: { user: @user_decorator.user }

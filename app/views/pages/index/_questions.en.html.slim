@@ -1,0 +1,88 @@
+#questions
+  div class=('container' unless params[:controller] == "user/reservations" && params[:action] == "join")
+    h2.heading.text-center Questions
+
+    .row
+      .col-md-6
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p Is Grouvly a date?
+
+          .tab-content
+            p Nope. It's better. You get to hang out with your friends and meet new people who are cool like you! It’s an awesome night waiting to happen. Play truth or dare! Play a drinking game! Have fun with your friends! Enjoy the night!
+
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p I signed up! What happens next?
+
+          .tab-content
+            p Book your Grouvly night, get your friends to sign up and get ready for an awesome night out!
+
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p Who will I be meeting?
+
+          .tab-content
+            p You will be meeting cool, awesome people who are looking forward to having fun and expanding their social circle, just like you!
+
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p Can I book a Grouvly for another night other than Thursday?
+
+          .tab-content
+            p No. At this point in time, we only organize Grouvlys on Thursday nights.
+
+      .col-md-6
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p How much does it cost?
+
+          .tab-content
+            p Each Grouvly costs #{APP_CONFIG['fee_currency']['Singapore']} #{APP_CONFIG['referral_currency']['Singapore']}#{APP_CONFIG['fee']['Singapore']['female']} (women) & #{APP_CONFIG['fee_currency']['Singapore']} #{APP_CONFIG['referral_currency']['Singapore']}#{APP_CONFIG['fee']['Singapore']['male']} (men) / #{APP_CONFIG['fee_currency']['Hong Kong']} #{APP_CONFIG['referral_currency']['Hong Kong']}#{APP_CONFIG['fee']['Hong Kong']['female']} (women) & #{APP_CONFIG['fee_currency']['Hong Kong']} #{APP_CONFIG['referral_currency']['Hong Kong']}#{APP_CONFIG['fee']['Hong Kong']['male']} (men), per person which includes the first round of drinks. We ask you to pay upfront because it helps to prevent no-shows. Note that when you book a Grouvly, you will be charged for you and your friend(s). Then when your friend signs up, we will refund their portion to you.
+
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p I don’t want to go out with anyone that is _____. Can that be done?
+
+          .tab-content
+            p Grouvly is place where you meet people you wouldn’t normally meet in your routine. If you would like to meet a specific type of person, try GrouvlyDates which will be launched very soon. 
+
+        .tab-container
+          .tab-heading.clearfix
+            i.icon-square.icon-plus
+
+            p How is Grouvly different from any other event that allows you meet new people? 
+
+          .tab-content
+            p Grouvly is not an event. Grouvly is a lifestyle embracing the adventure of life - the excitement of  meeting new people and the possibilities that come from the connections that you make!
+
+
+    .row.text-center
+      - if params[:controller] == "user/reservations" && params[:action] == "join"
+        br
+        = link_to @presenter.login_url, class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
+          = icon('facebook')
+          | &nbsp &nbsp
+          = t('user.reservations.join.join_now')
+        br
+        small
+          | Have more questions?&nbsp;
+
+          = link_to 'Check out our FAQ.', faq_path
+      - else
+        small
+          | Have more questions?&nbsp;
+
+          = link_to 'Click Here', faq_path

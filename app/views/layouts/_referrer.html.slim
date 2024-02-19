@@ -1,0 +1,18 @@
+- hide_referrer_at_top ||= false 
+
+- if session[:grouvly_referral_url].present? && !hide_referrer_at_top
+  #block-top-referrer-info
+    .alert.alert-info[role='alert']
+      = image_tag page_presenter.referrer_small_picture, height: 38, class: 'img-circle'
+      
+      p
+        = page_presenter.referrer_name
+        
+        i
+          = t('pages.join.sent_you_an_invitation', { amount: page_presenter.referrer_reward_amount,
+            currency: page_presenter.referrer_reward_currency }).html_safe
+              
+      = link_to page_presenter.login_url, class: 'btn btn-sm btn-primary', target: '_top' do
+        = icon('facebook')
+        | &nbsp &nbsp
+        = t('pages.join.accept_invitation')

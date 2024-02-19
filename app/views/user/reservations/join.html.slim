@@ -1,0 +1,46 @@
+- content_for :title do
+  = t('user.reservations.join.join_grouvly', user: @presenter.lead_first_name)
+
+- content_for :jumbotron do
+  .container
+    .row
+      .col-xs-18.col-sm-12
+        .jumbotron
+          .user-image-profile.img-circle[style="background-image: url(#{@presenter.lead.large_profile_picture})"]
+          /= image_tag @presenter.lead.normal_profile_picture, height: 160, class: 'img-circle'
+
+          h1
+            = t('user.reservations.join.join_grouvly', user: @presenter.lead_first_name)
+
+          h3= t('user.reservations.join.on_date', date: @presenter.reservation_date)
+
+          .actions
+            = link_to @presenter.login_url, class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
+              = icon('facebook')
+              | &nbsp &nbsp
+              = t('user.reservations.join.join_now')
+    
+            p= t('user.reservations.join.we_wont_post_anything')
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      h3= t('user.reservations.join.details')
+            
+      p.detail= t('user.reservations.join.join_your_friend', date: @presenter.reservation_date, time: @presenter.just_the_time).html_safe
+
+      hr
+
+      h5= t('user.reservations.join.our_cancellation_policy')
+      
+      p.text-left.small= t('user.reservations.join.please_note_that')
+      p.text-left.small= t('user.reservations.join.cancellation_condition_1')
+      p.text-left.small= t('user.reservations.join.cancellation_condition_2')
+
+      hr
+        = link_to @presenter.login_url, class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
+          = icon('facebook')
+          | &nbsp &nbsp
+          = t('user.reservations.join.join_now')
+
+        = render 'pages/index/questions'

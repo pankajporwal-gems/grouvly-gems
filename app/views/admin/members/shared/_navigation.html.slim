@@ -1,0 +1,16 @@
+nav[role='navigation']
+  ul.nav.nav-tabs
+    li.active
+      = link_to t('admin.members.show.notes'), '#user-notes', { role: 'tab', data: { toggle: 'tab' } }
+    
+    li
+      = link_to t('admin.members.show.credit'), '#user-credits', { role: 'tab', data: { toggle: 'tab' } }
+    
+    li
+      = link_to t('admin.members.show.vouchers'), '#user-vouchers', { role: 'tab', data: { toggle: 'tab' } }
+    
+    li
+      = link_to t('admin.members.show.friends'), '#user-friends', { role: 'tab', data: { toggle: 'tab' } }
+    
+    li
+      = link_to t('admin.members.show.reservations'), '#user-reservations', { role: 'tab', data: { toggle: 'tab' } }

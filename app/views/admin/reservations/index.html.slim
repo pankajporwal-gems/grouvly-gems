@@ -1,0 +1,46 @@
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.terms.reservations')
+  /
+    .action-block.col-sm-4
+      = link_to t('admin.reservations.create_reservation'), new_admin_reservation_path,
+        class: 'btn btn-primary pull-right'
+
+.block-content
+  .row
+    .container-fluid
+      .block-search-filter.clearfix
+        .col-md-12
+          = form_tag admin_reservations_path, method: :get, class: 'form-horizontal col-xs-12'
+            = render partial: 'search_form'
+
+.block-content.mt-20
+  .row
+    .container-fluid
+      .col-md-12
+        table.table.table-bordered
+          thead
+            tr
+              th
+                = link_to admin_reservations_path do
+                  = icon('chevron-left')
+                  = t('admin.reservations.index.all_reservations')
+              th.text-uppercase= t('admin.reservations.index.guys')
+              th.text-uppercase= t('admin.reservations.index.girls')
+
+          tbody
+            - @presenter.reservations.each do |pool|
+              tr
+                td.text-left
+                  = link_to pool[:location], admin_pools_path({ location: pool[:location] })
+
+                td= pool[:free_guys]
+                td= pool[:free_girls]
+
+            tr.background-gray
+              td
+              td= @presenter.total_free_guys
+              td= @presenter.total_free_girls

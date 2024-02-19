@@ -1,0 +1,133 @@
+modulejs.define('adminVenuesRouter', ['jquery', 'backbone', 'i18n'], function($, Backbone, i18n) {
+
+  var venueLocation = function(){
+    var bindLocation = (function() {
+      $('#venue_location').change(function() {
+        var url = "<%= Rails.application.routes.url_helpers.location_neighborhoods_path %>";
+        url += '/?location=' + $(this).val();
+        $.ajax({
+          url: url,
+          dataType: 'json',
+          success: function(response) {
+              revertNeighborhood();
+              changeNeighborhoodOptions(response);
+          }
+        });
+      });
+    })();
+
+    var bindNeighborhood = (function() {
+      $('#venue_neighborhood').change(function() {
+        if ($(this).val() == i18n.t('terms.others')) {
+            changeNeighborhood(this);
+        } else {
+            revertNeighborhood();
+        }
+      });
+    })();
+
+    var changeNeighborhoodOptions = function(data) {
+      var element = $('#venue_neighborhood');
+      element.find('option').remove().end();
+
+      _.each(data.locations, function(d) {
+        var el = '<option value="' + d + '">' + d + '</option>';
+        element.append(el);
+      });
+    };
+
+    var changeNeighborhood = function(element) {
+      var parentEl = $(element).parent();
+      var labelEl = $(element).siblings('label');
+
+      $('<div class="col-sm-6 pl-0"></div>').insertBefore(element);
+      $(parentEl.find('.col-sm-6')[0]).append(element);
+      $('#block-venue-other-neighborhood').removeClass('hide');
+    };
+
+    var revertNeighborhood = function() {
+      var element = $('#venue_neighborhood');
+      var parentEl = $(element).parents('.form-group').find('.col-sm-10');
+      var labelEl = $(element).siblings('label');
+
+      $(parentEl).prepend(element);
+      $(parentEl).find('.col-sm-6').not('#block-venue-other-neighborhood').remove();
+      $('#block-venue-other-neighborhood').addClass('hide');
+    };
+  };
+
+  var newVenueForm = function(){
+    $('#form_venue').on('click', '[type="submit"]', function(e) {
+      var $form = $(e.delegateTarget);
+      if ($form[0].checkValidity()) {
+        e.preventDefault();
+        var ajaxRequest = $.ajax({
+          url: $form.prop('action'),
+          method: $form.prop('method'),
+          data: $form.serialize(),
+          dataType: 'json'
+        });
+        ajaxRequest
+            .done(function(){
+              swal({
+                title: i18n.t('admin.venues.new.new_venue'),
+                text: i18n.t('admin.venues.new.venue_successfully_created'),
+                type: 'success'
+              }, function () {
+                $form[0].reset();
+              });
+            })
+            .fail(function(){
+              swal({
+                title: i18n.t('admin.venues.new.new_venue'),
+                text: i18n.t('admin.venues.new.venue_error_creation'),
+                type: 'error'
+              });
+            });
+      }
+    });
+  };
+
+  var editVenueForm = function(){
+    $('#form_venue').on('click', '[data-method="delete"]', function(e){
+      e.preventDefault();
+      if (!$('.sweet-alert').is(':visible')){
+        swal({
+          title: i18n.t('admin.venues.edit.delete_venue'),
+          text: i18n.t('admin.venues.edit.confirm_message'),
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3b6acc',
+          cancelButtonText: I18n.t('admin.venues.edit.cancel'),
+          confirmButtonText: I18n.t('admin.venues.edit.ok'),
+          closeOnConfirm: true
+        }, function () {
+          $(e.currentTarget).trigger('click');
+        });
+        // Prevent Rails ujs action
+        return false;
+      }
+    });
+  };
+
+  var subroute = Backbone.SubRoute.extend({
+    routes: {
+      '': 'goToNew',
+      'new': 'goToNew',
+      ':venueId': 'goToEdit',
+      ':venueId/edit': 'goToEdit'
+    },
+
+    goToNew: function() {
+      venueLocation();
+      newVenueForm();
+    },
+
+    goToEdit: function(){
+      venueLocation();
+      editVenueForm();
+    }
+  });
+
+  return subroute;
+});

@@ -1,0 +1,93 @@
+.row
+  .container-fluid
+    .col-md-12
+      .block-work
+        .heading= t('admin.terms.occupation')
+
+        p= user_decorator.work_history
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.education')
+
+        p= user_decorator.education_history
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.my_religion_is')
+
+        p= user_decorator.religion
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.my_ethnicity_is')
+
+        p= user_decorator.ethnicity
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.i_would_like_to_meet_at')
+
+        p= user_decorator.meet_at_location
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.meet_new_people_age')
+
+        p= user_decorator.interested_people_age
+
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.hang_out_with')
+
+        p= user_decorator.hang_out_with
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-education
+        .heading= t('admin.terms.typical_weekend')
+
+        p= user_decorator.typical_weekend
+
+.row
+  .container-fluid
+    .col-md-12
+      .block-likes
+        .heading= t('admin.terms.likes')
+
+        p= user_decorator.interests
+
+.row
+  .container-fluid
+    .col-md-4
+      .block-email
+        .heading= t('admin.terms.email')
+
+        p= user_decorator.user.email_address
+
+    .col-md-4
+      .block-phone
+        .heading= t('admin.terms.phone')
+
+        p= user_decorator.phone
+
+    - unless user_decorator.user.linkedin_link.blank?
+      .col-md-4
+        .block-linkedin
+          .heading= t('admin.terms.linkedin')
+
+          = link_to user_decorator.user.linkedin_link do
+            = image_tag 'linkedin-profile.png', alt: t('admin.terms.linkedin')

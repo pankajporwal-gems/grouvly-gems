@@ -1,0 +1,12 @@
+<p>Hi <%= @user.first_name %>!</p>
+
+<p>We have received your application to Grouvly!</p>
+
+<p>Log in to <%= link_to 'www.grouvly.com', root_path %> and book your awesome night out today! </p>
+
+<small>Note that your membership has been tentatively approved and we reserve the right to decline your membership (if necessary) after review.</small>
+<p>
+Grouvly.
+<p> 
+<br/>
+<p>Questions? Check out our FAQ or reach out to us at <%= mail_to @concierge_email, @concierge_email %></p>

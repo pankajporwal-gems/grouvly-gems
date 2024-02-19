@@ -1,0 +1,17 @@
+#hero-bg
+  #hero-unit.jumbotron.dark-section.text-center
+    .container.vertical-align
+      h1 We Hook You Up
+
+      p.hidden-xs.sub-heading You & 2 friends, Meet another group of 3.<br/>For an awesome night out
+      p.visible-xs.sub-heading You & 2 friends<br/>Meet another group of 3<br/>For an awesome night out
+
+      = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+        i.icon-fb
+        | Sign Up
+
+      p
+        small We won't ever post to your wall
+
+    span.arrow-down
+      /= icon('angle-down', '', class: 'fa-2x')

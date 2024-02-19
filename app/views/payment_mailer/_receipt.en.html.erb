@@ -1,0 +1,178 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title><%= APP_CONFIG['default_title'] %></title>
+
+<!-- Hotmail ignores some valid styling, so we have to add this -->
+<style type="text/css">
+  /* iPad Text Smoother */
+  div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+  /* This is the color to change the all the mind green content:  #67cbb0; */
+  .ReadMsgBody, .ExternalClass {
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .ExternalClass {
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  body {
+    width: 100%;
+    background-color: #ffffff;
+    margin:80px 0 0 0;
+    padding:0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html { width: 100%; }
+
+  table { font-size: 16px; font-family: Myriad Pro, helvetica, Arial, sans-serif; color: #9b9b9b; }
+
+  .imgFull img { width: 280px; height: auto; border-radius: 3px!important; }
+  .smallImg img { width: 175px; height: auto; border-radius: 3px!important; }
+  .headerImg img { width: 590px; height: auto; border-radius: 3px!important; }
+
+  hr { border: none; border-bottom: 1px solid #e3e3e3; }
+
+  /* With This Code you make a Newsletter Responsive */
+  @media only screen and (max-width: 640px) {
+    table[class=full] { width: 100%; clear: both; }
+    table[class=mobile] { width: 100%; padding-left: 30px; padding-right: 30px; clear: both; }
+    table[class=fullCenter] { width: 100%; text-align: center!important; clear: both; }
+    td[class=fullCenter] { width: 100%; text-align: center!important; clear: both; }
+
+    table[class=imgFull] {width: 100%!important; text-align: center!important; clear: both;}
+    table[class=smallImgFull] {width: 175px!important; text-align: center!important; clear: both;}
+    table[class=headerImg] {width: 100%!important; padding-left: 30px; padding-right: 30px; text-align: center!important; clear: both;}
+    .imgFull img {border-radius: 3px!important; width: 100%!important; height: auto;}
+    .smallImgFull img {border-radius: 3px!important; width: 100%!important; height: auto;}
+    .headerImg img {width: 100%!important; height: auto!important; border-radius: 3px!important;}
+    img[class=headerImg] {width: 100%!important; height: auto!important;}
+    td[class=height40] {height: 50px!important;}
+  }
+
+  /* This Code is Extra for Mobile Version */
+  @media only screen and (max-width: 479px) {
+    img[class=fullImage] { width: 100%!important; height: auto!important; }
+    .imgFull img {width: 100%!important; border-radius: 3px!important;}
+    .smallImgFull img {width: 100%!important; border-radius: 3px!important;}
+    table[class=imgFull] {width: 100%!important; text-align: left!important; clear: both;}
+    table[class=imgFull] {width: 100%!important; text-align: center!important; clear: both;}
+    table[class=smallImgFull] {width: 100%!important; text-align: center!important; clear: both;}
+  }
+</style>
+
+<!-- HEADER TOP -->
+<table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="full" name="0">
+  <tr>
+    <td bgcolor="#323133" class="bgColorResult">
+      <!-- Nav Mobile Wrapper -->
+      <table width="590" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+        <tr>
+          <td width="100%">
+            <!-- Start Nav -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+              <tr>
+                <td width="100%" height="15"></td>
+              </tr>
+              <tr>
+                <td width="100%" valign="middle">
+                  <!-- Logo -->
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" class="fullCenter">
+                    <tr>
+                      <td height="" valign="middle" width="100%" style="text-align: center;" class="fullCenter">
+                        <%= link_to root_url do %>
+                          <%= image_tag 'grouvly-logo.png', alt: APP_CONFIG['default_title'] %>
+                        <% end %>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td width="100%" height="15"></td>
+              </tr>
+            </table><!-- End Nav -->
+          </td>
+        </tr>
+      </table><!-- End Nav Mobile Wrapper -->
+    </td>
+  </tr>
+</table><!-- END HEADER TOP -->
+
+
+<!-- TEXT BODY -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" name="2">
+  <tr>
+    <td width="100%" valign="top">
+      <!-- Text Header -->
+      <table width="590" style="border: 1px solid #333; border-top: none; padding: 30px;" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
+        <tr>
+          <td style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;">
+            <table width="100%" style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;">
+              <tr>
+                <td width="50%">
+                  <h3 style="color: #e22020;">You sent a payment of <%= @payment_mailer_presenter.amount %> <%= @payment_mailer_presenter.currency %> to Grouvly Limited.</h3>
+                </td>
+
+                <td width="50%" style="text-align: right;">
+                  <small><%= Chronic.parse('now') %></small><br>
+                  <small><strong>Transaction ID: <%= @payment_mailer_presenter.transaction_id %></strong></small>
+                </td>
+              </tr>
+            </table>
+
+            <p>Dear <%= @payment_mailer_presenter.first_name%>,</p>
+            <p>This charge will appear on your credit card statement as payment to "<a href="<%= root_url %>">GROUVLY</a>".</p>
+            <p>We have charged you for your fee + your wing(s) fees. When your wing(s) log in to make payment, their fees will be refunded to you.</p>
+
+            <hr>
+
+            <table width="100%" style="font-size: 14px; color: #333; font-weight: normal; text-align: left; font-family: 'proxima_nova_rgregular', Helvetica, Arial, sans-serif; line-height: 24px; vertical-align: top;">
+              <tr>
+                <td><strong>Dispatch information:</strong></td>
+              </tr>
+
+              <tr>
+                <td>Description</td>
+                <td>Unit Price</td>
+                <td>Qty</td>
+                <td style="text-align: right;">Amount</td>
+              </tr>
+
+              <tr>
+                <td>Grouvly on <%= @payment_mailer_presenter.date %></td>
+                <td><%= @payment_mailer_presenter.fee %> <%= @payment_mailer_presenter.currency %></td>
+                <td><%= @payment_mailer_presenter.quantity %></td>
+                <td style="text-align: right;"><%= @payment_mailer_presenter.amount %> <%= @payment_mailer_presenter.currency %></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td><strong>Total:</strong></td>
+                <td></td>
+                <td style="text-align: right;"><%= @payment_mailer_presenter.amount %> <%= @payment_mailer_presenter.currency %></td>
+              </tr>
+            </table>
+
+            <hr>
+
+            <p>Please keep this email for future reference. For inquiries, please contact <%= @concierge_email %></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table><!-- END  TEXT BODY-->
+
+<!-- SPACE -->
+<table width="100%" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" align="center" class="full" name="7">
+  <tr>
+    <td width="100%" height="20">
+    </td>
+  </tr>
+</table>
+<!-- END SPACE -->

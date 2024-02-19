@@ -1,0 +1,33 @@
+.clearfix
+  .container
+    .col-xs-6.col-sm-2
+      = link_to root_url do
+        = image_tag 'grouvly-logo.png', alt: APP_CONFIG['default_title'], class: 'img-responsive'
+
+    .col-xs-6.col-sm-2
+      h6= t('terms.do_it_right')
+
+      ul.list-unstyled
+        li= link_to t('terms.how_it_works'), how_it_works_path 
+        li= link_to t('terms.faqs'), faq_path 
+        li= link_to t('terms.privacy_policy'), privacy_policy_path
+        li= link_to t('terms.terms_of_service'), terms_of_service_path
+
+    .col-xs-6.col-sm-2
+      h6= t('terms.get_in_touch')
+
+      ul.list-unstyled
+        li= link_to t('terms.contact_us'), contact_us_path
+        li= link_to t('terms.bars_and_venues'), bars_and_venues_path
+        li= link_to t('terms.get_started'), page_presenter.login_url if page_presenter.present?
+    
+    .col-xs-12.col-sm-offset-1.col-sm-3
+      h6= t('terms.social')
+
+      = render 'shared/social'
+      = link_to 'https://mixpanel.com/f/partner', class: 'pull-left logo-mixpanel', target: '_blank' do
+        = image_tag '//cdn.mxpnl.com/site_media/images/partner/badge_light.png', alt: 'Mobile Analytics'
+
+.clearfix
+  .container
+    .col-sm-12.text-center#block-copyright= t('terms.copyright').html_safe

@@ -1,0 +1,51 @@
+#how-it-works.dark-section.hidden-xs
+  .container
+    - if show_header
+      h2.heading.text-center So How Does It Work?
+
+    .col-md-1
+
+    .col-md-10
+      ul#how-it-works-steps.clearfix
+        li
+          .hiw-step.text-center
+            = image_tag 'how_it_works/graphic-facebook.png', height: '123', width: '150'
+
+            p Sign up using your Facebook account
+
+        li
+          .hiw-step.text-center
+            = image_tag 'how_it_works/graphic-friends.png', height:'123', width:'auto'
+
+            p Book your Grouvly & Get your friends to sign up!
+
+        li
+          .hiw-step.text-center
+            = image_tag 'how_it_works/graphic-remember.png', height:'123', width:'auto'
+
+            p Show up for your Grouvly and have fun!!
+
+
+    .col-md-1
+
+.visible-xs.mobile-content.text-center
+  - if show_header
+    h2.heading-hiw-mobile.text-center So How Does It Work?
+
+  .m-image-container.small-image
+    = image_tag 'how_it_works/graphic-facebook.png', class:'img-responsive'
+
+  .container
+    h3 Sign up using your Facebook account
+
+  .m-image-container
+    = image_tag 'how_it_works/graphic-friends.png', class:'img-responsive'
+
+  .container
+    h3 Book your Grouvly & Get your friends to sign up!
+
+  .m-image-container.small-image
+    = image_tag 'how_it_works/graphic-remember.png', class:'img-responsive'
+
+  .container
+    h3 Show up for your Grouvly and have fun!!

@@ -1,0 +1,14 @@
+- is_wing ||= is_wing || false
+- user_reservation = UserReservationDecorator.new(user, reservation)
+- payment = user_reservation.payment
+
+.block-user-column
+  - if is_wing
+    .media.is-wing
+      .media-left
+        = render partial: 'shared/user_image', locals: { user: user, css: 'img-rounded', width: '30' }
+
+      .media-body
+        = render partial: '/admin/matches/user_details', locals: { user: user, payment: payment, reservation: reservation, is_wing:  is_wing}
+  - else
+    = render partial: '/admin/matches/user_details', locals: { user: user, payment: payment, reservation: reservation, is_wing:  is_wing }

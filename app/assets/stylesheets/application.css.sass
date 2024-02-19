@@ -1,0 +1,396 @@
+@import "bootstrap/bootstrap.min"
+@import "font-awesome-sprockets"
+@import "font-awesome"
+@import "colorbox"
+@import "sweet-alert"
+@import "shared"
+@import "components/*"
+@import "pages"
+@import "memberships"
+@import "reservations"
+@import "payments"
+@import "users"
+@import "custom"
+
+body
+  background-color: #000
+  background-image: asset-url('home-background-mobile.jpg')
+  background-attachment: fixed
+  background-repeat: no-repeat
+  background-position: center 0
+
+  color: #323133
+  font-family: "Lato", sans-serif
+  height: 100%
+
+  @media (min-width: 992px)
+    background-color: transparent
+    background-image: asset-url('home-background.jpg')
+    background-position: center
+    background-size: cover
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+    text-transform: uppercase
+
+  .address
+    color: #a4a4a4
+    font-family: "Heuristic"
+    font-size: 14px
+    margin-top: 50px
+    text-align: center
+
+  .block-alert
+    .alert-danger, .alert-success, .alert-warning
+      border: none
+      border-radius: 0
+      font-size: 11px
+      font-family: "Lato", sans-serif
+      letter-spacing: 0.10em
+      margin-bottom: 0
+      padding: 10px
+      text-align: center
+      text-transform: uppercase
+
+      .container
+        line-height: 31.5px
+
+    .alert-warning
+      background-color: #e8d588
+      border-color: none
+      color: rgba(50,49,51,0.6)
+
+  .block-form
+    background-color: white
+    border-radius: 5px
+    box-shadow: 0 0 2px #cccccc
+    -moz-box-shadow: 0 0 2px #cccccc
+    -webkit-box-shadow: 0 0 2px #cccccc
+    margin-bottom: 30px
+    margin-top: -30px
+    padding-top: 20px
+
+    form
+      padding-bottom: 40px
+      padding-left: 50px
+      padding-right: 50px
+
+  .block-h1
+    color: white
+    font-weight: bold
+    margin-bottom: 0
+    margin-top: 0
+    padding-bottom: 70px
+    padding-top: 30px
+    text-align: center
+
+    .lead
+      color: #d7d7d7
+
+  .display-block
+    display: block
+
+  .footer
+    background-color: #323133
+    color: white
+    padding-bottom: 50px
+    padding-top: 50px
+
+    ul > li > a, #block-copyright
+      color: #7a7a7a
+      font-family: "Heuristica"
+      font-size: 14px
+
+    ul > li
+      margin-bottom: 5px
+
+      &:first-child
+        padding-top: 7px
+
+      > a:hover, a:focus
+        color: #cccccc
+        text-decoration: none
+
+    .social-links
+      float: left
+
+    .logo-mixpanel
+      margin: 5px 0 0 20px
+
+    #block-copyright
+      margin-top: 20px
+
+  .jumbotron
+    background-color: transparent
+    color: #ffffff
+    margin-top: 35px
+    padding-bottom: 20px
+    text-align: center
+
+    .lead
+      color: #d7d7d7
+      font-weight: 200
+      line-height: 1.4
+
+  .lead
+    font-family: "Heuristica"
+    font-size: 26px
+    font-style: italic
+    margin-bottom: 0
+
+  .navbar-header
+    float: left
+
+    .navbar-brand
+      padding-top: 15px
+
+  .navbar-nav > li
+    > a
+      &.link-invite-get-credits, &.link-new-reservation
+        font-size: 12px
+        padding-bottom: 0
+        padding-top: 8px
+        padding-right: 8px!important
+        text-transform: uppercase
+
+      &.link-invite-get-credits.btn.btn-blue
+        background: #3dbfd9
+        color: #ffffff
+        margin: 0 20px 0 10px !important
+        padding: 6px 20px !important
+
+        &:hover, &:active
+          background: #3fb0c8
+
+    .header-available-credit-info
+      color: #9d9d9d
+      font-size: 12px
+      margin-right: 10px
+      padding-bottom: 0
+      padding-top: 8px
+      padding-right: 8px!important
+      text-transform: uppercase
+
+      @media (max-width: 767px)
+        &
+          font-size: 14px
+          padding: 5px 15px 5px 25px
+
+  .radio
+    margin-bottom: 15px
+    margin-top: -15px
+
+    label
+      margin-right: 30px
+
+      span
+        display: block
+        margin-top: 17px
+
+  .sweet-alert
+    button
+      font-size: 14px
+      margin-bottom: 17px
+      padding: 6px 23px
+
+    h2
+      font-size: 16px
+    p
+      font-size: 14px
+
+  .text-blue
+    color: #3b6acc
+
+  #block-navbar
+    float: right
+    padding: 15px 0
+
+    .btn-not
+      color: #ffffff
+      text-transform: uppercase
+
+  #block-top-referrer-info, #block-refer-and-get-credit
+    .alert
+      border: none
+      border-radius: 0
+      font-size: 11px
+      font-family: "Lato", sans-serif
+      letter-spacing: 0.10em
+      margin-bottom: 0
+      padding: 10px
+      text-align: center
+      text-transform: uppercase
+
+      p
+        font-size: 16px
+        font-style: normal
+        text-transform: none
+        letter-spacing: normal
+        display: inline-block
+        margin: 0 10px
+
+        i
+          font-family: "Heuristica", serif
+          padding-left: 5px
+
+      .btn-primary
+        background: #3b6acc
+        border: 1px solid #3b6acc
+        color: #fff
+
+      .btn-sm
+        border-radius: 40px
+        padding: 8px 20px
+
+    .alert-info
+      background-color: #8ea3e1
+      color: #fff
+
+  #block-refer-and-get-credit
+    a
+      color: #fff
+      font-weight: bold
+
+      &:hover, &:focus
+        color: #e3e3e3
+        text-decoration: none
+
+    .alert-info
+      background-color: #726c9d
+
+  /*=======================
+   * Event banner
+   *=======================
+
+  #event-banner
+    text-align: center
+    background: #979697 asset-url('events/junkzilla/junkzilla.jpg') no-repeat center (bottom / cover) fixed
+    border-bottom: 3px solid #F5A623
+
+  .event-content
+    background: rgba(0, 0, 0, 0.6)
+    padding: 13px 20px
+
+    > *
+      display: inline
+      margin-right: 10px
+
+    small
+      color: #fff
+      width: 300
+      display: inline-block
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5)
+
+    .custom-btn
+      padding: 9px 15px
+      font-size: 13px
+      font-family: 'Proxima Nova Bold', sans-serif
+      border-radius: 3px
+      color: #ffffff
+      text-transform: uppercase
+      line-height: 1em
+      border: none
+      display: inline
+      transition: 0.3s
+      min-width: 280px
+      text-align: center
+
+    .btn-blue
+      background: #69d6da
+
+      &:hover, &:active
+        background: #57BDC1
+        color: #ffffff
+        text-decoration: none
+
+  &#pages-controller.how-it-works-action, &#reservations-controller.email-reservation-action, &#pages-controller.about-us-action,
+  &#reservations-controller.new-action
+    background-image: asset-url('group-in-table-background-mobile.jpg')
+
+    @media (min-width: 992px)
+      background-image: asset-url('group-in-table-background.jpg')
+
+  @media (max-width: 992px)
+    .block-h1 h1
+      font-size: 30px
+
+  @media (max-width: 768px)
+    .navbar-inverse .navbar-nav
+      margin: 0
+
+      > li > a
+        padding-right: 0
+
+    .navbar-nav .open .dropdown-menu
+      background-color: #ffffff
+      border: 1px solid rgba(0,0,0,0.15)
+      box-shadow: 0 6px 12px rgba(0,0,0,0.175)
+      float: none
+      left: auto
+      margin-top: 0
+      position: absolute
+      right: 0
+      width: auto
+
+  @media (max-width: 480px)
+    .block-form
+      margin-bottom: 15px
+
+      h3
+        font-size: 22px
+        margin-bottom: 30px
+        margin-top: 0px
+
+    .btn.btn-inline-block
+      min-width: 260px
+      padding-left: 20px
+      padding-right: 20px
+
+    .footer
+      padding-top: 15px
+      padding-bottom: 15px
+
+    .navbar-nav.navbar-right .dropdown a.dropdown-toggle
+      padding-right: 0
+
+  @media (min-width: 768px)
+    .background-gray > .container-sm
+      max-width: 590px
+
+  #fb-send-button
+    color: #fff
+    background-color: #428bca
+    border-color: #357ebd
+    font-size: 12px
+    margin-top: 12px
+    padding: 10px 60px
+
+    &:hover
+      background-color: #3276b1
+      border-color: #285e8e
+      color: #fff
+
+  .fb-lead
+    margin-top: 5px
+    color: #333333
+    font-size: 12px
+    font-weight: 200
+    line-height: 1.4
+    margin-bottom: 20px
+
+  .referral-link
+    background-color: #f5f5f5
+    border: 1px solid #e3e3e3
+    border-radius: 4px
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset
+    margin-bottom: 20px
+    min-height: 20px
+    padding: 10px
+    margin-left: auto
+    margin-right: auto
+    width: 85%
+.vd_red
+  color: #FF0000

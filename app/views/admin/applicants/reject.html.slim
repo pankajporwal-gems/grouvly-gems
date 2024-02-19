@@ -1,0 +1,11 @@
+.block-content.clearfix
+  .col-md-12
+    = form_tag(reject_member_admin_applicant_path, method: 'create', html: { role: 'form' })
+      = error_messages!(@error_message) 
+      
+      .form-group
+        = label_tag :reason, t('admin.applicants.reason_for_rejection')
+        = select_tag :reason, options_for_select(APP_CONFIG['applicant_rejection_reasons']), include_blank: true, autofocus: true, class: 'form-control', required: true
+
+      .form-group
+        = submit_tag t('admin.applicants.reject'), class: 'btn btn-primary'

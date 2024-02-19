@@ -1,0 +1,72 @@
+= error_messages!(f.object)
+
+.row
+  .col-md-12
+    .row.form-group
+      = f.label :name, t('admin.vouchers.description'), class: 'control-label col-md-12'
+
+      .col-md-12
+        = f.text_field :description, autofocus: true, class: 'form-control input-lg', required: true
+      
+    .row.form-group
+      .col-md-6.pl-0.pr-0
+        = f.label :voucher_type, t('admin.vouchers.voucher_type'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.select :voucher_type, APP_CONFIG['voucher_types'].map { |t| [t.titleize, t] }, {}, 
+            class: 'form-control input-lg' 
+        
+      .col-md-6.pl-0.pr-0
+        = f.label :voucher_type, t('admin.vouchers.amount'), class: 'control-label col-md-12'
+          
+        .col-md-12
+          = f.text_field :amount, class: 'form-control input-lg', required: true
+    
+    .row.form-group
+      .col-md-6.pl-0.pr-0
+        = f.label :start_date, t('admin.vouchers.start_date'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.text_field :start_date, autofocus: true, class: 'form-control input-lg datepicker'
+      
+      .col-md-6.pl-0.pr-0
+        = f.label :end_date, t('admin.vouchers.end_date'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.text_field :end_date, autofocus: true, class: 'form-control input-lg datepicker'
+    
+    .row.form-group
+      .col-md-6.pl-0.pr-0
+        = f.label :quantity, t('admin.vouchers.quantity'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.text_field :quantity, autofocus: true, class: 'form-control input-lg'
+      
+      .col-md-6.pl-0.pr-0
+        = f.label :user_id, t('admin.vouchers.user_id'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.select :user_id, [], {}
+    
+    .row.form-group
+      .col-md-6.pl-0.pr-0
+        = f.label :gender, t('admin.vouchers.gender'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.select :gender, APP_CONFIG['genders'].map { |g, i| [g.titleize, i] }, { include_blank: true },
+            class: 'form-control input-lg' 
+      
+      .col-md-6.pl-0.pr-0
+        = f.label :restriction, t('admin.vouchers.restriction'), class: 'control-label col-md-12'
+
+        .col-md-12
+          = f.select :restriction, APP_CONFIG['voucher_restrictions'].map { |v| [v.titleize, v] }, {},
+            class: 'form-control input-lg' 
+    
+    .row.form-group
+      .col-md-4.col-md-offset-4.mt-20
+        = f.submit submit_button, class: 'btn btn-primary btn-lg btn-block'
+
+    .row.form-group
+      .col-md-4.col-md-offset-4.mt-27
+        .well[style="padding: 10px;"]= f.object.slug || '&nbsp;'.html_safe

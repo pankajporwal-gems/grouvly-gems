@@ -1,0 +1,44 @@
+= render partial: 'admin/shared/flash_messages'
+
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.terms.bookings')
+
+.block-content
+  .row
+    .container-fluid
+      .block-search-filter.clearfix
+        .col-md-12
+          = form_tag new_grouvly_admin_pools_path, method: :get, class: 'form-horizontal col-xs-12'
+            .row
+              .col-md-6
+                .form-group-lg
+                  = label_tag :name, t('admin.pools.new_grouvly.name_label'),
+                class: 'col-md-4 control-label'
+
+                  .col-md-8
+                    = text_field_tag :name, params[:name], class: 'form-control'
+              .col-md-6
+                .form-group-lg
+                  = label_tag :email, t('admin.pools.new_grouvly.email_label'),
+                class: 'col-md-4 control-label'
+
+                  .col-md-8
+                    = text_field_tag :email, params[:email], autofocus: true, class: 'form-control datepicker'
+            .row
+              .col-md-6
+                .form-group-lg
+                  .col-md-8.col-md-offset-4
+                    = submit_tag( t('admin.pools.new_grouvly.search_btn'), name: 'submit', id: 'grouvly_search_btn', class: 'btn btn-primary')
+-if @users.present?
+  .block-content
+    .row
+      .container-fluid
+        .block-search-filter.clearfix
+          .col-md-12
+            = render "member_list"
+
+

@@ -1,0 +1,6 @@
+nav.nav-venues.clearfix
+  .col-md-12
+    .btn-group
+      = link_to t('admin.venues.navigation.register_venues'), new_admin_venue_path, class: 'btn btn-default', id: 'link-to-register-venue'
+      = link_to t('admin.venues.navigation.venue_availability'), admin_venues_path, class: 'btn btn-default', id: 'link-to-venue-availability'
+      = link_to t('admin.venues.navigation.venue_profiles'), '#', class: 'btn btn-default', id: 'link-to-venue-profile'

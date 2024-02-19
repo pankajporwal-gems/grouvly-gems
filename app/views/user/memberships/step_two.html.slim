@@ -1,0 +1,122 @@
+- content_for :title do
+  = t('user.memberships.new.membership_application')
+
+.container
+  .block-h1 &nbsp;
+
+.background-gray
+  .container
+    .block-form.col-lg-12.pt-35
+      = form_for(@step_two_membership_presenter.membership, url: user_membership_path, method: 'create',
+        html: { role: 'form', class: 'form-horizontal' }) do |f|
+
+        = f.hidden_field :email_address
+        = f.hidden_field :gender_to_match
+        = f.hidden_field :location
+        = f.hidden_field :phone
+        = f.hidden_field :gender
+        = f.hidden_field :birthday
+
+        = error_messages!(@step_two_membership_presenter.membership)
+
+        .form-group
+          = f.label :current_work, t('user.memberships.i_work_as'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.text_field :current_work, autofocus: true, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :current_employer, t('user.memberships.i_work_at'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.text_field :current_employer, autofocus: true, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :studied_at, t('user.memberships.i_studied_at'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.text_field :studied_at, autofocus: true, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :religion, t('user.memberships.my_religion_is'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            .row
+              .col-sm-12
+                = f.select :religion, @step_two_membership_presenter.available_religions, {}, { autofocus: true,
+                  class: 'form-control input-lg' }
+
+        .form-group
+          = f.label :ethnicity, t('user.memberships.my_ethnicity_is'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            .row
+              .col-sm-12
+                = f.select :ethnicity, @step_two_membership_presenter.available_ethnicities, {prompt: t("terms.not_selected")},
+                  { autofocus: true, class: 'form-control input-lg' }
+
+        -if current_user.location == "Hong Kong"
+          .form-group
+            .col-sm-5.control-label
+              = f.label :neighborhoods, t('user.memberships.my_neighborhood_is')
+              .inline-help-block.pull-right= t('user.memberships.check_all_that_apply')
+
+            .col-sm-7
+              - @step_two_membership_presenter.available_neighborhoods.each do |value|
+                .col-sm-2
+                  = f.check_box(:neighborhoods, { :multiple => true }, value, nil)
+                .col-sm-10
+                  = f.label :neighborhoods, value, class: 'checkbox_container_label'
+
+        .form-group
+          = f.label :native_place, t('user.memberships.native_place'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.country_select :native_place, {priority: %w(SG HK)}, {autofocus: true, class: 'form-control input-lg'}
+
+        .form-group
+          .col-sm-5.control-label
+            = f.label :meet_new_people_ages, t('user.memberships.meet_new_people')
+            .inline-help-block.pull-right= t('user.memberships.check_all_that_apply')
+
+          .col-sm-7
+            - @step_two_membership_presenter.available_ages.each do |value|
+              .col-sm-2
+                = f.check_box(:meet_new_people_ages, { :multiple => true }, value, nil)
+              .col-sm-10
+                = f.label :meet_new_people_ages, value, class: 'checkbox_container_label'
+
+        .form-group
+          = f.label :hang_out_with, t('user.memberships.hang_out_with'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.select :hang_out_with, @step_two_membership_presenter.available_hang_outs, {},
+              { autofocus: true, class: 'form-control input-lg' }
+
+        .form-group
+          .col-sm-5.control-label
+            = f.label :typical_weekends, t('user.memberships.typical_weekend')
+            .inline-help-block.pull-right= t('user.memberships.check_all_that_apply')
+
+          .col-sm-7
+            - @step_two_membership_presenter.available_weekends.each do |value|
+              .col-sm-2
+                = f.check_box(:typical_weekends, { :multiple => true }, value, nil)
+              .col-sm-10
+                = f.label :typical_weekends, value, class: 'checkbox_container_label'
+
+
+        .form-group
+          = f.label :height, t('user.memberships.my_height_is'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.select :height, @step_two_membership_presenter.available_hights, {prompt: t("terms.please_select_height")},
+              { autofocus: true, class: 'form-control input-lg' }
+
+
+        .form-group
+          .col-sm-offset-5.col-sm-7
+            - if session[:join_grouvly_url]
+              = f.submit t('user.memberships.new.continue'), class: 'btn btn-primary btn-lg btn-continue'
+            - else
+              = f.submit t('user.memberships.new.finish_application'), class: 'btn btn-primary btn-lg'

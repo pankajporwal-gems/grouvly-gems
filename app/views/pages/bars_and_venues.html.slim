@@ -1,0 +1,56 @@
+- content_for :title do
+  = t('terms.bars_and_venues')
+
+.container.block-h1
+  h1= t('terms.bars_and_venues')
+
+.background-gray
+  .container.container-sm
+    .block-form.col-lg-12
+      = form_for @inquiry, url: bars_and_venues_path, method: 'post' do |f|
+        .headline.main-headline= t('pages.bars_and_venues.you_are_a_venue_owner').html_safe
+
+        .headline= t('pages.bars_and_venues.email_us', support_email: APP_CONFIG['support_email'])
+
+        = error_messages!(@inquiry)
+
+        - if flash[:notice].present?
+          .alert.alert-success.text-center= raw flash[:notice]
+
+        .form-group
+          = f.label :name, t('pages.contact_us.name')
+          = f.text_field :name, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :email_address, t('pages.contact_us.email_address')
+          = f.email_field :email_address, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :phone, t('pages.contact_us.phone')
+          = f.text_field :phone, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :website, t('pages.contact_us.website')
+          = f.text_field :website, class: 'form-control input-lg'
+
+        .form-group
+          = f.label :message, t('pages.contact_us.message')
+          = f.text_area :message, { class: 'form-control', rows: 10 }
+
+        .form-group
+          = f.submit t('pages.contact_us.send'), class: 'btn btn-primary btn-lg'
+
+        .address= APP_CONFIG['default_address']
+#cta-bg
+  #call-to-action.text-center.dark-section
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          .row
+            .col-sm-7.text-left
+              h2.heading.inline-block GET STARTED TODAY!
+
+            .col-sm-5.text-center
+              = link_to page_presenter.login_url, class: 'custom-btn btn-blue', target: '_top' do
+                i.icon-fb
+                = t('pages.index.sign_up')

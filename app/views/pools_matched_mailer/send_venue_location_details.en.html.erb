@@ -1,0 +1,46 @@
+Hi <%= @venue_notification_mailer_presenter.user_first_name %>,
+<br/>
+<br/>
+Get excited, your Grouvly is ON! Here's what you need to know:
+<br/>
+<br/>
+<strong>When:</strong> <%= @venue_notification_mailer_presenter.booking_time %> <% if @venue_notification_mailer_presenter.schedule_has_changed? %>(instead of <%= @venue_notification_mailer_presenter.original_schedule %>) <% end %>
+<br/>
+<strong>Where:</strong> <%= link_to '(Google Map)', @venue_notification_mailer_presenter.venue.map_link %>
+<br/>
+<br/>
+<span style="border-bottom: 1px solid #000">**Forward this email to your <%= @venue_notification_mailer_presenter.wing_type.downcase %>**</span>
+<br/>
+<br/>
+<strong style="border-bottom: 1px solid #000">Arrival</strong>
+<br/>
+The reservation is all set for <%= @venue_notification_mailer_presenter.booking_time %> (<%= @venue_notification_mailer_presenter.booking_day %>)
+under the name <strong><%= @venue_notification_mailer_presenter.first_reservation_name %> - <%= @venue_notification_mailer_presenter.second_reservation_name %> Grouvly</strong>.
+The other group will have the same reservation, so just speak with the staff to seat you.
+<br/>
+<br/>
+Check in instructions: Check in with the host or hostess.
+<br/>
+<br/>
+<strong style="border-bottom: 1px solid #000">First Round</strong>
+<br/>
+Don’t forget the first round is on us! The host will let you know which drinks are included and simply remove them from the bill.
+<br/>
+<br/>
+<span style="border-bottom: 1px solid #000; font-weight: bold;">Please confirm you've acknowledged the details</span>
+<br/>
+<br/>
+<%= link_to 'Yes, thanks!', confirm_location_user_reservations_url(@venue_notification_mailer_presenter.slug, protocol: 'https'), { style: @venue_notification_mailer_presenter.style_yes_button } %>
+<br/>
+<br/>
+That’s it. Show up and have a great time!
+<br/>
+<br/>
+Cheers,
+<br/>
+Grouvly
+<br/>
+<br/>
+<strong style="border-bottom: 1px solid #000">Cancellation Policy</strong>
+<br/>
+<p>No refunds will be given if you cancel less than 72 hours in advance. Please notify us <%= @concierge_email %> if you need to make any cancellations</p>

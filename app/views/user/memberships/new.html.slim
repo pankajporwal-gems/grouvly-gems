@@ -1,0 +1,114 @@
+- content_for :title do
+  = t('user.memberships.new.membership_application')
+
+- content_for :facebook_marketing do
+  - if current_user.recently_signed_up?
+    | <!-- Facebook Conversion Code for Signed up with Facebook3 -->
+    | <script>
+    | (function() {
+    | var _fbq = window._fbq || (window._fbq = []);
+    | if (!_fbq.loaded) {
+    | var fbds = document.createElement('script');
+    | fbds.async = true;
+    | fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    | var s = document.getElementsByTagName('script')[0];
+    | s.parentNode.insertBefore(fbds, s);
+    | _fbq.loaded = true;
+    | }
+    | })();
+    | window._fbq = window._fbq || [];
+    | window._fbq.push(['track', '6024297856532', {'value':'0.00','currency':'USD'}]);
+    | </script>
+    | <noscript>
+    | <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6024297856532&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+    | </noscript>
+
+.container
+  .block-h1 &nbsp;
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      h3= t('user.memberships.new.basic_information')
+
+      = form_for(@new_membership_presenter.membership, url: user_membership_path, method: 'create',
+        html: { role: 'form', class: 'form-horizontal' }) do |f|
+
+        = error_messages!(@new_membership_presenter.membership)
+
+        .form-group.block-email
+          .col-sm-5
+            = f.label :email_address, t('user.memberships.email_address'), class: 'control-label'
+            small= t('user.memberships.email_address_warning')
+
+          .col-sm-7
+            = f.email_field :email_address, autofocus: true, class: 'form-control input-lg'
+
+        - unless me['birthday']
+          .form-group
+            = f.label :birthday, t('user.memberships.i_was_born_on'), class: 'col-sm-5 control-label'
+
+            .col-sm-7
+              - if current_user.birthday.present?
+                = f.date_select :birthday, { order: [:month, :day, :year]}, class: 'form-control input-lg  date-select'
+              - else
+                = f.date_select :birthday, { order: [:month, :day, :year], start_year: 1950,
+                end_year: Date.today.year - 17 }, class: 'form-control input-lg  date-select'
+
+        - unless me['gender']
+          .form-group
+            = f.label :gender, t('user.memberships.i_am_a'), class: 'col-sm-5 control-label'
+
+            .col-sm-7
+              .radio
+                label
+                  = f.radio_button :gender, @new_membership_presenter.genders['male']
+                  span= t('user.memberships.male')
+
+                label
+                  = f.radio_button :gender, @new_membership_presenter.genders['female']
+                  span= t('user.memberships.female')
+
+        .form-group
+          = f.label :gender_to_match, t('user.memberships.i_am_interested_in'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            .radio
+              label
+                = f.radio_button :gender_to_match, @new_membership_presenter.genders['male']
+                span= t('user.memberships.guys')
+
+              label
+                = f.radio_button :gender_to_match, @new_membership_presenter.genders['female']
+                span= t('user.memberships.girls')
+
+        .form-group
+          = f.label :location, t('user.memberships.i_live_in'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.select :location, @new_membership_presenter.available_locations, {}, { autofocus: true,
+              class: 'form-control input-lg' }
+
+        .form-group
+          = f.label :phone, t('user.memberships.my_number_is'), class: 'col-sm-5 control-label'
+
+          .col-sm-7
+            = f.text_field :phone, autofocus: true, class: 'form-control input-lg'
+
+            span.help-block
+              = t('user.memberships.include_country_and_area_code')
+              | &nbsp
+              = t('user.memberships.we_will_use_it_sparingly')
+
+        .form-group.block-form-submit
+          .col-sm-offset-5.col-sm-7
+            -if session[:join_grouvly_url]
+              .col-sm-7
+                = f.submit t('user.memberships.new.continue'), name: "continue",  id: 'submit-step-one', class: 'btn btn-primary btn-lg btn-continue-wing'
+              .col-sm-5
+                = f.submit t('user.memberships.new.skip'), name: "skip", class: 'btn btn-primary btn-lg btn-continue-wing'
+            -else
+              = f.submit t('user.memberships.new.continue'), name: "continue", id: 'submit-step-one', class: 'btn btn-primary btn-lg btn-continue'
+            | &nbsp
+            p.help-block= t('user.memberships.new.agree_to_terms').html_safe
+

@@ -1,0 +1,36 @@
+.jumbotron
+  .text-center= image_tag 'hiw-grouvlylogo.png'
+
+  p.lead Is a social club that sets up drinks between 2 groups of friends:  
+  
+  p.lead 3 girls & 3 guys
+
+  #block-images
+    .visible-lg-block.visible-md-block
+      .row
+        .container
+          = render 'pages/how_it_works/facebook'
+          = render 'pages/how_it_works/match'
+          = render 'pages/how_it_works/grab'
+
+      .row
+        .container
+          = render 'pages/how_it_works/drink'
+          = render 'pages/how_it_works/meet'
+          = render 'pages/how_it_works/girls'
+
+    .visible-sm-block.visible-xs
+      .row
+        .container
+          = render 'pages/how_it_works/facebook'
+          = render 'pages/how_it_works/match'
+      
+      .row
+        .container
+          = render 'pages/how_it_works/grab'
+          = render 'pages/how_it_works/drink'
+
+      .row
+        .container
+          = render 'pages/how_it_works/meet'
+          = render 'pages/how_it_works/girls'

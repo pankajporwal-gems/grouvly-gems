@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title= title
+
+    meta http-equiv='X-UA-Compatible' content='IE=edge'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='description' content="#{APP_CONFIG['default_meta_tag']}"
+    meta property='og:image' content="#{asset_url('grouvly_white01.png')}"
+
+    link rel="shortcut icon" href="#{asset_url('favicon.ico')}"
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:300,400,700', media: 'all'
+
+    = Gon::Base.render_data({ init: true })
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+    /[if lt IE 9]
+      script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'
+      script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'
+
+  body id=page_id class="#{page_class}"
+    #fb-root
+    /#event-banner
+      .event-content
+        = image_tag 'events/junkzilla/event-logo.png'
+        = image_tag 'events/junkzilla/event-sponsor.png'
+
+        small Date: Thursday, September 3rd 2015 - yes, it is a holiday in Hong Kong! Time: 10.00am - 6.00pm | Place: Central Pier #9
+
+        = link_to 'More Info', 'http://junkzilla.co', class: 'custom-btn btn-blue'
+
+    = render partial: 'layouts/referrer', locals: { hide_referrer_at_top: @hide_referrer_at_top }
+
+    = render partial: 'layouts/refer_and_get_credit'
+
+    .background-transparent
+      .mask
+
+      header
+        nav.navbar.navbar-inverse[role='navigation']
+          .container
+            .navbar-header
+              = link_to root_url, class: 'navbar-brand' do
+                = image_tag 'logo.png', alt: APP_CONFIG['default_title']
+
+            #block-navbar.clearfix= render 'layouts/navigation'
+
+      - [['warning', 'warning'], ['success', 'success'], ['error', 'danger']].each do |alert_type|
+        - if flash[alert_type[0]]
+          .block-alert
+            .alert[class="alert-#{alert_type[1]}" role='alert']
+              .container= flash[alert_type[0]].html_safe
+
+      = yield :jumbotron
+
+    = yield
+
+    footer.footer= render 'layouts/footer'
+
+    - if ENV['SEGMENT_TRACKING_KEY'].present?
+      = render partial: 'layouts/segment'
+
+    - if ENV['GOOGLE_ANALYTICS_ID'].present?
+      = render partial: 'layouts/google_analytics'
+
+    = render partial: 'layouts/facebook'
+    = render partial: 'layouts/vwo'
+
+    = content_for :facebook_marketing

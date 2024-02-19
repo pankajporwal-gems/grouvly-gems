@@ -1,0 +1,64 @@
+= render partial: 'admin/shared/flash_messages'
+
+#block-move-to-pool.block-content.clearfix
+  .row
+    .container-fluid
+      .col-md-6
+        = form_tag update_reservation_date_admin_pools_path, method: :post do
+          = hidden_field_tag :date, params[:date]
+          = hidden_field_tag :location_id, params[:id]
+          = hidden_field_tag :move_reservaton_ids, id: "move_reservation_ids"
+          .col-md-8
+            = select_tag 'available_date', options_for_select(@presenter.all_available_dates(params[:date])), prompt: t('admin.pools.show.move_to'),class: 'input-lg form-control', onchange: 'onChange();'
+
+          .col-md-4
+            .pull-right
+              = submit_tag t('admin.pools.show.confirm'), class: 'btn btn-primary confirm-move-to disabled', :onclick => "getReservationIds();"
+
+      - if params[:date].present?
+        .col-md-6
+          .pull-right
+            .admin_schedule_date
+              =params[:date].to_datetime.strftime('%d %b %Y (%a) at %l:%M %p')
+
+#block-chosen-pool.block-content.clearfix.hidden
+  .row
+    .container-fluid
+      #block-chosen-first.col-md-6
+      #block-chosen-second.col-md-6
+
+  #block-match-button.row
+    .container-fluid
+      .col-md-12
+        = form_tag admin_pools_path, method: :post do
+          = hidden_field_tag :first_reservation_id
+          = hidden_field_tag :second_reservation_id
+
+          .pull-right
+            = submit_tag t('admin.pools.show.temp_match'), class: 'btn btn-primary btn-confirm-match disabled'
+
+#block-reservation-pool.block-content.clearfix
+  .row
+    .container-fluid
+      .col-md-6
+        #block-match-first
+
+        #block-reserved-users-first
+
+        #block-pagination-first.hidden= paginate @presenter.reservations
+
+      .col-md-6
+        #block-match-second
+
+        #block-reserved-users-second
+
+        #block-pagination-second.hidden= paginate @presenter.reservations, params: { controller: 'pools',
+          action: 'possible_matches', id: 'id-here', date: nil }
+
+  script[id='ReservationsData' type='application/json']
+    = raw @presenter.reservations_json
+
+
+
+
+

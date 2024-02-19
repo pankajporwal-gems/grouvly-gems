@@ -1,0 +1,83 @@
+#matches-controller
+  &.show-action
+    .alert
+      text-align: center
+
+      i
+        margin-right: 5px
+
+    .block-content
+      padding: 0
+
+    .block-reservation
+      border-bottom: 1px solid #ddd
+      
+      &:last-child
+        border: none
+
+      &:hover
+        background-color: #FBFFF1
+
+      header
+        border-bottom: 1px solid #ddd
+        padding: 10px 0
+
+        span
+          line-height: 36px
+
+        select
+          margin: 0
+
+        .block-booking-status,
+        .venue-notification-status
+          border-left: 1px solid #ddd
+          padding: 0
+          text-align: center
+
+          i
+            font-size: 20px
+            height: 34px
+            line-height: 34px
+
+            &.is-accepted
+              color: $brand-success
+
+            &.is-rejected
+              color: $brand-danger
+
+        .btn
+          font-size: 14px
+
+        .form_unmatch
+          border-left: 1px solid #ddd
+        
+    .user-list-card
+      padding: 15px 0
+      margin-bottom: 0
+
+    .block-user-column
+      font-weight: bold
+      margin-bottom: 5px
+
+      .is-wing
+        font-size: 12px
+
+      span
+        margin-right: 5px
+
+        &.user-name,
+        &.label
+          vertical-align: middle
+
+        &.label
+          font-size: 10px
+          padding: 3px 5px
+          text-transform: uppercase
+
+      .venue-notification-status
+        i.is-accepted
+          color: $brand-success
+
+    .block-actions
+      margin-top: 10px
+

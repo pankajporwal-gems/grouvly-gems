@@ -1,0 +1,70 @@
+#venues-controller
+  .nav-venues
+    $nav-border-radius: 5px
+
+    .btn-group
+      border: 1px solid #ddd
+      border-radius: $nav-border-radius
+
+    .btn
+      border-right: 1px solid #ddd
+      border-radius: 0
+      margin: 0
+
+      &:first-child
+        border-top-left-radius: $nav-border-radius
+        border-bottom-left-radius: $nav-border-radius
+
+      &:last-child
+        border-top-right-radius: $nav-border-radius
+        border-bottom-right-radius: $nav-border-radius
+        border: none
+
+  form
+    .control-label
+      text-transform: capitalize
+
+    input[type="submit"]
+      border-radius: 3px
+
+  .block-form-venue
+    margin-top: 20px
+
+    .block-is-free
+      label
+        line-height: 40px
+        margin-bottom: 15px
+        text-transform: capitalize
+
+      input
+        margin-right: 10px
+
+    .block-booking-availability
+      legend
+        border-bottom: none
+        font-size: 14px
+        font-weight: bold
+        text-transform: uppercase
+
+  .block-edit-action
+
+    .btn-link
+      border-radius: 0
+      text-transform: uppercase
+
+    .btn-link:nth-child(2)
+      border-left: 1px solid #ddd
+
+  &.index-action .nav-venues #link-to-venue-availability,
+  &.new-action .nav-venues #link-to-register-venue,
+  &.create-action .nav-venues #link-to-register-venue,
+  &.edit-action .nav-venues #link-to-venue-profile,
+  &.update-action .nav-venues #link-to-venue-profile,
+  &.show-action .nav-venues #link-to-venue-profile
+    background: $brand-primary
+    color: #fff
+
+  &.index-action
+
+    table
+      margin-bottom: 20px

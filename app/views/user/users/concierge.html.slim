@@ -1,0 +1,38 @@
+- content_for :jumbotron do
+  .container
+    .row
+      .col-xs-18.col-sm-12
+        .jumbotron
+          = image_tag 'silvia-small.png', width: 160, height: 160
+
+          h1= APP_CONFIG['concierge_name']
+
+          h3= t('user.users.dashboard.director_of_member_experience')
+
+          p
+            = t('user.users.dashboard.welcome_to_the_club')
+            | <br/>
+            = t('user.users.dashboard.get_in_touch_with_your_guide', gender_preference: @member_presenter.gender_to_match)
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      h3= t('user.users.dashboard.your_guide')
+
+      p
+        = t('user.users.dashboard.you_can_call_your_guide')
+        | <br/>
+        = t('user.users.dashboard.always_happy_to_help', name: APP_CONFIG['concierge_first_name'])
+
+      .row.block-contact
+        .col-md-3.col-md-offset-3
+          p
+            = image_tag 'icons/icon-phone.png'
+            | &nbsp; &nbsp;
+            = APP_CONFIG['concierge_phone']
+
+        .col-md-3
+          p
+            = image_tag 'icons/icon-email.png'
+            | &nbsp; &nbsp;
+            = APP_CONFIG['concierge_email']

@@ -1,0 +1,117 @@
+- content_for :header_actions do
+  = form_tag book_venues_admin_matches_path, method: :post, id: 'form_book_venues', class: 'pull-right' do
+    = submit_tag t('admin.matches.show.book_venues'), class: 'btn btn-primary'
+
+  = form_tag notify_location_admin_matches_path, method: :post, id: 'form_notify_location_details', class: 'pull-right' do
+    = hidden_field_tag :location, @presenter.location
+    = hidden_field_tag :date, @presenter.schedule
+    = submit_tag t('admin.matches.show.location_details'), class: 'btn btn-primary'
+
+= render partial: 'admin/matches/content_header'
+
+= render partial: 'admin/shared/flash_messages'
+
+.block-content
+  .container-fluid
+    .row
+      .col-md-12
+        - if @presenter.matched_reservations.any?
+          - @presenter.matched_reservations.each do |matched_reservation|
+            .row.block-reservation
+              header.clearfix
+                .col-md-8
+                  .row
+                    .col-md-5.pr-0
+                      = select_tag "venue_booking[#{matched_reservation.id}][venue]",
+                        options_for_select(@presenter.available_venues, (matched_reservation.latest_booking.venue_id if matched_reservation.latest_booking)),
+                          include_blank: true, form: 'form_book_venues', class: 'form-control'
+
+                    .col-md-3
+                      = select_tag "venue_booking[#{matched_reservation.id}][schedule]",
+                        options_for_select(@presenter.available_time_slots, (if matched_reservation.latest_booking then matched_reservation.latest_booking.schedule else @presenter.schedule end)), form: 'form_book_venues', class: 'form-control'
+
+                    - if matched_reservation.latest_booking
+                      .col-md-1.block-booking-status
+                        - if matched_reservation.latest_booking.accepted?
+                          i.fa.fa-clock-o.is-accepted
+                        - elsif matched_reservation.latest_booking.rejected?
+                          i.fa.fa-clock-o.is-rejected
+                        - else
+                          i.fa.fa-clock-o.is-pending
+
+                    - venue_notifications = matched_reservation.venue_booking_notifications
+
+                    - if venue_notifications.present?
+                      .col-md-1.venue-notification-status
+                        - if venue_notifications.all? { |venue_notification| venue_notification.acknowledged == true }
+                          i.fa.fa-envelope.is-accepted
+                        - else
+                          i.fa.fa-envelope.is-pending
+
+                .col-md-2
+                  = form_tag unmatch_admin_match_path(matched_reservation), method: :post, class: 'pull-right form_unmatch' do
+                    = hidden_field_tag :matched_reservation_id, matched_reservation.id
+                    = submit_tag t('admin.matches.show.unmatch'), class: 'btn btn-link pull-right'
+                .col-md-2
+                  = form_tag confirm_match_admin_match_path(matched_reservation), method: :post, class: 'pull-right confirm_match_btn' do
+                    = submit_tag  t('admin.matches.show.confirm_match'), class: 'btn btn-link pull-right'
+
+                  /
+                    =link_to t('admin.matches.show.confirm_match'), confirm_match_admin_match_path(matched_reservation), class: "btn btn-link pull-right confirm_match_btn"
+
+              .col-md-12.clearfix
+                - [:first_reservation, :second_reservation].each do |index|
+                  - reservation = matched_reservation.send(index)
+                  - lead = reservation.user
+
+                  .col-md-6.user-list-card
+                    .block-image
+                      = render partial: 'shared/user_image', locals: { user: lead, css: 'img-rounded',
+                        width: '110' }
+
+                    .block-body
+                      = render partial: '/admin/matches/block_user_column', locals: { user: lead,
+                        reservation: reservation }
+
+                      - if reservation.wings.count > 0
+                        - reservation.wings.each do |wing|
+                          = render partial: '/admin/matches/block_user_column', locals: {user: wing,
+                            is_wing: true, reservation: reservation }
+
+                      .row
+                        .container-fluid
+                          = "ID: #{reservation.id}"
+
+                      - if !reservation.pending_payment? && reservation.all_due_payments.count == 0  && Chronic.parse('now') >= reservation.schedule + 7.days
+                        .row.block-actions
+                          .container-fluid
+                            - reservation_payment_scope = ReservationPaymentScope.new(reservation)
+                            = form_tag refund_amount_admin_reservations_path, method: :post do
+
+                              .block-user-column
+                                .row
+                                  .col-sm-4
+                                    = select_tag "member_id", options_from_collection_for_select(reservation_payment_scope.available_members, "id", "name"), prompt: "Member", class: 'form-control'
+
+                                  .col-sm-5.left-padding
+                                    = text_field_tag :refund_amount, nil, placeholder: t("admin.matches.show.refund_amount_placeholder"), class: 'form-control'
+                                    = hidden_field_tag :id, reservation.slug
+
+                                  .col-sm-3.left-padding
+                                    = submit_tag t('admin.matches.show.refund'), class: 'btn btn-transparent'
+                      -elsif reservation.all_due_payments.count > 0
+                        .row.block-actions
+                          .container-fluid
+                            = form_tag capture_all_payments_admin_reservations_path, method: :post do
+                              = hidden_field_tag :id, reservation.slug
+                              = submit_tag t('admin.matches.show.capture'), class: 'btn btn-transparent btn-capture'
+                      -elsif reservation.pending_payment?
+                        .row.block-actions
+                          .container-fluid
+                            span.label.label-danger Pending Payment!
+
+        - else
+          p.text-center.mt-20= t('admin.matches.no_matches')
+
+  .row
+    .col-md-12.text-center= paginate @presenter.matched_reservations

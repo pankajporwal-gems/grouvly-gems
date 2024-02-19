@@ -1,0 +1,20 @@
+header.content-header-block
+  .row
+    .title-block.col-sm-7
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.vouchers.edit_voucher') 
+    
+    .action-block.col-sm-5
+      = link_to t('admin.vouchers.create_voucher'), new_admin_voucher_path, class: 'btn btn-primary pull-right'
+      = link_to t('admin.vouchers.back_to_vouchers'), admin_vouchers_path, class: 'btn btn-info pull-right'
+
+= render partial: 'admin/shared/flash_messages'
+
+.block-content
+  .row
+    .container-fluid
+      .clearfix
+        .col-md-12
+          = form_for(@voucher, url: admin_voucher_path(@voucher), html: { role: 'form' }) do |f|
+            = render partial: 'form', locals: { f: f, submit_button: t('admin.vouchers.edit.save') }

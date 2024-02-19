@@ -1,0 +1,32 @@
+= render partial: 'admin/matches/content_header'
+
+.block-content
+  .row
+    .container-fluid
+      .col-md-12
+        h1= "#{@presenter.location} #{t('admin.matches.index.matches')}"
+
+        table.table.table-bordered
+          thead
+            tr
+              th
+                = link_to admin_matches_path do
+                  = icon('chevron-left')
+                  = t('admin.matches.index.all_matches')
+              th.text-uppercase= t('admin.matches.index.matches')
+
+          tbody
+            - @presenter.matches.each do |match|
+              tr
+                td.text-left
+                  - if @presenter.location
+                    = link_to "#{match[:date].strftime('%d %b %Y (%a) at %l:%M %p')}",
+                      admin_match_path({ id: match[:location], date: match[:date] })
+                  - else
+                    = link_to match[:location], admin_matches_path({ location: match[:location] })
+
+                td= match[:matched] 
+             
+            tr.background-gray
+              td
+              td= @presenter.total_matches

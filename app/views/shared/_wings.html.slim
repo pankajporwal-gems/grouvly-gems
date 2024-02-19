@@ -1,0 +1,17 @@
+#block-wings
+  -if @invite_wings_presenter
+    h5.text-center
+      = t('user.reservations.invite_your_friends', { user_name: current_user.first_name, wing: @invite_wings_presenter.wing_type, wing_qunatity: @invite_wings_presenter.wing_quantity })
+
+  .image-user-profile[style="background-image: url(#{user.large_profile_picture})"]
+
+  - if @wing
+    .image-user-profile[style="background-image: url(#{current_user.large_profile_picture})"]
+    .image-wing[class="is-#{current_user.gender}"]
+  - else
+    - participants.each do |participant|
+      - unless participant == user
+        .image-user-profile[style="background-image: url(#{participant.large_profile_picture})"]
+
+    - (participants_count - participants.count).times do
+      .image-wing[class="is-#{current_user.gender}"]

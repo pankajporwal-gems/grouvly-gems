@@ -1,0 +1,25 @@
+ul.nav.nav-sidebar
+  li= link_to admin_applicants_path, id: 'link-applicants' do
+    = t('admin.terms.applicants')
+    span.badge.pull-right= applicants.count if applicants.count > 0
+
+  li= link_to admin_members_path, id: 'link-members' do
+    = t('admin.terms.members')
+  
+  li= link_to t('admin.terms.all_comms'), '#'
+
+  li= link_to admin_reservations_path, id: 'link-to-reservations' do
+    = t('admin.terms.reservations')
+  
+  li= link_to admin_pools_path, id: 'link-to-match' do
+    = t('admin.terms.to_match')
+    span.badge.pull-right= reservations_to_match.count if reservations_to_match.count > 0
+
+  li= link_to admin_matches_path, id: 'link-to-pools-matched' do
+    = t('admin.terms.pools_matched')
+
+  li= link_to admin_venues_path, id: 'link-to-venues' do
+    = t('admin.terms.venues')
+
+  li= link_to admin_vouchers_path, id: 'link-to-vouchers' do
+    = t('admin.terms.vouchers')

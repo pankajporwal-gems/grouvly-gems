@@ -1,0 +1,136 @@
+accounting_email: 'accounting@grouvly.com'
+
+available_ethnicities:  ["Black", "Caucasian", "Chinese", "Hispanic/Latino", "Indian", "Korean/Japanese", "Malay", "Middle Eastern", "Multi Ethnic","Other Asian", "Other"]
+
+available_ethnicity_importance: ["And it doesn't matter", "And it matters a little", "And it matters a lot"]
+
+#available_locations: ['Singapore', 'Tokyo', 'Hong Kong', 'Seoul', 'Sidney', 'Melbourne', 'Osaka']
+#available_locations: ['Singapore', 'Japan', 'Hong Kong', 'Korea', 'Australia']
+available_locations: ['Hong Kong', 'Singapore']
+
+available_membership_types: ['VIP', 'Journalist', 'Friend', 'Regular']
+
+default_membership_type: 'Regular'
+
+available_message_about: ['General inquiries', 'I have a suggestion/feedback', 'I have a complaint',
+  'Partnerships/Venues', 'Media inquiries', 'Reward program', 'Report a site error or bug']
+
+available_neighborhoods: ['Central', 'Tsim Sha Tsui']
+
+available_ages: ['20s', '30s', '40s']
+
+available_hang_outs: ['Everyone', 'Mostly local friends', 'Mostly expat friends']
+
+available_weekends: ['Relaxing at home', 'Hanging out with friends somewhere chilled', 'Partying up a storm!']
+
+available_religions: ['Agnosticism', 'Atheism', 'Christianity', 'Judaism', 'Catholicism', 'Islam',
+  'Hinduism', 'Buddhism', 'Other']
+
+available_religion_importance: ["And I'm laughing about it", "And it means something to me",
+  "And it's very important to me"]
+
+available_work_categories: ['Finance', 'Creative', 'Entrepreneur', 'Engineers', 'Teacher', 'Business', 'Other']
+
+available_origins: {'expat': 'Expat', 'local': 'Local', 'local_international': 'Local International', 'mainlander': 'Mainlander'}
+
+available_lifestyles: ['Traveller', 'Extrovert', 'Introvert', 'Intellectual', 'Sporty']
+
+applicant_rejection_reasons: ['Incomplete information', 'Fake profile', 'Unattractive', 'Uncool', 'Age group']
+
+venue_types: ['Bar', 'Lounge', 'Speakeasy', 'Restaurant']
+
+available_venue_booking_days: ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+available_venue_time_slots: ['7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM']
+
+braintree_merchant_accounts: { 'Hong Kong': 'grouvlyHKD', 'Singapore': 'grouvlySGD' }
+
+concierge_email: { 'Hong Kong': 'hello@grouvly.com', 'Singapore': 'hello@grouvly.com' }
+
+concierge_first_name: { 'Hong Kong': 'Sophie', 'Singapore': 'Sophie' }
+
+concierge_name: { 'Hong Kong': 'Sophie Tang', 'Singapore': 'Sophie Tang' }
+
+concierge_phone: { 'Hong Kong': '81822115', 'Singapore': '81822115' }
+
+default_address: Grouvly International Limited | Hong Kong | Singapore
+
+default_concierge_country: 'Hong Kong'
+
+default_concierge_email: 'hello@grouvly.com'
+
+default_concierge_first_name: 'Sophie'
+
+default_concierge_name: "Sophie Tang"
+
+default_concierge_phone: '81822115'
+
+default_meta_tag: 'Grouvly: We set up drinks between 2 groups of friends - Meet new people with your friends'
+
+facebook_permissions: ['public_profile', 'email', 'user_friends', 'user_birthday', 'user_work_history',
+  'user_education_history', 'user_location', 'user_photos', 'user_likes', 'user_hometown']
+
+default_title: Grouvly
+
+fee: { 'Hong Kong': {'male': '150', 'female': '100'}, 'Singapore': {'male': '24', 'female': '16'} }
+
+express_fee: { 'Hong Kong': '30', 'Singapore': '4' }
+
+fee_currency: { 'Hong Kong': 'HKD', 'Singapore': 'SGD' }
+
+fee_default: 'Hong Kong'
+
+fee_exchange_rate: { 'HKD': { 'USD': 0.129 }, 'SGD': { 'USD': 0.748 } }
+
+genders: { male: 'male', female: 'female' }
+
+referral_currency: { 'Hong Kong': '$', 'Singapore': '$' }
+
+referral_invite_campaign: { 'Hong Kong': '4678', 'Singapore': '5998' }
+
+#referral_program_start_date: { 'Hong Kong': '2015-05-29 00:00:00', 'Singapore': '2015-06-08 00:00:00' }
+referral_program_start_date: {}
+
+referral_reward: { 'Hong Kong': '75', 'Singapore': '10' }
+
+sexual_orientation: { straight: 'straight', gay: 'gay', lesbian: 'lesbian' }
+
+start_id: 1000000000
+
+wing_quantity: [1,2]
+
+support_email: 'hello@grouvly.com'
+
+voucher_restrictions: ['all_users', 'all_members', 'not_member']
+
+voucher_types: ['cash', 'percentage']
+
+user_heights: {
+                "Less then 5'ft(Less then 152cm)": "less-then-152cm",
+                "5\"ft (152-154cm)": "152-154cm",
+                "5'1\"ft (155-156cm)": "155-156cm",
+                "5'2\"ft (157-159cm)": "157-159cm",
+                "5'3\"ft (160-162cm)": "160-162cm",
+                "5'4\"ft (163-164cm)": "163-164cm",
+                "5'5\"ft (165-167cm)": "165-167cm",
+                "5'6\"ft (168-169cm)": "168-169cm",
+                "5'7\"ft (170-172cm)": "170-172cm",
+                "5'8\"ft (173-174cm)": "173-174cm",
+                "5'9\"ft (175-177cm)": "175-177cm",
+                "5'10\"ft (178-179cm)": "178-179cm",
+                "5'11\"ft (180-182cm)": "180-182cm",
+                "6\"ft (183-184cm)": "183-184cm",
+                "6'1\"ft (185-187cm)": "185-187cm",
+                "6'2\"ft (188-189cm)": "188-189cm",
+                "6'3\"ft (191-192cm)": "191-192cm",
+                "6'4\"ft (193-195cm)": "193-195cm",
+                "6'5\"ft (196-197cm)": "196-197cm",
+                "6'6\"ft (198-200cm)": "198-200cm",
+                "6'7\"ft (201-202cm)": "201-202cm",
+                "6'8\"ft (203-205cm)": "203-205cm",
+                "6'9\"ft (206-207cm)": "206-207cm",
+                "6'10\"ft (208-210cm)": "208-210cm",
+                "6'11\"ft (211-212cm)": "211-212cm",
+                "7'ft(213cm)": "213cm",
+                "More then 7'ft(More then 213cm)": "More then 213cm"
+              }

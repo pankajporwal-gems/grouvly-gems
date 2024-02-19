@@ -1,0 +1,32 @@
+javascript:
+  (function(d, s, id) {
+    var app_id = "#{ENV['FACEBOOK_APP_ID']}"
+    var version = "#{ENV['FACEBOOK_VERSION']}"
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v"+version+"&appId="+app_id;
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  (function() {
+    var _fbq = window._fbq || (window._fbq = []);
+
+    if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+    }
+
+    _fbq.push(['addPixelId', '1533696996895902']);
+  })();
+
+  window._fbq = window._fbq || [];
+  window._fbq.push(['track', 'PixelInitialized', {}]);
+
+| <noscript>
+| <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1533696996895902&amp;ev=PixelInitialized" />
+| </noscript>

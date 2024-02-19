@@ -1,0 +1,15 @@
+span.user-name= link_to user.name, admin_member_path(user.slug)
+
+span.label.label-default= [user.neighborhoods].join(",")
+
+- if payment
+  - if payment.status == 'error'
+    span.label.label-danger= "#{payment.currency} #{payment.amount.to_f}"
+  - else
+    span.label.label-success= "#{payment.currency} #{payment.amount.to_f}"
+
+  span.label.label-default= payment.transaction_id
+
+- if reservation && reservation.venue_booking_notifications.present?
+  span.venue-notification-status
+    i.fa.fa-envelope class=(reservation.venue_booking_notifications.first.acknowledged ? 'is-accepted' : 'is-pending')

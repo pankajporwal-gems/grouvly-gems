@@ -1,0 +1,743 @@
+#pages-controller
+  &.join-action
+    .jumbotron
+      #block-images
+        font-size: 18px
+        font-weight: bold
+        margin-top: 90px
+        text-align: left
+        text-transform: uppercase
+
+        .media
+          margin-bottom: 70px
+
+          &.block-girls .media-left
+            padding-right: 25px
+
+          &.block-where-to-meet .media-left
+            padding-right: 20px
+
+          .media-left
+            padding-right: 40px
+
+    @media (max-width: 992px)
+      #block-images .media
+        &.block-match .media-left
+          padding-right: 55px
+
+        &.block-where-to-meet .media-left
+          padding-right: 40px
+
+    @media (max-width: 768px)
+      #block-images
+        .col-sm-6
+          float: none
+          width: auto
+
+          .media
+            height: 64px
+            text-align: center
+
+            .media-body, .media-left
+              display: inline-block
+
+            .media-body div
+              display: inline
+              margin-left: 3px
+
+        .visible-sm-block .row:last-child .col-sm-6:last-child .media
+          margin-bottom: 55px
+
+    @media (max-width: 480px)
+      #block-images
+        margin-top: 60px
+
+        .col-sm-6 .media
+          margin-bottom: 100px
+
+          .media-body
+            display: block
+            font-size: 18px
+            margin-top: 13px
+
+          .media-left
+            display: block
+            padding-right: 0
+
+  &.join-action
+    #block-we-dare-you
+      background-color: white
+      padding-bottom: 50px
+      padding-top: 30px
+      text-align: center
+
+      h3
+        margin-bottom: 40px
+
+      .btn-primary
+        margin-top: 40px
+
+      #block-column-one, #block-column-two
+        font-size: 24px
+
+        p
+          font-family: "Heuristica"
+          font-style: italic
+          font-weight: bold
+          margin-bottom: 0
+          margin-top: 10px
+
+      #block-column-one
+        img, p
+          margin-left: 85px
+          margin-right: 25px
+
+      #block-column-two
+        img, p
+          margin-right: 100px
+
+    @media (max-width: 1199px)
+      #block-we-dare-you
+        #block-column-one
+          img, p
+            margin-left: 0
+
+        #block-column-two
+          img, p
+            margin-right: 0
+
+    @media (max-width: 595px)
+      #block-we-dare-you p
+        font-size: 18px
+
+  &.privacy-policy-action, &.terms-of-service-action
+    .block-form
+      font-family: "Heuristica"
+      padding: 50px 50px 40px
+
+      h3
+        font-size: 14px
+        margin-top: 10px
+        margin-bottom: 10px
+        padding-bottom: 10px
+        padding-top: 10px
+        text-transform: none
+
+    @media (max-width: 768px)
+      .block-form
+        padding: 15px
+
+  &.bars-and-venues-action, &.contact-us-action
+    .btn-lg
+      padding: 10px 60px
+
+    .headline
+      font-family: "Heuristic"
+      font-size: 16px
+      font-style: italic
+      font-weight: bold
+      margin-bottom: 30px
+      margin-top: 20px
+      text-align: center
+
+    @media (max-width: 768px)
+      .block-form form
+        padding-bottom: 20px
+        padding-left: 0
+        padding-right: 0
+
+      .headline
+        margin-top: 0
+
+
+  &.bars-and-venues-action
+    .main-headline
+      margin-bottom: 10px
+
+  &.faq-action
+    background-image: asset-url('bg_faq.jpg')
+    background-position: right bottom 80px
+    background-size: cover
+    background-attachment: fixed
+    background-repeat: no-repeat
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+    .block-form
+      margin-top: -30px
+      padding-bottom: 40px
+      padding-left: 100px
+      padding-right: 100px
+
+      h2
+        font-size: 24px
+        margin-bottom: 40px
+        text-align: center
+        text-transform: uppercase
+
+      ul li
+        border-top: 1px #e8e8e8 solid
+        padding: 20px 100px
+
+        &:last-child
+          border-bottom: 1px #e8e8e8 solid
+
+        h3
+          font-size: 18px
+          margin-bottom: 15px
+
+        a
+          color: #333333
+          text-transform: none
+
+        i
+          color: #b2b2b2
+          margin-right: 10px
+
+        p
+          font-family: "Heuristic"
+          font-size: 16px
+          margin-left: 23px
+
+    @media (max-width: 992px)
+      .block-form ul li
+        padding: 20px 50px
+
+    @media (max-width: 768px)
+      .block-form
+        padding-left: 15px
+        padding-right: 15px
+
+        ul li
+          padding: 20px
+
+    @media (max-width: 480px)
+      .block-form h2
+        font-size: 22px
+        margin-bottom: 30px
+        margin-top: 0
+
+  &.join-action
+    .background-dark-gray
+      background-color: #323133
+
+    .jumbotron
+      margin-bottom: 28px
+      margin-top: 0
+
+      h1
+        font-size: 34px
+
+      h3
+        font-family: "Heuristica", serif
+        font-size: 21px
+        font-style: italic
+        margin-bottom: 30px
+        font-weight: normal
+        text-transform: none
+
+      .btn-primary
+        letter-spacing: 0.25em
+        padding-left: 50px
+        padding-right: 50px
+
+    @media (max-width: 767px)
+      .jumbotron
+        margin-top: 18px
+
+    @media (max-width: 560px)
+      .jumbotron
+        .btn-primary
+          letter-spacing: 0
+
+  &.contact-us-action
+    background-image: asset-url('bg-contact-us.jpg')
+    background-position: center bottom
+    background-size: cover
+    background-attachment: fixed
+    background-repeat: no-repeat
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+  &.privacy-policy-action
+    background-image: asset-url('bg-privacy-policy.jpg')
+    background-position: center bottom
+    background-size: cover
+    background-attachment: fixed
+    background-repeat: no-repeat
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+  &.bars-and-venues-action
+    background-image: asset-url('bg-bars-and-venues.jpg')
+    background-position: center bottom 100px
+    background-size: cover
+    background-attachment: fixed
+    background-repeat: no-repeat
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+  &.terms-of-service-action
+    background-image: asset-url('bg-terms-of-service.jpg')
+    background-position: center bottom 150px
+    background-size: cover
+    background-attachment: fixed
+    background-repeat: no-repeat
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+
+
+.about_us_site_url
+  color: rgba(255, 255, 255, 0.7)
+
+#pages-controller
+  &.index-action
+    .block-alert
+      position: absolute
+      text-align: center
+      top: 96px
+      width: 100%
+      z-index: 9999
+
+      .alert
+        border-radius: 0
+
+    /*=======================
+     * Discover
+     *=======================
+
+    #discover
+      background-repeat: no-repeat
+      background-size: 100% auto
+      background-position: right bottom
+      padding: 60px 0
+
+      .heading
+        margin-bottom: 45px
+
+    .feature-v2 img
+      float: left
+      margin-right: 20px
+
+    .feature-item
+      img
+        width: 60px
+        height: 60px
+
+      .text
+        font-size: 16px
+        line-height: 1.44em
+        color: #387074
+
+        h3
+          color: #000000
+          font-size: 20px
+          margin-top: 15px
+          font-family: 'Proxima Nova', sans-serif
+
+    /*=========================
+     * Testimonial
+     *=========================
+
+    #testimonial
+      position: relative
+      padding: 60px 0
+
+      h2
+        margin-bottom: 50px
+
+      .container
+        position: relative
+
+      .testi-thumb
+        float: left
+        margin-right: 40px
+
+        img
+          width: 128px
+          height: 128px
+          border-radius: 50%
+
+      .text
+        overflow: hidden
+
+      blockquote
+        position: relative
+        font-size: 20px
+        border: none
+        line-height: 1.65em
+        padding: 6px 0 0 36px
+        color: #262223
+
+        span
+          position: absolute
+          display: inline-block
+          width: 34px
+          height: 28px
+          background: asset-url('icons/icon-quote.png') no-repeat left top
+          background-size: contain
+          left: 0
+          top: 0
+
+      cite
+        padding-left: 36px
+        font-size: 14px
+        font-style: normal
+        color: #387074
+        text-transform: uppercase
+
+    .slider-nav
+      width: 14px
+      height: 24px
+      position: absolute
+      cursor: pointer
+      z-index: 9
+      top: 50%
+      margin-top: -10px
+
+    .left-arrow
+      background: asset-url('icons/icon-arrow-left.png') no-repeat
+      left: 0
+
+    .right-arrow
+      background: asset-url('icons/icon-arrow-right.png') no-repeat
+      right: 0
+
+    /*=========================
+     * Questions
+     *=========================
+
+    #questions
+      padding: 60px 0
+
+      .heading
+        margin-bottom: 60px
+
+      .tab-heading
+        background: #ecf8f8
+        cursor: pointer
+        border-radius: 3px
+        overflow: hidden
+        margin-bottom: 10px
+
+        i
+          float: left
+
+        p
+          padding: 14px
+          overflow: hidden
+          margin: 0
+          font-size: 18px
+
+      .tab-content
+        font-size: 14px
+        padding: 20px 30px
+        background: #ecf8f8
+        border-radius: 3px
+        margin-bottom: 10px
+        line-height: 1.5em
+        display: none
+
+      small
+        margin-top: 10px
+        position: relative
+        color: #387074
+        display: inline-block
+        font-size: 14px
+
+        a
+          font-family: "Proxima Nova Bold", sans-serif
+          color: #69d6da
+
+    /*=======================
+     * one wingbuddy
+     *=======================
+    #one_wingbuddy_image
+      background: #979697 asset-url('bw_wing.jpg') no-repeat center (center / cover) fixed
+
+    #one_wingbuddy
+      padding: 25px 0
+      color: #000000
+
+      small
+        text-transform: uppercase
+        font-size: 12px
+        font-family: 'Proxima Nova Bold', sans-serif
+
+      .sub-heading
+        font-size: 32px
+
+      .sub-line
+        padding-bottom: 25px
+        font-size: 20px
+      .no-problem
+        padding: 10px 0
+        font-size: 25px
+
+    /*=========================
+     * Featured in
+     *========================
+
+    #featured-in
+      padding: 35px 0
+
+      small
+        text-transform: uppercase
+        color: rgba(0, 0, 0, 0.3)
+        font-size: 12px
+        font-family: 'Proxima Nova Bold', sans-serif
+
+    /*=======================
+     * Counter
+     *=======================
+
+    #counter
+      padding: 20px 0 30px
+
+      h2
+        font-size: 36px
+        margin-top: 15px
+
+      h4
+        font-size: 16px
+        color: rgba(255, 255, 255, 0.6)
+
+      h5
+        color: rgba(255, 255, 255, 0.6)
+        font-size: 12px
+        letter-spacing: 1px
+        text-transform: uppercase
+
+    /*=======================
+     * Media 992px
+     *=======================
+    @media screen and (max-width: 992px)
+      .feature-item
+        margin-bottom: 40px
+
+      .left-arrow
+        left: 20px
+
+      .right-arrow
+        right: 20px
+
+      #testimonial .container
+        padding: 0 50px
+
+    /*=======================
+     * Media 767px
+     *=======================
+
+    @media screen and (max-width: 767px)
+      #counter
+        padding: 0
+        .widget
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+          padding-top: 20px
+          padding-bottom: 20px
+
+          &:last-child
+            border-bottom: none
+
+      #testimonial
+        .testi-thumb
+          float: none
+          margin: 0 0 30px
+          text-align: center
+
+        blockquote, cite
+          padding: 0
+
+      #featured-in small
+        display: block
+        text-align: center
+
+    /*=======================
+     * Media 480px
+     *=======================
+
+      #counter .widget
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+        padding-top: 10px
+        padding-bottom: 10px
+
+        &:first-child
+          border-right: 1px solid rgba(255, 255, 255, 0.1)
+
+  &.why-facebook-action
+    #hero-bg
+      background: #979697 asset-url('main-bg-2.jpg') no-repeat center (center / cover) fixed
+
+    #hero-unit
+      background: rgba(38, 34, 35, 0.4)
+
+      .sub-heading
+        margin-bottom: 20px
+
+    /*=======================
+     * Media 480px
+     *=======================
+
+    @media screen and (max-width: 480px)
+      .vertical-align
+        top: 50%
+
+  .index-footer-section a.custom-btn.btn-blue
+    margin-top: 15px !important
+      border: solid red
+
+  &.how-it-works-action, &.about-us-action, &.faq-action, &.bars-and-venues-action, &.contact-us-action, &.terms-of-service-action, &.privacy-policy-action
+    #call-to-action .custom-btn
+      margin-top: 15px
+
+    #hero-bg
+      background: #000000 asset-url('how_it_works/hiw-main-bg.jpg') no-repeat center (center / cover) fixed
+      box-shadow: inset 0 -90px 150px #262223
+      -webkit-box-shadow: inset 0 -90px 150px #262223
+
+    #hero-unit
+      background: rgba(38, 34, 35, 0.4)
+      padding: 60px 0 0 0
+      min-height: 640px
+      margin: 0
+      position: relative
+
+    #how-it-works, .mobile-content
+      position: absolute
+      top: 160px
+      z-index: 99
+      background: transparent
+      left: 0
+      right: 0
+
+    #grouvly_about_us
+      padding: 50px 0 80px
+
+    .the-night
+      background-color: #262223
+      padding: 0 0 80px
+      color: rgba(255, 255, 255, 0.7)
+
+      h2
+        font-size: 30px
+        color: #fff
+        text-transform: uppercase
+
+        span
+          color: #69d6da
+
+      .col-xs-5
+        padding: 0
+
+      .entry-container
+        padding-top: 30px
+        padding-bottom: 30px
+        position: relative
+
+      .divider-vertical
+        opacity: 0.4
+        position: absolute
+        width: 1px
+        height: 100%
+        top: 0
+        left: 50%
+        margin-left: -1px
+        background: #262223
+        /* Old browsers
+        background: -moz-linear-gradient(top, #262223 0%, #69d6da 50%, #262223 100%)
+        /* FF3.6+
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262223), color-stop(50%, #69d6da), color-stop(100%, #262223))
+        /* Chrome,Safari4+
+        background: -webkit-linear-gradient(top, #262223 0%, #69d6da 50%, #262223 100%)
+        /* Chrome10+,Safari5.1+
+        background: -o-linear-gradient(top, #262223 0%, #69d6da 50%, #262223 100%)
+        /* Opera 11.10+
+        background: -ms-linear-gradient(top, #262223 0%, #69d6da 50%, #262223 100%)
+        /* IE10+
+        background: linear-gradient(to bottom, #262223 0%, #69d6da 50%, #262223 100%)
+        /* W3C
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262223', endColorstr='#262223',GradientType=0 )
+        /* IE6-9
+
+    .night-entry
+      background: rgba(0, 0, 0, 0.2)
+      padding: 15px 25px
+      border-radius: 20px
+      width: auto
+      position: relative
+      margin-bottom: 20px
+
+      .time
+        color: #69d6da
+        font-family: 'Proxima Nova Bold'
+        font-size: 13px
+        padding-left: 24px
+        position: relative
+
+        &:before
+          content: ''
+          width: 18px
+          height: 16px
+          background: asset-url('how_it_works/hiw-icon-clock.png') no-repeat center
+          position: absolute
+          left: -1px
+          top: -1px
+
+    .usual-night .night-entry
+      float: right
+      clear: both
+      margin-right: 42px
+
+      .thumb-circle
+        position: absolute
+        bottom: 0
+        right: -40px
+
+    .grouvly-night .night-entry
+      float: left
+      clear: both
+      margin-left: 42px
+
+      .thumb-circle
+        position: absolute
+        bottom: 0
+        left: -40px
+
+    /*=======================
+     * Media 767px
+     *=======================
+
+    @media screen and (max-width: 767px)
+      .the-night
+        padding: 700px 0 60px 0
+
+      #call-to-action
+        .text-left
+          text-align: center
+
+        .custom-btn
+          margin-top: 0px
+
+    /*=======================
+     * Media 480px
+     *=======================
+
+    @media screen and (max-width: 480px)
+      .the-night
+        padding: 700px 0 0
+
+        h2
+          font-size: 20px
+
+    /*=======================
+     * Media 320px
+     *=======================
+
+    @media screen and (max-width: 320px)
+      .the-night
+        padding: 600px 0 0

@@ -1,0 +1,27 @@
+header.content-header-block
+  .row
+    .title-block.col-sm-8
+      h1
+        span= t('admin.terms.grouvly')
+        small= t('admin.members.dashboard.title_member_count')
+    
+    .action-block.col-sm-4
+      = link_to t('admin.members.dashboard.search_btn'), search_admin_members_path,
+        class: 'btn btn-primary pull-right'
+
+  .row
+    .col-sm-12
+      .breadcrumb
+        li= link_to t('admin.members.all'), admin_members_path
+
+        - if @presenter.location
+          - if @presenter.gender
+            li= link_to @presenter.location, admin_members_path({ location: @presenter.location })
+            li.active= @presenter.gender.titleize
+          - else
+            li.active= @presenter.location
+
+- if @presenter.location
+  = render partial: 'list'
+- else
+  = render partial: 'summary'

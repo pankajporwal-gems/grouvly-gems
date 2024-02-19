@@ -1,0 +1,81 @@
+- content_for :title do
+  = t('user.reservations.confirmed.upcoming_grouvly_confirmed')
+
+.background-gray
+  .container
+    .block-form.col-lg-12
+      h3= t('user.reservations.confirmed.upcoming_grouvly_confirmed')
+
+      .row
+        .col-lg-12
+          table.table
+            thead
+              tr
+                th= t('user.reservations.confirmed.date')
+                th= t('user.reservations.confirmed.where')
+                th= t('user.reservations.confirmed.time')
+
+            tbody
+              tr
+                td= @confirmed_presenter.just_the_date
+                td= t('user.reservations.confirmed.working_on_it')
+                td= @confirmed_presenter.just_the_time
+
+
+      .row
+        .col-md-8
+          #block-invite-wings
+            = render partial: 'shared/wings', locals: { user: @confirmed_presenter.lead,
+              participants: @confirmed_presenter.participants, participants_count: @confirmed_presenter.participants_count}
+
+          - unless @confirmed_presenter.wing?
+            p
+              = link_to t('user.reservations.confirmed.invite_your_wings'), invite_wings_user_reservation_path(params[:id])
+            .row
+              .col-md-5
+                .pull-left
+                  #block-unmatched-info
+                    span= t('user.reservations.roll.roll_grouvly')
+                    i.fa.fa-info-circle#unmatched_info aria-hidden="true" data-content= "#{t('user.reservations.roll.unmatched_info')}" rel="popover" data-placement="top" data-trigger="hover"
+
+              .col-md-2
+                .pull-left
+                  =link_to @confirmed_presenter.reservation.is_roll? ? t('terms.dont_roll') : t('terms.roll'), roll_confirmed_user_reservations_path(auto_roll: @confirmed_presenter.reservation.is_roll? ? false : true, id: params[:id]), method: :post, class: "btn btn-sm btn-primary btn-inline-block roll-btn"
+
+        .col-md-4
+          #block-timeline
+            h5= t('user.reservations.confirmed.timeline')
+
+            ul
+              - unless @confirmed_presenter.wing?
+                li.timeline-finish
+                  = t('user.reservations.confirmed.schedule_your_grouvly')
+                  = image_tag 'icons/icon-finish.png'
+
+              li.timeline-finish
+                = t('user.reservations.confirmed.pay_for_your_grouvly')
+                = image_tag 'icons/icon-finish.png'
+
+              - unless @confirmed_presenter.wing?
+                li.timeline-finish
+                  = t('user.reservations.confirmed.pick_your_wings', wing: @confirmed_presenter.wing_type)
+                  = image_tag 'icons/icon-finish.png'
+
+              li
+                = t('user.reservations.confirmed.receive_location_details')
+                = image_tag 'icons/icon-pending.png'
+
+              li
+                = t('user.reservations.confirmed.arrive_to_date')
+                = image_tag 'icons/icon-pending.png'
+
+      - if current_user.wing?
+        .row
+          .col-md-12.text-center#block-want-to-become-a-member
+            span= t('user.reservations.confirmed.want_to_become_a_member')
+
+            = link_to t('user.reservations.confirmed.apply_for_membership'), apply_user_membership_path,
+              class: 'btn btn-lg btn-primary'
+
+javascript:
+  $('#unmatched_info').popover({ trigger: "hover" });

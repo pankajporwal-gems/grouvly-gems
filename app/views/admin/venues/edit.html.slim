@@ -1,0 +1,10 @@
+.block-content
+  .row
+    .container-fluid
+      = render partial: 'nav_venues'
+
+      .block-form-venue.clearfix
+        .col-md-10
+          = form_for(@venue_presenter.venue, url: admin_venue_path(@venue_presenter.venue), method: :patch, html: { id: 'form_venue', role: 'form' }) do |f|
+
+            = render partial: 'form', locals: { presenter: @venue_presenter, f: f }

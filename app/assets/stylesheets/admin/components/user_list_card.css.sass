@@ -1,0 +1,48 @@
+.user-list-card
+  $image-width: 110px
+  $image-margin: 20px
+
+  margin-bottom: 30px
+  overflow: hidden
+
+  .block-image,
+  .block-body
+    float: left
+
+  .block-image
+    min-height: 110px
+    margin-right: 20px
+
+  .block-body
+    width: calc(100% - #{$image-width + $image-margin})
+
+  .block-age
+    color: #a4a4a4
+    font-size: 12px
+    margin-left: 5px
+
+  .block-education,
+  .block-work
+    font-family: 'Heuristica'
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  .block-education
+    color: #a4a4a4
+
+  .block-work
+    font-weight: bold
+
+  a.btn,
+  input.btn
+    border-radius: 5px
+    padding: 5px 14px 5px
+
+    &.btn-transparent
+      color: #333333
+      border: 1px #c2d3cf solid
+
+      &:hover
+        color: #ffffff
+        border-color: $brand-primary
