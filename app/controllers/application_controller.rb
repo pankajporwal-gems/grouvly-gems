@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
-  rescue_from Koala::Facebook::AuthenticationError do |exception|
-    if current_user
-      reset_session
-      redirect_to root_url
-    end
-  end
+  # rescue_from Koala::Facebook::AuthenticationError do |exception|
+  #   if current_user
+  #     reset_session
+  #     redirect_to root_url
+  #   end
+  # end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     reset_session

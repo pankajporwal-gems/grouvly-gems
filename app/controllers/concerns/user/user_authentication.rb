@@ -8,7 +8,7 @@ module User::UserAuthentication
     before_filter :check_user_deauthorized, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
     before_filter :check_membership_info, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
 
-    prepend_before_filter :auto_facebook_login, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
+    # prepend_before_filter :auto_facebook_login, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
   end
 
   def authenticate_user

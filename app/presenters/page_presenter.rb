@@ -12,11 +12,13 @@ class PagePresenter
   end
 
   def login_url
-    if @user.present?
-      Rails.application.routes.url_helpers.user_root_path
-    else
-      @oauth.url_for_oauth_code({ permissions: @permissions })
-    end
+    # if @user.present?
+    #   Rails.application.routes.url_helpers.user_root_path
+    # else
+    #   @oauth.url_for_oauth_code({ permissions: @permissions })
+    
+    # end
+    Rails.application.routes.url_helpers.new_user_login_path
   end
 
   def referrer_name

@@ -13,22 +13,42 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
-    session_index, url = set_referral_tracking_url
-    return_to = session[:return_to]
-    login_user(session_index, url)
+  def new
 
-    if return_to
-      track_event(EVENT_LOGGED_IN)
-      set_flash
-      redirect_to return_to
-    elsif current_user.user_info.blank?
-      set_flash
-      redirect_to new_user_membership_url
+  end
+
+  def create
+    user = User.find_by(uid: params[:user][:uid])
+    if user.present?
+      reset_session
+      session[:user_id] = user.id
+      increase_session_count(user)
+      # To keep users logged in
+      # cookies.permanent[:oauth_uid] = user.uid
+
+      # index = :join_grouvly_url
+      redirect_to user_root_url
+      # session[index] = url if url.present? && session_index == index
     else
-      track_event(EVENT_LOGGED_IN)
-      render_page_of_logged_in_user
+      flash[:alert] = "User Not Found"
+      render :new
     end
+
+    # session_index, url = set_referral_tracking_url
+    # return_to = session[:return_to]
+    # login_user(session_index, url)
+
+    # if return_to
+    #   track_event(EVENT_LOGGED_IN)
+    #   set_flash
+    #   redirect_to return_to
+    # elsif current_user.user_info.blank?
+    #   set_flash
+    #   redirect_to new_user_membership_url
+    # else
+    #   track_event(EVENT_LOGGED_IN)
+    #   render_page_of_logged_in_user
+    # end
   end
 
   def destroy
@@ -54,7 +74,6 @@ class SessionsController < ApplicationController
   def login_user(session_index, url)
     reset_session
     build_user.process_user
-
     session[:user_id] = build_user.user.id
     increase_session_count(build_user.user)
     # To keep users logged in
@@ -120,6 +139,6 @@ class SessionsController < ApplicationController
   end
 
   def increase_session_count(user)
-    user.increment!(:session_count)
+    user.session_count = (user.session_count.to_i + 1).to_s
   end
 end

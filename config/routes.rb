@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'pages#index', via: [:get, :post]
 
   match '/auth/admin/callback', to: 'sessions#authenticate_admin', as: :google_callback, via: [:get, :post]
-  match 'auth/facebook/callback', to: 'sessions#create', as: :facebook_callback, via: [:get, :post]
+  # match 'auth/facebook/callback', to: 'sessions#create', as: :facebook_callback, via: [:get, :post]
   match 'auth/failure', to: redirect('/why-facebook'), as: :facebook_failure, via: [:get, :post]
   match 'logout', to: 'sessions#destroy', via: [:get, :post]
   match 'about-us', to: 'pages#about_us', via: :get
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   match 'venue/reject', to: 'venues#reject_booking', as: :venue_reject_booking, via: :get
 
   match 'facebookprivatepilot', to: redirect('/'), via: :get
+
+  get '/login', to: 'sessions#new', as: :new_user_login
+  post '/login', to: 'sessions#create', as: :user_login
 
   namespace :admin do
     root to: 'admins#dashboard'

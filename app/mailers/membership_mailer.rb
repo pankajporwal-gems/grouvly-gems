@@ -5,7 +5,7 @@ class MembershipMailer < BaseMailer
 
     set_concierge_details
 
-    mail(to: @user.email_address, subject: "#{t('mailers.membership.pend.subject')}")
+    # mail(to: @user.email_address, subject: "#{t('mailers.membership.pend.subject')}")
   end
 
   def accept(user)
@@ -13,6 +13,6 @@ class MembershipMailer < BaseMailer
 
     set_concierge_details
 
-    mail(to: @user.email_address, subject: "#{t('mailers.membership.accept.subject')}")
+    # mail(to: @user.email_address, subject: "#{t('mailers.membership.accept.subject')}")
   end
 end

@@ -6,7 +6,7 @@ class UserInfo < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :email_address, :current_work, :current_employer, :studied_at, :height, :native_place, :typical_weekends, :meet_new_people_ages, presence: true
+  validates :email_address, :current_work, :current_employer, :studied_at, :height, :native_place, presence: true
 
     validates :neighborhoods, presence: true, if: :user_location?
 

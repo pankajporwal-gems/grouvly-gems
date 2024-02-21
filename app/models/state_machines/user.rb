@@ -17,7 +17,7 @@ class StateMachines::User
   transition from: :rejected, to: [:pending]
 
   after_transition(from: :new, to: :pending) do |user, transition|
-    PendMembershipJob.perform_later(user.id)
+    PendMembershipJob.perform_now(user.id)
   end
 
   after_transition(to: :accepted) do |user, transition|

@@ -58,16 +58,16 @@ module User::UserTracking
 
   # Segment JS
   def track_page(name)
-    gon.push({pageName: name})
+    # gon.push({pageName: name})
   end
 
   # Segment
   def track_event(name, options = {}, context = {})
-    if current_user
-      options = user_traits.merge(options) if current_user.user_info.present?
+    # if current_user
+    #   options = user_traits.merge(options) if current_user.user_info.present?
 
-      segment_client.track(user_id: user_identifier, event: name, properties: options, context: context)
-    end
+    #   segment_client.track(user_id: user_identifier, event: name, properties: options, context: context)
+    # end
   end
 
   def set_cookies

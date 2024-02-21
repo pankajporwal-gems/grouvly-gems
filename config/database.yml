@@ -13,5 +13,5 @@ test:
   database: app_test
   host: localhost 
   pool: 5
-  username: postgres 
-  password: postgres 
+  username: user19
+  password: 123456 
