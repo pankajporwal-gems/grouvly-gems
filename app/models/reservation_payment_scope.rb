@@ -4,7 +4,7 @@ class ReservationPaymentScope
   end
 
   def is_full?
-    @reservation.payments.successful.count == wing_quantity + 1
+    @reservation.payments.successful.count == wing_quantity.to_i + 1
   end
 
   def pending_payments

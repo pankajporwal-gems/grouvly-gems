@@ -28,10 +28,11 @@ class User::UsersController < ApplicationController
   end
 
   def updated_profile?
-    return true if current_user.wing?
-    arr_records = %w(meet_new_people_ages hang_out_with typical_weekends native_place)
-    arr_records = arr_records + %w(neighborhoods) if current_user.location == "Hong Kong"
-    arr_records.all? { |attr| current_user.user_info[attr].present?}
+    true
+    # return true if current_user.wing?
+    # arr_records = %w(meet_new_people_ages hang_out_with typical_weekends native_place)
+    # arr_records = arr_records + %w(neighborhoods) if current_user.location == "Hong Kong"
+    # arr_records.all? { |attr| current_user.user_info[attr].present?}
   end
 
   helper_method :mobile_device?

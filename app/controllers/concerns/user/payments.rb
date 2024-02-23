@@ -66,6 +66,7 @@ module User::Payments
 
   def is_last_minute_booking?(upcoming_date)
     if upcoming_date.present?
+      upcoming_date = DateTime.parse(upcoming_date)
       before_48_hours = upcoming_date - 48.hours
       before_4_hours = upcoming_date - 4.hours
       current_time = Chronic.parse('now')

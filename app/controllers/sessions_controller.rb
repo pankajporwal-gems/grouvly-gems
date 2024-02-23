@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-
+    @uid = User.first.uid
   end
 
   def create

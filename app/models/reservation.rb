@@ -104,6 +104,9 @@ class Reservation < ActiveRecord::Base
     matched_reservations.in_state(:new, :completed).any? || inverse_matched_reservations.in_state(:new, :completed).any?
   end
 
+  def wing_quantity
+    super.to_i
+  end
 
   def reservation_emails
     reservations = matched_reservations.present? ? matched_reservations : inverse_matched_reservations
@@ -149,7 +152,7 @@ class Reservation < ActiveRecord::Base
   private
 
   def generate_slug
-    slug = Grouvly::Slug.generate(id + APP_CONFIG['start_id']) + SecureRandom.urlsafe_base64(2)
+    slug = Grouvly::Slug.generate(id.to_i + APP_CONFIG['start_id']) + SecureRandom.urlsafe_base64(2)
     self.update_attributes({ slug: slug })
   end
 

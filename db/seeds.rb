@@ -36,5 +36,20 @@ user = User.create(provider: "facebook", first_name: "Example", last_name: "User
 ut1 = UserTransition.create(to_state: "pending", metadata: { occured_on: Time.now }.to_json, sort_key: 0, user_id: user.id)
 ut2 = UserTransition.create(to_state: "accepted", metadata: { "occured_on" => Time.now, "performed_by" => admin }.to_json, sort_key: 1, user_id: user.id)
 
-user.create_user_info(email_address: "pankaj.porwal@gemsessence.com", gender_to_match: "female", location: "Singapore", phone: "12345678", current_work: "Developer", studied_at: "IIST", religion: "Hinduism", height: "5", gender: "male", current_employer: "Gems Essence", hometown: "India", typical_weekend: "Stay at home", ethnicity: "Indian", hang_out_with: "Everyone", meet_new_people_age: ['20s', '30s'])
-
+user_info = user.build_user_info(
+  email_address: "pankaj.porwal@gemsessence.com",
+  gender_to_match: "female",
+  location: "Singapore",
+  phone: "12345678",
+  current_work: "Developer",
+  studied_at: "IIST",
+  religion: "Hinduism",
+  height: "5",
+  gender: "male",
+  current_employer: "Gems Essence",
+  hometown: "India",
+  ethnicity: "Indian",
+  hang_out_with: "Everyone",
+  native_place: "India"
+)
+user_info.save

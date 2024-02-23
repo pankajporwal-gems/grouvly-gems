@@ -5,6 +5,7 @@ module Grouvly
     extend self
 
     def generate_client_token(user)
+      gateway = Braintree::Gateway.new(:environment => :sandbox, :merchant_id => ENV["BRAINTREE_MERCHANT_ID"], :public_key => ENV["BRAINTREE_PUBLIC_KEY"], :private_key => ENV["BRAINTREE_PRIVATE_KEY"])
       if user.customer_id
         Braintree::ClientToken.generate(customer_id: user.customer_id)
       else
@@ -81,11 +82,10 @@ module Grouvly
 
     def capture_payment(payment)
       @payment = payment
-
       Braintree::Transaction.sale(
         amount: payment.amount,
         payment_method_token: payment_token,
-        merchant_account_id: payment_merchant,
+        merchant_account_id: ENV["MERCHANT_ACCOUNT_ID"],
         options: {
           submit_for_settlement: true
         }

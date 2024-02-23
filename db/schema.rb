@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(version: 20170105140833) do
     t.string   "slug"
     t.string   "membership_type",     default: "regular"
     t.string   "code"
-    t.integer  "customer_id"
+    t.string   "customer_id"
     t.string   "acquisition_source"
     t.string   "acquisition_channel"
     t.integer  "session_count",       default: 0

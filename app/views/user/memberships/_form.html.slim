@@ -5,9 +5,9 @@
     = link_to current_user.large_profile_picture, class: 'img-colorbox' do
       = image_tag current_user.large_profile_picture, class: 'img-circle'
 
-    - if current_user.photos.present?
-      - current_user.photos.each do |photo|
-        = link_to '', photo, class: 'img-colorbox'
+    // - if current_user.photos.present?
+      //- current_user.photos.each do |photo|
+        //= link_to '', photo, class: 'img-colorbox'
 
 .col-sm-6
   .form-group

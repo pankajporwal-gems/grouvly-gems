@@ -71,9 +71,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    braintree (2.40.0)
+    braintree (2.104.1)
       builder (>= 2.0.0)
-    builder (3.2.2)
+    builder (3.2.4)
     bullet (4.14.0)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
@@ -506,6 +506,8 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     statesman (1.1.0)
+    stripe (3.3.2)
+      faraday (~> 0.9)
     temple (0.7.5)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
@@ -612,6 +614,7 @@ DEPENDENCIES
   slim
   spring
   statesman
+  stripe
   therubyracer
   uglifier (>= 1.3.0)
   unicorn

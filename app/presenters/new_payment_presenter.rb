@@ -26,7 +26,7 @@ class NewPaymentPresenter
   end
 
   def schedule
-    reservation.schedule
+    DateTime.parse(reservation.schedule)
   end
 
   def reservation_date

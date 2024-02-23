@@ -3,20 +3,20 @@ class PaymentProcessor
     @reservation ||= reservation
   end
 
-  # def update_payments
-  #   all_due_payments.each do |payment|
-  #     if payment.card.token == 'free'
-  #       payment.update_attribute(:amount, 0)
-  #     elsif payment.card.user == lead && all_due_payments.size < wing_quantity.wing_quantity + 1
-  #       count = 4 - all_due_payments.size
-  #       amount = count * fee
+  def update_payments
+    all_due_payments.each do |payment|
+      if payment.card.token == 'free'
+        payment.update_attribute(:amount, 0)
+      elsif payment.card.user == lead && all_due_payments.size < wing_quantity.wing_quantity + 1
+        count = 4 - all_due_payments.size
+        amount = count * fee
 
-  #       update_payment_amount(payment, amount)
-  #     else
-  #       update_payment_amount(payment, fee)
-  #     end
-  #   end
-  # end
+        update_payment_amount(payment, amount)
+      else
+        update_payment_amount(payment, fee)
+      end
+    end
+  end
 
   def capture_all_payments
     SIDEKIQ_LOGGER.info "capture_all_payments:: for reservation: #{@reservation.id}"
@@ -205,13 +205,13 @@ class PaymentProcessor
   end
 
   def all_updated_due_payments
-    if all_due_payments.size <  @reservation.wing_quantity + 1
+    if all_due_payments.size <  @reservation.wing_quantity.to_i + 1
       all_due_payments.each do |payment|
         if payment.card.user == lead
           if payment.card.token == 'free'
             payment.update_attribute(:amount, 0)
           else
-            amount = get_updated_amount(payment.amount)
+            amount = get_updated_amount(payment.amount.to_i)
             payment.update_attribute('amount', amount)
           end
         end
@@ -268,22 +268,22 @@ class PaymentProcessor
     @fee
   end
 
-  # def update_payment_amount(payment, amount)
-  #   @voucher ||= payment.reservation.all_valid_payments.first.voucher
+  def update_payment_amount(payment, amount)
+    @voucher ||= payment.reservation.all_valid_payments.first.voucher
 
-  #   if @voucher.present?
-  #     if amount > fee
-  #       counter = amount / fee
-  #       amount = amount - (@voucher.amount * counter)
-  #     else
-  #       amount = amount - @voucher.amount
-  #     end
-  #   elsif payment.credit.present?
-  #     amount = amount - payment.credit.amount if payment.credit.action == 'deduct'
-  #   end
+    if @voucher.present?
+      if amount > fee
+        counter = amount / fee
+        amount = amount - (@voucher.amount * counter)
+      else
+        amount = amount - @voucher.amount
+      end
+    elsif payment.credit.present?
+      amount = amount - payment.credit.amount if payment.credit.action == 'deduct'
+    end
 
-  #   payment.update_attribute(:amount, amount) if amount.present? && payment.amount != amount
-  # end
+    payment.update_attribute(:amount, amount) if amount.present? && payment.amount != amount
+  end
 
   def errors(method)
     method.send(:errors).map(&:message).join('///')

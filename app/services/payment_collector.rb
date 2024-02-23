@@ -33,7 +33,7 @@ class PaymentCollector
   end
 
   def create_customer
-    if call_create_customer.success?
+    if call_create_customer
       @user.update_attribute(:customer_id, customer_credit_card.customer_id)
       @credit_card = Grouvly::BraintreeApi.add_credit_card(@user, customer_credit_card)
       BRAINTREE_LOGGER.info("Create payment_method :: #{@credit_card.inspect}")

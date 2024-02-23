@@ -27,6 +27,7 @@ gem 'date_validator'
 
 # Payment related gems
 gem 'braintree'
+gem 'stripe'
 
 # Format related gems
 gem 'jbuilder', '~> 2.0'
