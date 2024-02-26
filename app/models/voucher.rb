@@ -1,4 +1,4 @@
-class Voucher < ActiveRecord::Base
+class Voucher < ApplicationRecord
   after_create :generate_slug
 
   belongs_to :user

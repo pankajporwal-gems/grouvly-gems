@@ -40,7 +40,7 @@ class UserState
   end
 
   def wing!
-    @user.transition_to(:wing, { occured_on: Time.now })
+    @user.transition_to(:wing, { occured_on: Time.now }.to_json)
   end
 
   def accept!(performer)

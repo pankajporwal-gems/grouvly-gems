@@ -52,11 +52,14 @@ class UserInfoSetter
 
   def set_other_details(me, graph, params)
     @user_info.last_facebook_update = Time.now
-    @user_info.small_profile_picture = graph.get_picture(me['id'], { type: 'small' })
-    @user_info.normal_profile_picture = graph.get_picture(me['id'], { type: 'normal' })
-    @user_info.large_profile_picture = graph.get_picture(me['id'], { type: 'large' })
-    @user_info.likes = graph.get_connections(me['id'], 'likes')
+    # @user_info.small_profile_picture = graph.get_picture(me['id'], { type: 'small' })
+    # @user_info.normal_profile_picture = graph.get_picture(me['id'], { type: 'normal' })
+    # @user_info.large_profile_picture = graph.get_picture(me['id'], { type: 'large' })
+    # @user_info.likes = graph.get_connections(me['id'], 'likes')
     # set_neighborhood(params)
+    #For portfolio project
+    birthday = eval(params['birthday'])
+    @user_info.birthday = Date.new(birthday[1], birthday[2], birthday[3])
     set_native_place(params)
   end
 

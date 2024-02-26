@@ -1,4 +1,4 @@
-class Venue < ActiveRecord::Base
+class Venue < ApplicationRecord
   include LocationValidation
 
   has_many :venue_bookings, dependent: :destroy

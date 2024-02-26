@@ -1,4 +1,4 @@
-class MatchedReservation < ActiveRecord::Base
+class MatchedReservation < ApplicationRecord
   include Statesman::Adapters::ActiveRecordQueries
 
   belongs_to :first_reservation, class_name: 'Reservation'

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Statesman::Adapters::ActiveRecordQueries
   extend FriendlyId
 

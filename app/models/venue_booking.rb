@@ -1,4 +1,4 @@
-class VenueBooking < ActiveRecord::Base
+class VenueBooking < ApplicationRecord
   include Statesman::Adapters::ActiveRecordQueries
 
   belongs_to :venue

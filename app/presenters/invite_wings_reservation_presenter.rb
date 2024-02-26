@@ -16,19 +16,19 @@ class InviteWingsReservationPresenter
   end
 
   def just_the_date
-    @reservation.schedule.strftime('%B %d')
+    DateTime.parse(@reservation.schedule).strftime('%B %d')
   end
 
   def just_the_time
-    @reservation.schedule.strftime('%l:%M %p')
+    DateTime.parse(@reservation.schedule).strftime('%l:%M %p')
   end
 
   def previous_date_of_schedule
-    (@reservation.schedule - 1.day).strftime('%A, %B %d')
+    (DateTime.parse(@reservation.schedule) - 1.day).strftime('%A, %B %d')
   end
 
   def reservation_date
-    @reservation.schedule.strftime('%A, %B %d')
+    DateTime.parse(@reservation.schedule).strftime('%A, %B %d')
   end
 
   def payments

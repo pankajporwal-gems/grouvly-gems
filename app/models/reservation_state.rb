@@ -28,7 +28,7 @@ class ReservationState
   end
 
   def enter_payment!
-    @reservation.transition_to(:payment_entered, { occured_on: Time.now })
+    @reservation.transition_to(:payment_entered, { occured_on: Time.now }.to_json)
   end
 
   def pending_peyment!

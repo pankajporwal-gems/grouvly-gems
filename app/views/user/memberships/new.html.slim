@@ -44,30 +44,28 @@
           .col-sm-7
             = f.email_field :email_address, autofocus: true, class: 'form-control input-lg'
 
-        - unless me['birthday']
-          .form-group
-            = f.label :birthday, t('user.memberships.i_was_born_on'), class: 'col-sm-5 control-label'
+        .form-group
+          = f.label :birthday, t('user.memberships.i_was_born_on'), class: 'col-sm-5 control-label'
 
-            .col-sm-7
-              - if current_user.birthday.present?
-                = f.date_select :birthday, { order: [:month, :day, :year]}, class: 'form-control input-lg  date-select'
-              - else
-                = f.date_select :birthday, { order: [:month, :day, :year], start_year: 1950,
-                end_year: Date.today.year - 17 }, class: 'form-control input-lg  date-select'
+          .col-sm-7
+            - if current_user.birthday.present?
+              = f.date_select :birthday, { order: [:month, :day, :year]}, class: 'form-control input-lg  date-select'
+            - else
+              = f.date_select :birthday, { order: [:month, :day, :year], start_year: 1950,
+              end_year: Date.today.year - 17 }, class: 'form-control input-lg  date-select'
 
-        - unless me['gender']
-          .form-group
-            = f.label :gender, t('user.memberships.i_am_a'), class: 'col-sm-5 control-label'
+        .form-group
+          = f.label :gender, t('user.memberships.i_am_a'), class: 'col-sm-5 control-label'
 
-            .col-sm-7
-              .radio
-                label
-                  = f.radio_button :gender, @new_membership_presenter.genders['male']
-                  span= t('user.memberships.male')
+          .col-sm-7
+            .radio
+              label
+                = f.radio_button :gender, @new_membership_presenter.genders['male']
+                span= t('user.memberships.male')
 
-                label
-                  = f.radio_button :gender, @new_membership_presenter.genders['female']
-                  span= t('user.memberships.female')
+              label
+                = f.radio_button :gender, @new_membership_presenter.genders['female']
+                span= t('user.memberships.female')
 
         .form-group
           = f.label :gender_to_match, t('user.memberships.i_am_interested_in'), class: 'col-sm-5 control-label'

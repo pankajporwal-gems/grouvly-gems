@@ -4,6 +4,7 @@
       <div class="col-lg-12"> <!-- Adjust the column width as needed -->
         <div class="block-form">
           <%= form_for(:user, url: user_login_path, method: :post, html: { class: 'form-horizontal' }) do |f| %>
+            <%= f.hidden_field :r, value: get_url_refferer %>
             <div class="form-group">
               <div class="col-sm-12 text-center">
                 <%= f.label 'User UID' %>

@@ -1,4 +1,4 @@
-class UserInfo < ActiveRecord::Base
+class UserInfo < ApplicationRecord
 
   serialize :neighborhoods, Array
   serialize :meet_new_people_ages, Array
@@ -32,5 +32,13 @@ class UserInfo < ActiveRecord::Base
 
   def user_info_setter
     @user_info_setter ||= UserInfoSetter.new(self)
+  end
+
+  def birthday
+    if self.attributes["birthday"].is_a?(String)
+      DateTime.parse(self.attributes["birthday"])
+    else
+      self.attributes["birthday"]
+    end
   end
 end

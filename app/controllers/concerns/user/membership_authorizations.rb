@@ -14,7 +14,8 @@ module User::MembershipAuthorizations
   private
 
   def check_membership_info_exists
-    redirect_to user_root_url and return unless current_user.new?
+    redirect_to user_root_url and return if current_user.user_info.present?
+    # redirect_to user_root_url and return unless current_user.new?
   end
 
   def check_membership_rejected_or_pending

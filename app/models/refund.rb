@@ -1,4 +1,4 @@
-class Refund < ActiveRecord::Base
+class Refund < ApplicationRecord
   belongs_to :reservation
   belongs_to :card
   belongs_to :payment

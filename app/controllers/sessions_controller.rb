@@ -12,43 +12,36 @@ class SessionsController < ApplicationController
       redirect_to root_url
     end
   end
-
+  
   def new
-    @uid = User.first.uid
+    @uid = User.includes(:user_info).where(user_infos: { id: nil }).pluck(:uid).join(', ')
   end
-
+  
   def create
     user = User.find_by(uid: params[:user][:uid])
+
     if user.present?
       reset_session
+      if params[:user][:r].present?
+        session[:join_grouvly_url] = params[:user][:r]
+      end
+
       session[:user_id] = user.id
       increase_session_count(user)
-      # To keep users logged in
-      # cookies.permanent[:oauth_uid] = user.uid
-
-      # index = :join_grouvly_url
-      redirect_to user_root_url
-      # session[index] = url if url.present? && session_index == index
     else
       flash[:alert] = "User Not Found"
       render :new
     end
-
+    if user.user_info.blank?
+      redirect_to new_user_membership_url
+    else
+      track_event(EVENT_LOGGED_IN)
+      render_page_of_logged_in_user
+    end
     # session_index, url = set_referral_tracking_url
     # return_to = session[:return_to]
     # login_user(session_index, url)
 
-    # if return_to
-    #   track_event(EVENT_LOGGED_IN)
-    #   set_flash
-    #   redirect_to return_to
-    # elsif current_user.user_info.blank?
-    #   set_flash
-    #   redirect_to new_user_membership_url
-    # else
-    #   track_event(EVENT_LOGGED_IN)
-    #   render_page_of_logged_in_user
-    # end
   end
 
   def destroy
@@ -73,7 +66,7 @@ class SessionsController < ApplicationController
 
   def login_user(session_index, url)
     reset_session
-    build_user.process_user
+    # build_user.process_user
     session[:user_id] = build_user.user.id
     increase_session_count(build_user.user)
     # To keep users logged in
@@ -118,8 +111,7 @@ class SessionsController < ApplicationController
   end
 
   def render_page_of_logged_in_user
-    build_user.user.update_from_facebook
-
+    # build_user.user.update_from_facebook
     if session[:join_grouvly_url]
       process_invite_wings
     elsif build_user.user.wing? && @referrer.present?

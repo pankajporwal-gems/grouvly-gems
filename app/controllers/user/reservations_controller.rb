@@ -63,7 +63,7 @@ class User::ReservationsController < User::UsersController
         end
       end
     elsif params[:auto_roll]
-      reservation.update_attribute('is_roll', params[:auto_roll])
+      @reservation.update_attribute('is_roll', params[:auto_roll])
       redirect_to :back
     end
   end
@@ -102,6 +102,13 @@ class User::ReservationsController < User::UsersController
   end
 
   def get_reservation
-    @reservation ||= Reservation.where(id: params[:id]).first
+    begin
+      @reservation ||= Reservation.find_by(slug: params[:id]) || Reservation.find_by(id: params[:id])
+    rescue PG::InvalidTextRepresentation => exception
+      # Handle the exception appropriately
+      puts "Error: #{exception.message}"
+    end
+    
+    # @reservation ||= Reservation.where(id: params[:id]).first
   end
 end

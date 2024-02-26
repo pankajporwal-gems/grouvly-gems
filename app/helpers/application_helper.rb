@@ -83,4 +83,23 @@ module ApplicationHelper
     end
   end
 
+  def get_url_refferer
+    uri = URI.parse(request.url)
+
+    if uri.query.present?
+      query_segment = uri.query.split("=")
+      return query_segment.last if query_segment.include?("r")
+    else
+      path_segments = uri.path.split("/")
+      return path_segments.last if path_segments.include?("r")
+    end
+  end
+
+  def get_login_url
+    if get_url_refferer.present?
+      new_user_login_path(r: get_url_refferer)
+    else
+      new_user_login_path
+    end
+  end
 end

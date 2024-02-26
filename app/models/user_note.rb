@@ -1,4 +1,4 @@
-class UserNote < ActiveRecord::Base
+class UserNote < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :content

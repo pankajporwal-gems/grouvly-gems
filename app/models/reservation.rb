@@ -1,4 +1,4 @@
-class Reservation < ActiveRecord::Base
+class Reservation < ApplicationRecord
   include Statesman::Adapters::ActiveRecordQueries
 
   after_create :generate_slug

@@ -10,7 +10,7 @@ class StateMachines::User
   state :deauthorized
 
   transition from: :new, to: [:pending, :wing, :deauthorized]
-  transition from: :pending, to: [:accepted, :rejected, :deauthorized, :blocked]
+  transition from: :pending, to: [:wing, :accepted, :rejected, :deauthorized, :blocked]
   transition from: :deauthorized, to: [:pending, :accepted, :wing, :blocked]
   transition from: :accepted, to: [:blocked, :deauthorized]
   transition from: :wing, to: [:pending, :blocked, :deauthorized]

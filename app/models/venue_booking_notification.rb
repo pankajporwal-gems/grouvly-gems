@@ -1,4 +1,4 @@
-class VenueBookingNotification < ActiveRecord::Base
+class VenueBookingNotification < ApplicationRecord
   belongs_to :venue_booking, dependent: :destroy
   belongs_to :matched_reservation
   belongs_to :reservation

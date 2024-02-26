@@ -26,10 +26,10 @@ module User::Memberships
 
   def continue_with_step_two
     if membership.errors.blank?
-      membership.set_gender(me)
-      membership.set_birthday(me)
-      membership.set_work(me)
-      membership.set_education(me)
+      # membership.set_gender(me)
+      # membership.set_birthday(me)
+      # membership.set_work(me)
+      # membership.set_education(me)
       @step_two_membership_presenter = StepTwoMembershipPresenter.new(membership)
       render 'step_two'
     else
@@ -51,9 +51,9 @@ module User::Memberships
   end
 
   def finish_submitting_membership
-    membership.set_other_details(me, graph, params[:user_info])
+    membership.set_other_details(nil, nil, params[:user_info])  #for portfolio project
+    # membership.set_other_details(me, graph, params[:user_info])
     membership.update_images
-
     if session[:join_grouvly_url]
       membership.save!(validate: false)
       set_user_as_wing

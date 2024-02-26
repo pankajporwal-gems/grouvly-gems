@@ -41,9 +41,10 @@
 - else
   ul.nav.nav-pills.pull-right.pt-15.pb-15
     li
-      = link_to t('terms.get_started').upcase, page_presenter.login_url, class: 'btn btn-primary hidden-xs',
+      = link_to t('terms.get_started').upcase, get_login_url, class: 'btn btn-primary hidden-xs',
         target: '_top'
 
+  - if get_url_refferer.blank?
     li
       = link_to page_presenter.login_url, class: 'text-white btn-not', target: '_top' do
         = t('terms.login')

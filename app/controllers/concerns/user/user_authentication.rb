@@ -2,7 +2,7 @@ module User::UserAuthentication
   extend ActiveSupport::Concern
 
   included do
-    before_filter :authenticate_user, except: [:join, :confirm_venue_notification]
+    # before_filter :authenticate_user, except: [:join, :confirm_venue_notification]
     before_filter :check_user_blocked, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
     before_filter :check_user_rejected, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
     before_filter :check_user_deauthorized, except: [:join, :confirmed, :dashboard, :confirm_venue_notification]
@@ -40,7 +40,7 @@ module User::UserAuthentication
   def check_user_rejected
     redirect_to finish_user_membership_url and return if current_user.rejected?
   end
-
+  
   def check_user_deauthorized
     if current_user.deauthorized?
       history = current_user.history

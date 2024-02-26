@@ -1,4 +1,4 @@
-class Referral < ActiveRecord::Base
+class Referral < ApplicationRecord
   belongs_to :user
   belongs_to :referrer, class_name: 'User', foreign_key: :user_id
   belongs_to :referral, class_name: 'User'

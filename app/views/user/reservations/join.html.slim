@@ -13,9 +13,8 @@
             = t('user.reservations.join.join_grouvly', user: @presenter.lead_first_name)
 
           h3= t('user.reservations.join.on_date', date: @presenter.reservation_date)
-
           .actions
-            = link_to @presenter.login_url, class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
+            = link_to new_user_login_path(r: get_url_refferer), class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
               = icon('facebook')
               | &nbsp &nbsp
               = t('user.reservations.join.join_now')

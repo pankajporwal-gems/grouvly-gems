@@ -10,7 +10,7 @@ module User::ReservationAuthorizations
   private
 
   def check_reservation_is_valid
-    render not_found if Chronic.parse('now').to_i >= reservation.schedule.to_i
+    render not_found if Chronic.parse('now') >= reservation.schedule
   end
 
   def check_user_accepted

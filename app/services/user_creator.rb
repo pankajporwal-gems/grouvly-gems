@@ -4,10 +4,12 @@ class UserCreator
   attr_reader :user
 
   def initialize(auth, referrer, sources)
-    @user ||= User.where(provider: auth.provider, uid: auth.uid).first
-    @auth ||= auth
-    @referrer ||= referrer
-    @sources ||= sources
+    # @user ||= User.where(provider: auth.provider, uid: auth.uid).first
+    # @user ||= User.where(provider: auth.provider, uid: auth.uid).first
+    # @auth ||= auth
+    # @referrer ||= referrer
+    # @sources ||= sources
+    @user = User.new
   end
 
   def process_user

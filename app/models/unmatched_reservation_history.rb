@@ -1,4 +1,4 @@
-class UnmatchedReservationHistory < ActiveRecord::Base
+class UnmatchedReservationHistory < ApplicationRecord
   belongs_to :reservation
   belongs_to :user
 

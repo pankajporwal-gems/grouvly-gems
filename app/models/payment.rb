@@ -1,4 +1,4 @@
-class Payment < ActiveRecord::Base
+class Payment < ApplicationRecord
   before_validation :skip_reservation_validation
   before_validation :check_card
   before_destroy :delete_credit
