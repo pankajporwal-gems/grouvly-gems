@@ -79,8 +79,8 @@ class Admin::VenuesController < Admin::AdminsController
   def venue_params
     params.require(:venue).permit(:name, :venue_type, :location, :neighborhood, :other_neighborhood,
                                   :owner_name, :owner_email, :owner_phone, :is_free, :map_link, :directions,
-                                  :capacity, :manager_name, :manager_email, :manager_phone, :note,
-                                  booking_availability: Venue.stored_attributes[:booking_availability])
+                                  :capacity, :manager_name, :manager_email, :manager_phone, :note)
+                                  #booking_availability: Venue.stored_attributes[:booking_availability])
   end
 
   def get_update_params

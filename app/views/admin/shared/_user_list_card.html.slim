@@ -5,7 +5,7 @@
     = link_to user.large_profile_picture, class: "img-colorbox user-#{user.slug}" do
       = image_tag user.large_profile_picture, width: 110
 
-    - if user.photos.present?
+    //- if user.photos.present?
       - user.photos.each do |photo|
         = link_to '', photo, class: "img-colorbox user-#{user.slug}"
 

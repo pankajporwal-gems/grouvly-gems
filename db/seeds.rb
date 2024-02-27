@@ -30,7 +30,7 @@ admin = {
   "last_name" => 'User'
 }
 
-user = User.create(provider: "facebook", first_name: "Example", last_name: "User", oauth_token: "fsdjlkfjlkd2143251453dfdfd", oauth_expires_at: "2024-04-21 10:33:39.959555", slug: "Example-1456352f-sdfsf", uid: "124578965352dfdfd58")
+user = User.create(provider: "facebook", first_name: "Example", last_name: "User", oauth_token: "fsdjlkfjlkd2143251453dfdfd", oauth_expires_at: "2024-04-21 10:33:39.959555", slug: "1456352fsdfs", uid: "124578965352dfdfd58")
 
 #User transition
 ut1 = UserTransition.create(to_state: "pending", metadata: { occured_on: Time.now }.to_json, sort_key: 0, user_id: user.id)
@@ -61,7 +61,7 @@ user_info.save
     last_name: Faker::Name.last_name,
     oauth_token: Faker::Internet.password(30),
     oauth_expires_at: Time.now + 60.days,
-    slug: "#{Faker::Internet.user_name}-#{Faker::Internet.password(8)}",
+    slug: Faker::Internet.password(12),
     uid: Faker::Internet.password(20)
   )
 

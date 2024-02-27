@@ -93,7 +93,7 @@ class Admin::MatchesController < Admin::AdminsController
             venue_booking_notification.reservation_id = reservation
 
             if venue_booking_notification.save
-              SendVenueLocationDetailsJob.perform_later(venue_booking_notification.id)
+              SendVenueLocationDetailsJob.perform_now(venue_booking_notification.id)
               notifications << venue_booking_notification
             end
           end
@@ -139,7 +139,7 @@ class Admin::MatchesController < Admin::AdminsController
       venues = bookings.collect { |booking| booking.venue_id }.uniq
       venues.each do |venue|
         venue_bookings = bookings.select { |booking| booking.venue_id == venue }
-        SendVenueTableBookingJob.perform_later(venue, venue_bookings)
+        SendVenueTableBookingJob.perform_now(venue, venue_bookings)
       end
     end
   end

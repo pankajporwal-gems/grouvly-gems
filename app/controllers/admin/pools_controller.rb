@@ -25,7 +25,7 @@ class Admin::PoolsController < Admin::AdminsController
 
   def new_grouvly
     if params[:submit].present?
-      @users = User.by_email_and_name(params[:email], params[:name].split) if params[:name].present? || params[:email].present?
+      @users = User.by_email_and_name(params[:email], params[:name].split) if params[:name].present? || params[:email].present?      
       if @users.blank?
         flash.now[:error] = I18n.t('admin.pools.new_grouvly.no_record_found')
       end
@@ -133,7 +133,7 @@ def payment_error(payment, user, result)
   BRAINTREE_LOGGER.info("payment :: #{payment.inspect}, payment_status:: error, payment_errors :: #{payment.errors.full_messages}, payment_result: #{result}")
 
   if user.errors.any?
-    edit_profile_path = "#{request.protocol}#{request.host_with_port}#{edit_admin_member_path(user)}"
+    edit_profile_path = "#{request.protocol}#{request.host_with_port}#{edit_admin_member_path(user.id)}"
     flash.now[:error] = I18n.t('admin.pools.new_grouvly.incomplete_profile', edit_profile_url: edit_profile_path)
   else
     flash.now[:error] = I18n.t('admin.pools.new_grouvly.we_cannot_process_your_card', user_name: user.name)

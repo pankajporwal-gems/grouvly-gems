@@ -42,7 +42,8 @@ class UserDecorator
   def headline
     status = I18n.t('admin.members.joined')
     status = I18n.t('admin.members.rejected') if @user.rejected?
-    date = Date.parse(@user.user_transitions.last.metadata['occured_on']).strftime(' %B %d %Y')
+    parsed_metadat = JSON.parse(@user.user_transitions.last.metadata)
+    date = Date.parse(parsed_metadat['occured_on']).strftime(' %B %d %Y')
 
     "#{I18n.t('admin.members.in')} #{@user.location} - #{status} #{date}"
   end

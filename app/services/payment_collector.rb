@@ -40,7 +40,7 @@ class PaymentCollector
       return true
     else
       @payment.update_attribute(:message, errors(call_create_customer))
-      SendPaymentErrorJob.perform_later(@payment.id, @user.id)
+      SendPaymentErrorJob.perform_now(@payment.id, @user.id)
       return false
     end
   end
@@ -70,7 +70,7 @@ class PaymentCollector
       else
         BRAINTREE_LOGGER.info("Create payment_method errors:: #{errors(call_create_payment_method)}")
         @payment.update_attribute(:message, errors(call_create_payment_method))
-        SendPaymentErrorJob.perform_later(@payment.id, @user.id)
+        SendPaymentErrorJob.perform_now(@payment.id, @user.id)
         return false
       end
     end

@@ -149,6 +149,10 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def schedule
+    super.to_datetime
+  end
+
   private
 
   def generate_slug

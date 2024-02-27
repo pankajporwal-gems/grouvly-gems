@@ -12,7 +12,7 @@ table.table.table-bordered
     -@users.each do |user|
       tr
         td
-          = link_to user.name, admin_member_path(user)
+          = link_to user.name, admin_member_path(user.id)
         td
           = user.email_address
           = hidden_field_tag :lead_user_id, user.id

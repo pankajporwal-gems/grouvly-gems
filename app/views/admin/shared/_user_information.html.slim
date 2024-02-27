@@ -22,10 +22,10 @@
 
             ul.dropdown-menu[role='menu' aria-labelledby='block-choose-status']
               - if user.pending?
-                li= link_to t('admin.applicants.accept'), accept_admin_applicant_path(user)
-                li= link_to t('admin.applicants.reject'), reject_admin_applicant_path(user)
+                li= link_to t('admin.applicants.accept'), accept_admin_applicant_path(user.id)
+                li= link_to t('admin.applicants.reject'), reject_admin_applicant_path(user.id)
 
-              li= link_to t('admin.applicants.block'), block_admin_applicant_path(user) if user.accepted?
+              li= link_to t('admin.applicants.block'), block_admin_applicant_path(user.id) if user.accepted?
 
       .block-labels
         span.label.label-primary= user.membership_type

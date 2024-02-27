@@ -4,14 +4,14 @@ development:
   database: app_development 
   host: localhost 
   pool: 5
-  username: user19
-  password: 123456
+  username: postgres
+  password: postgres
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: app_test
-  host: localhost 
-  pool: 5
-  username: user19
-  password: 123456 
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: app_test
+#   host: localhost 
+#   pool: 5
+#   username: user19
+#   password: 123456 

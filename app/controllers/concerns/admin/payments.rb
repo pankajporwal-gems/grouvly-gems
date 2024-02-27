@@ -60,10 +60,10 @@ module Admin::Payments
   def send_emails
     if reservation.user == @user
       if payment.status == "success"
-        SendLeadPaymentEmailJob.perform_later(payment.id)
-        SendForwardToFriendsEmailJob.perform_later(payment.id)
+        SendLeadPaymentEmailJob.perform_now(payment.id)
+        SendForwardToFriendsEmailJob.perform_now(payment.id)
       elsif payment.status == "pending"
-        SendPendingPaymentEmailJob.perform_later(payment.id)
+        SendPendingPaymentEmailJob.perform_now(payment.id)
       end
     end
   end

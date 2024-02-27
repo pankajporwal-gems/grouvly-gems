@@ -1,6 +1,18 @@
 class SessionsController < ApplicationController
   include User::UserTracking
 
+  def admin_login
+    reset_session
+    set_admin_session
+    
+    if current_admin
+      redirect_to admin_root_url
+    else
+      reset_session
+      redirect_to root_url
+    end
+  end
+
   def authenticate_admin
     reset_session
     set_admin_session
@@ -123,7 +135,21 @@ class SessionsController < ApplicationController
   end
 
   def set_admin_session
-    user = env['omniauth.auth']['info']
+    user = {
+      "email" => "admin@gmail.com",
+      "first_name" => "Admin",
+      "last_name" => "PortVGrouvly",
+      "image" => "https://images.pexels.com/photos/1666779/pexels-photo-1666779.jpeg?auto=compress&cs=tinysrgb&w=600"
+    }
+
+    # user = {
+    #   "email" => "matcher@gmail.com",
+    #   "first_name" => "Matcher",
+    #   "last_name" => "PortVGrouvly",
+    #   "image" => "https://e1.pxfuel.com/desktop-wallpaper/4/992/desktop-wallpaper-boy-back-back-pose-thumbnail.jpg"
+    # }
+
+    # user = env['omniauth.auth']['info']
     session[:admin_id] = user['email']
     session[:admin_first_name] = user['first_name']
     session[:admin_last_name] = user['last_name']

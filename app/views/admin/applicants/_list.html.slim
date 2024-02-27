@@ -3,10 +3,10 @@
     - @presenter.applicants.in_groups_of(2) do |applicants|
       .row
         .container-fluid
-          - applicants.each do |applicant|
+          - applicants.compact.each do |applicant|
             - unless applicant.blank?
               = render partial: 'admin/shared/user_list_card', locals: { user: applicant,
-                show_user_link: admin_applicant_path(applicant) }
+                show_user_link: admin_applicant_path(applicant.id) }
   - else
     .row
       .container-fluid

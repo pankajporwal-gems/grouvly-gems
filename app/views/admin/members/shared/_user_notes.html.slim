@@ -1,5 +1,5 @@
 #user-notes.tab-pane.active
-  = form_tag create_note_admin_member_path(user_decorator.user), class: 'clearfix'
+  = form_tag create_note_admin_member_path(user_decorator.user.id), class: 'clearfix'
     = error_messages!(user_decorator.user)
 
     .form-group

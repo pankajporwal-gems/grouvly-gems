@@ -16,6 +16,6 @@
 
                 .media-body
                   - if friend.accepted?
-                    = link_to "#{friend.first_name} #{friend.last_name}", admin_member_path(friend)
+                    = link_to "#{friend.first_name} #{friend.last_name}", admin_member_path(friend.id)
                   - else
                     = "#{friend.first_name} #{friend.last_name}"

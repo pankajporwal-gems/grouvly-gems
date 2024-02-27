@@ -44,15 +44,15 @@ class UserState
   end
 
   def accept!(performer)
-    @user.transition_to(:accepted, { occured_on: Time.now, performed_by: performer })
+    @user.transition_to(:accepted, { occured_on: Time.now, performed_by: performer }.to_json)
   end
 
   def reject!(performer, reason)
-    @user.transition_to(:rejected, { occured_on: Time.now, performed_by: performer, reason: reason })
+    @user.transition_to(:rejected, { occured_on: Time.now, performed_by: performer, reason: reason }.to_json)
   end
 
   def deauthorized!
-    @user.transition_to(:deauthorized, { occured_on: Time.now })
+    @user.transition_to(:deauthorized, { occured_on: Time.now }.to_json)
   end
 
   def changed_state_on?(state)

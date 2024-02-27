@@ -50,7 +50,7 @@ class PaymentProcessor
 
           SIDEKIQ_LOGGER.info "capture_all_payments:: capture_successfully: #{payment.inspect}"
 
-          SendPaymentReceiptJob.perform_later(payment.id) if capture_payment.success?
+          SendPaymentReceiptJob.perform_now(payment.id) if capture_payment.success?
         else
           SIDEKIQ_LOGGER.info "capture_all_payments:: capture_successfully_for_free_card: #{payment.card.token}"
           payment.method = 'capture'

@@ -28,7 +28,7 @@ modulejs.define('userPhotos', ['jquery', 'react', 'immutableRenderMixin'], funct
       var wing1Info = wing1.user_info;
       var wing2Info = wing2.user_info;
 
-      if (wing_count == 1){
+      if (wing_count == 1) {
         user_photos = React.createElement(
           'div',
           null,
@@ -37,17 +37,17 @@ modulejs.define('userPhotos', ['jquery', 'react', 'immutableRenderMixin'], funct
             { href: leadInfo.large_profile_picture, className: leadClass },
             React.createElement('img', { src: leadInfo.normal_profile_picture, width: '100%' })
           ),
-          leadInfo.photos.map(function (photo, index) {
-            return React.createElement('a', { href: photo, className: leadClass, key: 'lead-photos' + lead.slug + '-' + index });
-          }),
+          // leadInfo.photos.map(function (photo, index) {
+          //   return React.createElement('a', { href: photo, className: leadClass, key: 'lead-photos' + lead.slug + '-' + index });
+          // }),
           React.createElement(
             'a',
             { href: wing1Info.large_profile_picture, className: leadClass },
-            React.createElement('img', { src: wing1Info.normal_profile_picture, width: '100%'})
+            React.createElement('img', { src: wing1Info.normal_profile_picture, width: '100%' })
           )
         )
 
-      }else {
+      } else {
         user_photos = React.createElement(
           'div',
           null,
@@ -56,9 +56,9 @@ modulejs.define('userPhotos', ['jquery', 'react', 'immutableRenderMixin'], funct
             { href: leadInfo.large_profile_picture, className: leadClass },
             React.createElement('img', { src: leadInfo.normal_profile_picture, width: '100%' })
           ),
-          leadInfo.photos.map(function (photo, index) {
-            return React.createElement('a', { href: photo, className: leadClass, key: 'lead-photos' + lead.slug + '-' + index });
-          }),
+          // leadInfo.photos.map(function (photo, index) {
+          //   return React.createElement('a', { href: photo, className: leadClass, key: 'lead-photos' + lead.slug + '-' + index });
+          // }),
           React.createElement(
             'a',
             { href: wing1Info.large_profile_picture, className: leadClass },

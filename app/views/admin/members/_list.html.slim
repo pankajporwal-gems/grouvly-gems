@@ -6,7 +6,7 @@
           - members.each do |member|
             - unless member.blank?
               = render partial: 'admin/shared/user_list_card', locals: { user: member,
-                show_user_link: admin_member_path(member) }
+                show_user_link: admin_member_path(member.id) }
   - else
     .row
       .container-fluid
