@@ -12,6 +12,7 @@
 
     .col-sm-6
       = text_field_tag :payment_card_number, @card.present? ? @card.last_4.rjust(16, '*') : '', 'data-braintree-name'=> 'number', class: 'form-control input-lg', readonly: @card.present? ? true : false
+      small= t('user.payments.sample_card_number')
 
     = f.label :cvv, t('user.payments.cvv'), class: 'col-sm-1 text-right'
 

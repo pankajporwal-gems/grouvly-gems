@@ -3,6 +3,6 @@ class PendMembershipJob < ActiveJob::Base
 
   def perform(user_id)
     @user = User.find(user_id)
-    MembershipMailer.pend(@user).deliver_later
+    # MembershipMailer.pend(@user).deliver_later
   end
 end

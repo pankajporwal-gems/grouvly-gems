@@ -36,7 +36,7 @@ class UserState
   end
 
   def pend!
-    @user.transition_to(:pending, { occured_on: Time.now })
+    @user.transition_to(:pending, { occured_on: Time.now }.to_json)
   end
 
   def wing!

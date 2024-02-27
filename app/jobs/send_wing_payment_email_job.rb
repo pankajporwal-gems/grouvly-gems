@@ -3,6 +3,6 @@ class SendWingPaymentEmailJob < ActiveJob::Base
 
   def perform(payment_id)
     @payment = Payment.find(payment_id)
-    PaymentMailer.email_wing(@payment).deliver_later
+    # PaymentMailer.email_wing(@payment).deliver_later
   end
 end

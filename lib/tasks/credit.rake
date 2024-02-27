@@ -48,7 +48,7 @@ namespace :credit do
       credits.each do |credit|
         user = credit.user
 
-        SendCreditReminderJob.perform_later(index, credit.id) if user.used_credits == 0
+        SendCreditReminderJob.perform_now(index, credit.id) if user.used_credits == 0
       end
     end
   end

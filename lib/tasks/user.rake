@@ -4,8 +4,8 @@ namespace :user do
     users = User.not_in_state(:new).joins(:user_info).where('user_infos.last_facebook_update <= ?', Chronic.parse('1 month from now at 12 AM'))
 
     users.each do |user|
-      UpdateFacebookJob.perform_later(user.id)
-      UpdateImagesJob.perform_later(user.id)
+      UpdateFacebookJob.perform_now(user.id)
+      UpdateImagesJob.perform_now(user.id)
     end
   end
 
@@ -14,7 +14,7 @@ namespace :user do
     users = User.in_state(:accepted).joins(:user_info).where('user_infos.last_facebook_update <= ?', Chronic.parse('1 month from now at 12 AM'))
 
     users.each do |user|
-      UpdateFacebookFriendsJob.perform_later(user.id)
+      UpdateFacebookFriendsJob.perform_now(user.id)
     end
   end
 

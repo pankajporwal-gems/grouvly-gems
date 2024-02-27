@@ -97,7 +97,7 @@ namespace :data do
     User.all.each do |user|
       unless user.user_info.blank?
         user.update_images
-        UpdateFacebookJob.perform_later(user.id)
+        UpdateFacebookJob.perform_now(user.id)
       end
     end
   end

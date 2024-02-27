@@ -4,7 +4,7 @@ namespace :reservation do
     users = User.users_accepted_yesterday_and_not_booked
 
     users.each do |user|
-      SendFirstReservationReminderJob.perform_later(user.id)
+      SendFirstReservationReminderJob.perform_now(user.id)
     end
   end
 

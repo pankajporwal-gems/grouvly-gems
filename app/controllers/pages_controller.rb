@@ -95,7 +95,7 @@ class PagesController < ApplicationController
 
       if @inquiry.valid?
         flash.now[:notice] = I18n.t('pages.contact_us.your_inquiry_has_been_submitted')
-        SendInquiryJob.perform_later(JSON.parse(@inquiry.to_json).to_hash)
+        SendInquiryJob.perform_now(JSON.parse(@inquiry.to_json).to_hash)
         @inquiry = Inquiry.new
       end
     else

@@ -3,6 +3,6 @@ class SendForwardToFriendsEmailJob < ActiveJob::Base
 
   def perform(payment_id)
     @payment = Payment.find(payment_id)
-    PaymentMailer.forward_to_friends(@payment).deliver_later
+    # PaymentMailer.forward_to_friends(@payment).deliver_later
   end
 end

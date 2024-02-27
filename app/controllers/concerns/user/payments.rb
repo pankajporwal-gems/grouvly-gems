@@ -124,11 +124,11 @@ module User::Payments
 
   def send_emails
     if reservation.user == current_user
-      SendLeadPaymentEmailJob.perform_later(payment.id)
-      SendForwardToFriendsEmailJob.perform_later(payment.id)
+      SendLeadPaymentEmailJob.perform_now(payment.id)
+      SendForwardToFriendsEmailJob.perform_now(payment.id)
       redirect_to invite_wings_user_reservation_url(reservation.slug) and return
     else
-      SendWingPaymentEmailJob.perform_later(payment.id)
+      SendWingPaymentEmailJob.perform_now(payment.id)
       redirect_to confirmed_user_reservation_url(reservation.slug) and return
     end
   end

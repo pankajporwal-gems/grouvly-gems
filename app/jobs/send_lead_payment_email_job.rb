@@ -3,6 +3,6 @@ class SendLeadPaymentEmailJob < ActiveJob::Base
 
   def perform(payment_id)
     @payment = Payment.find(payment_id)
-    PaymentMailer.email_lead(@payment).deliver_later
+    # PaymentMailer.email_lead(@payment).deliver_later
   end
 end
