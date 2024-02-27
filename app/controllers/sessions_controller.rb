@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
   include User::UserTracking
 
+  def new_admin
+  end
+  
   def admin_login
     reset_session
     set_admin_session
-    
     if current_admin
       redirect_to admin_root_url
     else
@@ -135,25 +137,34 @@ class SessionsController < ApplicationController
   end
 
   def set_admin_session
-    user = {
+    admin = {
       "email" => "admin@gmail.com",
+      "password" => "password",
       "first_name" => "Admin",
       "last_name" => "PortVGrouvly",
       "image" => "https://images.pexels.com/photos/1666779/pexels-photo-1666779.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
-
-    # user = {
-    #   "email" => "matcher@gmail.com",
-    #   "first_name" => "Matcher",
-    #   "last_name" => "PortVGrouvly",
-    #   "image" => "https://e1.pxfuel.com/desktop-wallpaper/4/992/desktop-wallpaper-boy-back-back-pose-thumbnail.jpg"
-    # }
+    
+    matcher = {
+      "email" => "matcher@gmail.com",
+      "password" => "password",
+      "first_name" => "Matcher",
+      "last_name" => "PortVGrouvly",
+      "image" => "https://e1.pxfuel.com/desktop-wallpaper/4/992/desktop-wallpaper-boy-back-back-pose-thumbnail.jpg"
+    }
 
     # user = env['omniauth.auth']['info']
-    session[:admin_id] = user['email']
-    session[:admin_first_name] = user['first_name']
-    session[:admin_last_name] = user['last_name']
-    session[:admin_photo] = user['image']
+    if params[:user][:email] == admin["email"] && params[:user][:password] == admin["password"]
+      session[:admin_id] = admin['email']
+      session[:admin_first_name] = admin['first_name']
+      session[:admin_last_name] = admin['last_name']
+      session[:admin_photo] = admin['image']
+    elsif params[:user][:email] == matcher["email"] && params[:user][:password] == matcher["password"]
+      session[:admin_id] = matcher['email']
+      session[:admin_first_name] = matcher['first_name']
+      session[:admin_last_name] = matcher['last_name']
+      session[:admin_photo] = matcher['image']
+    end
   end
 
   def increase_session_count(user)

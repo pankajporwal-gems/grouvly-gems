@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index', via: [:get, :post]
 
-  match '/admin/login', to: 'sessions#admin_login', via: [:get, :post]
   # match '/auth/admin/callback', to: 'sessions#authenticate_admin', as: :google_callback, via: [:get, :post]
   # match 'auth/facebook/callback', to: 'sessions#create', as: :facebook_callback, via: [:get, :post]
   match 'auth/failure', to: redirect('/why-facebook'), as: :facebook_failure, via: [:get, :post]
@@ -120,6 +119,9 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'admin/login', to: 'sessions#new_admin'
+  post 'admin/login', to: 'sessions#admin_login'
 
   scope :location, as: :location do
     get 'countries', to: 'locations#countries'
