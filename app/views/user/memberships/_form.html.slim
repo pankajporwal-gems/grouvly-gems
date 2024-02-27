@@ -19,8 +19,11 @@
 
     .row
       .col-sm-12
-        = f.date_select :birthday, { order: [:month, :day, :year] },
+        // = f.date_select :birthday, { order: [:month, :day, :year] },
           class: 'form-control input-lg date-select'
+
+        = f.date_select :birthday, { order: [:month, :day, :year], start_year: 1950,
+            end_year: Date.today.year - 17 }, class: 'form-control input-lg  date-select'
 
   .form-group
     = f.label :gender, t('user.memberships.i_am_a')

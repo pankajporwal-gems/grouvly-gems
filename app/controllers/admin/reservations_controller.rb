@@ -44,7 +44,7 @@ class Admin::ReservationsController < Admin::AdminsController
     result = payment_processor.refund_total_amount
     if result
       if reservation.cancel!
-        ReservationMailer.notify_about_cancel_reservation(reservation.id).deliver_later
+        # ReservationMailer.notify_about_cancel_reservation(reservation.id).deliver_later
         notification = { msg: I18n.t('admin.matches.show.cancel_booking', user_name: reservation.user.name, date: reservation.schedule.strftime('%d %b %Y (%a) at %l:%M %p')), result: true }
       else
         notification = { msg: I18n.t('admin.matches.show.already_cancelled'), result: false  }

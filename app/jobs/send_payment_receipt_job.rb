@@ -3,7 +3,7 @@ class SendPaymentReceiptJob < ActiveJob::Base
 
   def perform(payment_id)
     @payment = Payment.find(payment_id)
-    PaymentMailer.email_receipt(@payment).deliver_later
-    PaymentMailer.email_receipt_to_accounting(@payment).deliver_later
+    # PaymentMailer.email_receipt(@payment).deliver_later
+    # PaymentMailer.email_receipt_to_accounting(@payment).deliver_later
   end
 end

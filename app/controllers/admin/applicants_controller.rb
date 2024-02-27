@@ -99,7 +99,7 @@ class Admin::ApplicantsController < Admin::AdminsController
     payment_processor = PaymentProcessor.new(reservation)
     result = payment_processor.refund_total_amount
     if result && reservation.cancel!
-      ReservationMailer.notify_about_cancel_reservation(reservation.id).deliver_later
+      # ReservationMailer.notify_about_cancel_reservation(reservation.id).deliver_later
     end
   end
 

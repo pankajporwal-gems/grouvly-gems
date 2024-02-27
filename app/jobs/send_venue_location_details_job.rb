@@ -3,6 +3,6 @@ class SendVenueLocationDetailsJob < ActiveJob::Base
 
   def perform(venue_booking_notification_id)
     @venue_notification = VenueBookingNotification.find(venue_booking_notification_id)
-    PoolsMatchedMailer.send_venue_location_details(@venue_notification).deliver_later
+    # PoolsMatchedMailer.send_venue_location_details(@venue_notification).deliver_later
   end
 end

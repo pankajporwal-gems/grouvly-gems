@@ -58,8 +58,17 @@ class UserInfoSetter
     # @user_info.likes = graph.get_connections(me['id'], 'likes')
     # set_neighborhood(params)
     #For portfolio project
-    birthday = eval(params['birthday'])
-    @user_info.birthday = Date.new(birthday[1], birthday[2], birthday[3])
+    if params['birthday']
+      birthday = eval(params['birthday'])
+      @user_info.birthday = Date.new(birthday[1], birthday[2], birthday[3])
+    else
+      birthday_hash = {
+      1 => params.delete(:"birthday(1i)"),
+      2 => params.delete(:"birthday(2i)"),
+      3 => params.delete(:"birthday(3i)")
+    }
+      @user_info.birthday = Date.new(birthday_hash[1].to_i, birthday_hash[2].to_i, birthday_hash[3].to_i)
+    end
     set_native_place(params)
   end
 

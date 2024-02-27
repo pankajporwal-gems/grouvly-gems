@@ -9,7 +9,7 @@ class ApplyReferralCreditJob < ActiveJob::Base
       credit_processor.reward_referrer
 
       if @user.referrer.accepted?
-        CreditMailer.send_reward_email_to_referrer(credit_processor.referrer_credit).deliver_later
+        # CreditMailer.send_reward_email_to_referrer(credit_processor.referrer_credit).deliver_later
       end
     end
   end

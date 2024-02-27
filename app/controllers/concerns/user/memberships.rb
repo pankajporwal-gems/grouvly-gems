@@ -65,6 +65,7 @@ module User::Memberships
 
   def get_parameters_for_update
     parameters = membership_params
+    parse_birthday(parameters)
     # if membership_params[:neighborhood] == t('terms.others')
     #   parameters[:neighborhood] = membership_params[:other_neighborhood]
     # end
@@ -77,6 +78,16 @@ module User::Memberships
     else
       parameters[:origin] = APP_CONFIG['available_origins']['expat']
     end
+    parameters
+  end
+
+  def parse_birthday(parameters)
+    birthday_hash = {
+      1 => parameters.delete(:"birthday(1i)"),
+      2 => parameters.delete(:"birthday(2i)"),
+      3 => parameters.delete(:"birthday(3i)")
+    }
+    parameters[:birthday] = Date.new(birthday_hash[1].to_i, birthday_hash[2].to_i, birthday_hash[3].to_i)
     parameters
   end
 
