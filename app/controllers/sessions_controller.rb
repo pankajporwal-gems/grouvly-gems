@@ -40,20 +40,17 @@ class SessionsController < ApplicationController
 
       session[:user_id] = user.id
       increase_session_count(user)
+
+      if user.user_info.blank?
+        redirect_to new_user_membership_url
+      else
+        track_event(EVENT_LOGGED_IN)
+        render_page_of_logged_in_user
+      end
     else
       flash[:alert] = "User Not Found"
       render :new
     end
-    if user.user_info.blank?
-      redirect_to new_user_membership_url
-    else
-      track_event(EVENT_LOGGED_IN)
-      render_page_of_logged_in_user
-    end
-    # session_index, url = set_referral_tracking_url
-    # return_to = session[:return_to]
-    # login_user(session_index, url)
-
   end
 
   def destroy
