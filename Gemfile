@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+# gem 'rails', git: 'https://github.com/pankajporwal-gems/rails.git', branch: 'panic-error-pg12'
 
 # Application server
 gem 'unicorn'
