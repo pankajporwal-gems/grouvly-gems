@@ -30,14 +30,14 @@ admin = {
   "last_name" => 'User'
 }
 
-user = User.create(provider: "facebook", first_name: "Example", last_name: "User", oauth_token: "fsdjlkfjlkd2143251453dfdfd", oauth_expires_at: "2024-04-21 10:33:39.959555", slug: "1456352fsdfs", uid: "124578965352dfdfd58")
+user = User.create(provider: "facebook", first_name: "Test", last_name: "User", oauth_token: "fsdjlkfjlkd2143251453dfdfd", oauth_expires_at: "2024-04-21 10:33:39.959555", slug: "1456352fsdfs", uid: "124578965352dfdfd58")
 
 #User transition
 ut1 = UserTransition.create(to_state: "pending", metadata: { occured_on: Time.now }.to_json, sort_key: 0, user_id: user.id)
 ut2 = UserTransition.create(to_state: "accepted", metadata: { "occured_on" => Time.now, "performed_by" => admin }.to_json, sort_key: 1, user_id: user.id)
 
 user_info = user.build_user_info(
-  email_address: "pankaj.porwal@gemsessence.com",
+  email_address: "testuser@example.com",
   gender_to_match: "female",
   location: "Singapore",
   phone: "12345678",
