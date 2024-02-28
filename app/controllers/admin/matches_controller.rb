@@ -56,6 +56,7 @@ class Admin::MatchesController < Admin::AdminsController
         @venue_booking.schedule = venue_booking[:schedule]
         if @venue_booking.save
           @venue_booking.new!
+          @venue_booking.accept! # This is for portfolio setup
           @bookings << @venue_booking
         else
           flash[:error] = @venue_booking.errors.full_messages.first

@@ -110,9 +110,16 @@ class Admin::PoolsController < Admin::AdminsController
         matched_reservation.second_reservation_id = second_reservation.id
         matched_reservation.schedule = first_reservation.schedule
 
-        if graph.get_connections("me", "friends/#{second_reservation.user.uid}").present?
-          notification = { error: I18n.t('admin.pools.show.already_friends_in_facebook') }
-        elsif matched_reservation.save
+        # if graph.get_connections("me", "friends/#{second_reservation.user.uid}").present?
+        #   notification = { error: I18n.t('admin.pools.show.already_friends_in_facebook') }
+        # elsif matched_reservation.save
+        #   matched_reservation.new!(current_admin)
+        #   notification = { notice: I18n.t('admin.pools.show.matched_successfully') }
+        # else
+        #   notification = { error: I18n.t('admin.pools.show.matched_wrongfully') }
+        # end
+
+        if matched_reservation.save
           matched_reservation.new!(current_admin)
           notification = { notice: I18n.t('admin.pools.show.matched_successfully') }
         else

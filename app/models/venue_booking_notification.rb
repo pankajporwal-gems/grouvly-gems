@@ -19,7 +19,7 @@ class VenueBookingNotification < ApplicationRecord
   private
 
   def generate_slug
-    slug = Grouvly::Slug.generate(id + APP_CONFIG['start_id'])
+    slug = Grouvly::Slug.generate(id.to_i + APP_CONFIG['start_id'])
     self.update_attributes({ slug: slug })
   end
 end

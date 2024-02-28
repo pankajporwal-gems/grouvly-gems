@@ -41,6 +41,10 @@ class MatchedReservation < ApplicationRecord
     @state_machine ||= StateMachines::MatchedReservation.new(self, transition_class: MatchedReservationTransition)
   end
 
+  def schedule
+    super.to_datetime
+  end
+
   private
 
   def matched_reservation_state
