@@ -37,9 +37,4 @@
       p.text-left.small= t('user.reservations.join.cancellation_condition_2')
 
       hr
-        = link_to @presenter.login_url, class: 'btn btn-lg btn-primary btn-lets-go', target: '_top' do
-          = icon('facebook')
-          | &nbsp &nbsp
-          = t('user.reservations.join.join_now')
-
         = render 'pages/index/questions'

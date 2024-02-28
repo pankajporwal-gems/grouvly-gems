@@ -19,12 +19,11 @@
         ul
           li= link_to t('terms.contact_us'), contact_us_path
           li= link_to t('terms.bars_and_venues'), bars_and_venues_path
-          li= link_to t('terms.get_started'), page_presenter.login_url, target: '_top' if page_presenter.present?
 
       .col-md-3.col-sm-3
         h4= t('terms.stay_connected')
 
-        .fb-like[data-href='https://www.facebook.com/grouvly' data-layout='standard' data-action='like' data-show-faces='true' data-share='false']
+        .fb-like[data-href='#' data-layout='standard' data-action='like' data-show-faces='true' data-share='false']
 
     .row
       .col-sm-12
@@ -43,15 +42,15 @@
             .social-media
               ul
                 li.facebook
-                  = link_to 'https://www.facebook.com/grouvly' do
+                  = link_to '#' do
                     i.icon-circle.small-circle.icon-social-fb
 
                 li.twitter
-                  = link_to 'https://twitter.com/Grouvly' do
+                  = link_to '#' do
                     i.icon-circle.small-circle.icon-social-twitter
 
                 li.instagram
-                  = link_to 'http://instagram.com/grouvly' do
+                  = link_to '#' do
                     i.icon-circle.small-circle.icon-social-ig
 
 #fb-root

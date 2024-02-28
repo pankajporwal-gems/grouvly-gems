@@ -43,8 +43,13 @@ html
         nav.navbar.navbar-inverse[role='navigation']
           .container
             .navbar-header
-              = link_to root_url, class: 'navbar-brand' do
-                = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+              - if current_user.present? && current_user.user_info.id.present?
+                = link_to root_url, class: 'navbar-brand' do
+                  = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+              - else
+                = link_to '', class: 'navbar-brand' do
+                  = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+
 
             #block-navbar.clearfix= render 'layouts/navigation'
 

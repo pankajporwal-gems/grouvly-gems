@@ -42,8 +42,13 @@ html
       header#main-nav.main-menu
         .container-fluid
           .logo.pull-left
-            = link_to root_url do
-              = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+            - if current_user.present? && current_user.user_info.present?
+              = link_to root_url do
+                = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+            - else
+              = link_to new_user_membership_path do
+                = image_tag 'grouvly-large.png', alt: APP_CONFIG['default_title']
+
 
           .res-btn
             .horiz-line
