@@ -28,7 +28,13 @@ class SessionsController < ApplicationController
   end
   
   def new
-    @uid = User.includes(:user_info).where(user_infos: { id: nil }).pluck(:uid).join(', ')
+    if current_user.present?
+      redirect_to new_user_reservation_url
+    elsif current_admin.present?
+      redirect_to admin_root_url
+    else
+      @uid = User.includes(:user_info).where(user_infos: { id: nil }).pluck(:uid).join(', ')
+    end
   end
   
   def create

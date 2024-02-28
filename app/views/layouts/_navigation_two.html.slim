@@ -1,12 +1,13 @@
 - if current_user.present?
   ul
     - if current_user.accepted?
-      li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
-        = icon('calendar-o')
-        | &nbsp &nbsp
-        = t('terms.reserve')
+      - if current_user.user_info.id.present?
+        li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
+          = icon('calendar-o')
+          | &nbsp &nbsp
+          = t('terms.reserve')
 
-    - if referral_program_enabled?
+    //- if referral_program_enabled?
       - if !current_user.new?
         li
           = link_to invite_user_membership_path, class: 'link-invite-get-credits hidden-xs hidden-sm btn btn-blue' do
@@ -21,7 +22,6 @@
 
     li.dropdown
       = link_to '#', class: 'dropdown-toggle text-white', data: { toggle: 'dropdown' } do
-        = image_tag small_profile_picture, height: 35, width: 40, class: 'img-circle'
         span.name = current_user.first_name
         = icon('angle-down')
 
@@ -38,7 +38,8 @@
               | &nbsp &nbsp
               = t('terms.reserve')
 
-        li= link_to t('terms.edit_profile'), edit_user_membership_path
+        - if current_user.user_info.present?
+          li= link_to t('terms.edit_profile'), edit_user_membership_path
 
         li= link_to t('terms.logout'), logout_path, method: :post
 -else

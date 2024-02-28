@@ -1,4 +1,4 @@
-accounting_email: 'accounting@grouvly.com'
+accounting_email: 'accounting@port-vgrouvly.com'
 
 available_ethnicities:  ["Black", "Caucasian", "Chinese", "Hispanic/Latino", "Indian", "Korean/Japanese", "Malay", "Middle Eastern", "Multi Ethnic","Other Asian", "Other"]
 
@@ -45,7 +45,7 @@ available_venue_time_slots: ['7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 P
 
 braintree_merchant_accounts: { 'Hong Kong': 'grouvlyHKD', 'Singapore': 'grouvlySGD' }
 
-concierge_email: { 'Hong Kong': 'hello@grouvly.com', 'Singapore': 'hello@grouvly.com' }
+concierge_email: { 'Hong Kong': 'hello@port-vgrouvly.com', 'Singapore': 'hello@port-vgrouvly.com' }
 
 concierge_first_name: { 'Hong Kong': 'Sophie', 'Singapore': 'Sophie' }
 
@@ -53,11 +53,11 @@ concierge_name: { 'Hong Kong': 'Sophie Tang', 'Singapore': 'Sophie Tang' }
 
 concierge_phone: { 'Hong Kong': '81822115', 'Singapore': '81822115' }
 
-default_address: Grouvly International Limited | Hong Kong | Singapore
+default_address: Port VGrouvly International Limited | Hong Kong | Singapore
 
 default_concierge_country: 'Hong Kong'
 
-default_concierge_email: 'hello@grouvly.com'
+default_concierge_email: 'hello@port-vgrouvly.com'
 
 default_concierge_first_name: 'Sophie'
 
@@ -65,12 +65,12 @@ default_concierge_name: "Sophie Tang"
 
 default_concierge_phone: '81822115'
 
-default_meta_tag: 'Grouvly: We set up drinks between 2 groups of friends - Meet new people with your friends'
+default_meta_tag: 'Port VGrouvly: We set up drinks between 2 groups of friends - Meet new people with your friends'
 
 facebook_permissions: ['public_profile', 'email', 'user_friends', 'user_birthday', 'user_work_history',
   'user_education_history', 'user_location', 'user_photos', 'user_likes', 'user_hometown']
 
-default_title: Grouvly
+default_title: Port VGrouvly
 
 fee: { 'Hong Kong': {'male': '150', 'female': '100'}, 'Singapore': {'male': '24', 'female': '16'} }
 
@@ -99,7 +99,7 @@ start_id: 1000000000
 
 wing_quantity: [1,2]
 
-support_email: 'hello@grouvly.com'
+support_email: 'hello@port-vgrouvly.com'
 
 voucher_restrictions: ['all_users', 'all_members', 'not_member']
 

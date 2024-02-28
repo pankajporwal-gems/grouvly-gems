@@ -1,9 +1,10 @@
 - if current_user.present?
   ul.nav.navbar-nav.navbar-right
-    li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
-      = icon('calendar-o')
-      | &nbsp &nbsp
-      = t('terms.reserve')
+    - if current_user.user_info.id.present?
+      li= link_to new_user_reservation_path, class: 'link-new-reservation hidden-xs' do
+        = icon('calendar-o')
+        | &nbsp &nbsp
+        = t('terms.reserve')
     
     - if referral_program_enabled?
       - if !current_user.new? 
@@ -35,8 +36,9 @@
             | &nbsp &nbsp
             = t('terms.reserve')
 
-        li= link_to t('terms.edit_profile'), edit_user_membership_path
-        
+        - if current_user.user_info.id.present?
+          li= link_to t('terms.edit_profile'), edit_user_membership_path
+          
         li= link_to t('terms.logout'), logout_path, method: :post
 - else
   ul.nav.nav-pills.pull-right.pt-15.pb-15

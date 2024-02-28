@@ -48,7 +48,7 @@ en:
         title_list_by_location: "List by location"
         all_paid: "Everything has been paid already. No need to recapture."
         all_payments_captured: "All payments have been captured."
-        cancel_booking: "Grouvly Booking canceld for user %{user_name} at date %{date}"
+        cancel_booking: "Port VGrouvly Booking canceld for user %{user_name} at date %{date}"
         are_you_sure_capture_payment: "Are you sure you want to capture this payment?"
         book_venues: "Book Venues"
         are_you_sure_book_venues: "Are you sure you want to book venues?"
@@ -110,7 +110,7 @@ en:
         credit: "Credit"
         friends: "Friends"
         notes: "Notes"
-        reservations: "Grouvlys"
+        reservations: "Port VGrouvlys"
         submit: "Submit"
         total_amount: "Amount"
         total_count: "Count"
@@ -155,7 +155,7 @@ en:
 
     pools:
       new_grouvly:
-        book_new_grouvly: "Book New Grouvly"
+        book_new_grouvly: "Book New Port VGrouvly"
         name_label: "Name"
         email_label: "Email"
         available_date_label: "Available Date"
@@ -318,7 +318,7 @@ en:
       typical_weekend: "Typical Weekend"
       email: "Email"
       gay: "Gay"
-      grouvly: "Grouvly"
+      grouvly: "Port VGrouvly"
       lesbian: "Lesbian"
       likes: "Likes"
       members: "Members"
@@ -346,14 +346,14 @@ en:
   mailers:
     credit:
       relaunch:
-        subject: "Grouvly, the best Social Club, is back! Get %{voucher} off!"
+        subject: "Port VGrouvly, the best Social Club, is back! Get %{voucher} off!"
       referrer:
-        subject: "Congrats! You have earned %{currency}%{amount} credit on Grouvly!"
+        subject: "Congrats! You have earned %{currency}%{amount} credit on Port VGrouvly!"
       reminder:
         tomorrow:
-          subject: "Hey %{first_name}, your %{currency}%{amount} credit expires tomorrow. Book your Grouvly now."
+          subject: "Hey %{first_name}, your %{currency}%{amount} credit expires tomorrow. Book your Port VGrouvly now."
         other_days:
-          subject: "Hey %{first_name}, your %{currency}%{amount} credit will expire soon. Book your Grouvly now."
+          subject: "Hey %{first_name}, your %{currency}%{amount} credit will expire soon. Book your Port VGrouvly now."
 
     inquiry:
       subject: "Thanks for contacting us"
@@ -363,7 +363,7 @@ en:
       accept:
         subject: "We love having you as a part of us!!"
       pend:
-        subject: "We received your application to Grouvly!"
+        subject: "We received your application to Port VGrouvly!"
 
     payment:
       forward_to_friends:
@@ -371,31 +371,31 @@ en:
       email_payment_error:
         subject: "Payment Error"
       email_lead:
-        subject: "%{lead}, your Grouvly is reserved for %{date}"
+        subject: "%{lead}, your Port VGrouvly is reserved for %{date}"
       email_pending:
-        subject: "%{lead}, enter your credit card details to confirm your Grouvly!"
+        subject: "%{lead}, enter your credit card details to confirm your Port VGrouvly!"
       email_receipt:
-        subject: "Grouvly payment receipt"
+        subject: "Port VGrouvly payment receipt"
       email_wing:
         subject: "An awesome night awaits! You have made reservations for %{date}"
 
     pools_matched:
       notification_venue:
-        subject: "Confirmed Grouvly %{booking_day} at %{booking_time} [Venue Details]"
+        subject: "Confirmed Port VGrouvly %{booking_day} at %{booking_time} [Venue Details]"
       notification_venue_schedule_changed:
-        subject: "Confirmed Grouvly %{booking_day} at %{booking_time} [Time update and venue details]"
+        subject: "Confirmed Port VGrouvly %{booking_day} at %{booking_time} [Time update and venue details]"
       table_booking:
-        subject: "Grouvly Booking / %{booking_date} / %{participents_count} FREE DRINKS / NAME: Grouvly-%{girl_name}-%{guy_name}"
+        subject: "Port VGrouvly Booking / %{booking_date} / %{participents_count} FREE DRINKS / NAME: Port VGrouvly-%{girl_name}-%{guy_name}"
 
     reservation:
       first_reservation_invitation:
-        subject: "Welcome to the Grouvly Family!"
+        subject: "Welcome to the Port VGrouvly Family!"
       first_reservation_reminder:
-        subject: "Don't forget: Reserve your Grouvly (Book today before 9 pm)"
+        subject: "Don't forget: Reserve your Port VGrouvly (Book today before 9 pm)"
       notify_about_unmatched_reservation:
         subject: "Uh oh! We had to cancel."
       notify_about_cancel_reservation:
-        subject: "Your Grouvly has been cancelled"
+        subject: "Your Port VGrouvly has been cancelled"
 
   pages:
     bars_and_venues:
@@ -421,7 +421,7 @@ en:
       as_featured_in: "As featured in"
       ensures_everyone_shows_up: "It ensures that everyone shows up"
       facebook: "Facebook"
-      from_the_first_grouvly_night: "From the first Grouvly night you accept"
+      from_the_first_grouvly_night: "From the first Port VGrouvly night you accept"
       grab_two_friends: "Grab <span class='text-blue'>2 Friends</span>."
       how_it_works: "How It Works ?"
       how_it_works_no_question: "How It Works"
@@ -445,17 +445,17 @@ en:
       what_is_grouvly_all_about: "Is a social club that sets up drinks between 2 groups of friends:"
 
       event_bar:
-        title: "GROUVLY LAUNCH PARTY"
+        title: "Port VGrouvly LAUNCH PARTY"
         date: "April 22, 2015 | 7-9 PM @ secret venue in Central"
         find_out_more: "Find out more"
 
     join:
       accept_invitation: "Accept Invitation"
-      refer_and_get_credit: "Get %{currency}%{amount} off on your first Grouvly!"
-      sent_you_an_invitation: "Sent you an invite.<br/>Sign up and get %{currency}%{amount} credit off your first Grouvly when your membership is accepted."
+      refer_and_get_credit: "Get %{currency}%{amount} off on your first Port VGrouvly!"
+      sent_you_an_invitation: "Sent you an invite.<br/>Sign up and get %{currency}%{amount} credit off your first Port VGrouvly when your membership is accepted."
 
     privacy_policy:
-      grouvly_pte_ltd: "Grouvly Limited"
+      grouvly_pte_ltd: "Port VGrouvly Limited"
 
     why_facebook:
       are_you_ready: "Now that is clear, are you ready?"
@@ -467,7 +467,7 @@ en:
       we_use_it_to_find_people: "We use it to find people with similar interest to yours."
 
   terms:
-    roll_reservation: "Roll Grouvly"
+    roll_reservation: "Roll Port VGrouvly"
     roll: "Roll"
     dont_roll: "Don't Roll"
     please_select_height: "Please select height"
@@ -478,7 +478,7 @@ en:
     bars_and_venues: "Bars and Venues"
     blog: "Blog"
     contact_us: "Contact Us"
-    copyright: "Copyright &copy; Port VGrouvly.com. All rights reserved."
+    copyright: "Copyright &copy; Port VPort VGrouvly.com. All rights reserved."
     do_it_right: "Do It Right"
     edit_profile: "Edit Profile"
     faqs: "FAQ's"
@@ -486,7 +486,7 @@ en:
     get_started: "Get Started"
     how_it_works: "How It Works ?"
     girls: "girls"
-    grouvly_pte_ltd: "Grouvly Pte Limited"
+    grouvly_pte_ltd: "Port VGrouvly Pte Limited"
     guys: "guys"
     invite_friends: "Invite Friends"
     invite_friends_get_credits: "Give %{currency}%{amount} &nbsp;&nbsp;Get %{currency}%{amount}"
@@ -496,14 +496,14 @@ en:
     others: "Others"
     press: "Press"
     privacy_policy: "Privacy Policy"
-    reserve: "Book your Grouvly"
+    reserve: "Book your Port VGrouvly"
     social: "Social"
     stay_connected: "Stay Connected"
     terms_of_service: "Terms of Service"
     who_we_are: "Who we are"
     why_facebook: "Why Facebook?"
     you_need_to_login_html: "Please <a href='%{login_link}'>log in</a> to access this page"
-    update_profile: "Please update your <a href='%{url}'>Profile</a> before booking your Grouvly."
+    update_profile: "Please update your <a href='%{url}'>Profile</a> before booking your Port VGrouvly."
 
   user:
     memberships:
@@ -546,7 +546,7 @@ en:
       my_religion_is: "My religion is"
       or_do_this_later: "or do this later"
       refer_and_get_credits: "Give %{currency}%{amount} and Get %{currency}%{amount}!"
-      refer_and_get_credits_explanation: "Invite your awesome friends to sign up for Grouvly. If they get accepted, you'll receive %{currency}%{amount} credit and your friends will receive %{currency}%{amount} credit off their first Grouvly."
+      refer_and_get_credits_explanation: "Invite your awesome friends to sign up for Port VGrouvly. If they get accepted, you'll receive %{currency}%{amount} credit and your friends will receive %{currency}%{amount} credit off their first Port VGrouvly."
       referral_stats: "Referral Stats"
       total_credit: "Total Credit Earned"
       we_will_use_it_sparingly: "Don't worry, we'll use it sparingly"
@@ -563,16 +563,16 @@ en:
         information_updated_successfully: "You have successfully updated your information."
 
       finish:
-        start_booking: "Start booking your Grouvly today!"
+        start_booking: "Start booking your Port VGrouvly today!"
         estimated_wait_explanation: "We'll reach out when we have a good match. We'd rather you wait than meet a bunch of total randos."
         finish: "Finish"
         finish_application: "Finish Application"
         follow_us: "Follow us!"
         your_application_is_complete: "Your application is complete!<br/>We will review your application and confirm your membership asap!<br/><br/>Can’t wait to get started?"
         thank_you: "Thank you"
-        your_application_is_rejected: "Thank you for your interest to be a part of Grouvly.<br/>The approval of your application has been deferred until a later time. Any payment made to us will be refunded to you.<br/><br/>We pride ourselves in running an ethical and honest business. If we don’t feel that our services would benefit you, we would not want to take your money and not add value to you.<br/>However, this can change as our database expands.<br/><br/>If you would like to appeal this, please contact"
-        book_my_grouvly: "Book my Grouvly!"
-        disclaimer: "<b>Disclaimer:</b> Note that your current membership status is currently tentatively approved.<br/>Grouvly reserves the right to decline your membership (if necessary) after review."
+        your_application_is_rejected: "Thank you for your interest to be a part of Port VGrouvly.<br/>The approval of your application has been deferred until a later time. Any payment made to us will be refunded to you.<br/><br/>We pride ourselves in running an ethical and honest business. If we don’t feel that our services would benefit you, we would not want to take your money and not add value to you.<br/>However, this can change as our database expands.<br/><br/>If you would like to appeal this, please contact"
+        book_my_grouvly: "Book my Port VGrouvly!"
+        disclaimer: "<b>Disclaimer:</b> Note that your current membership status is currently tentatively approved.<br/>Port VGrouvly reserves the right to decline your membership (if necessary) after review."
 
       invite:
         send_them_a_message: "Send them a message"
@@ -587,21 +587,21 @@ en:
         membership_application: "Membership Application"
 
       errors:
-        cannot_change_location: "You have an upcoming Grouvly. Changing location is not allowed."
+        cannot_change_location: "You have an upcoming Port VGrouvly. Changing location is not allowed."
 
     payments:
       grouvly_info:
         first_pergraph: "I understand that the group we are matched with might be a group of 2, or a group of 3 (it may not always be 2+2 or 3+3)."
-        second_pergraph: "I'm the type of person who honours my commitments! I agree to set the necessary time aside for my Grouvly and arrive punctually. If I am going to be late or need to change the time, I will let Grouvly know ASAP."
-        third_pergraph: "I understand that the staff at Grouvly try their best to ensure that all Grouvlies go smoothly, however, on very rare exceptions, there may be Grouvlies that don't work out. That's a bummer, but I'll make it my mission to still have a fun night out with my friends anyway!"
-        fourth_paragraph: "I accept to receive emails from Grouvly of any updates."
-        fifth_paragraph: "Note that when you book a Grouvly, you will be charged for you and your friend(s). Then when your friend(s) signs up, we will refund their portion to you."
+        second_pergraph: "I'm the type of person who honours my commitments! I agree to set the necessary time aside for my Port VGrouvly and arrive punctually. If I am going to be late or need to change the time, I will let Port VGrouvly know ASAP."
+        third_pergraph: "I understand that the staff at Port VGrouvly try their best to ensure that all Grouvlies go smoothly, however, on very rare exceptions, there may be Grouvlies that don't work out. That's a bummer, but I'll make it my mission to still have a fun night out with my friends anyway!"
+        fourth_paragraph: "I accept to receive emails from Port VGrouvly of any updates."
+        fifth_paragraph: "Note that when you book a Port VGrouvly, you will be charged for you and your friend(s). Then when your friend(s) signs up, we will refund their portion to you."
       address: "Address"
       as_it_appears_on_the_card: "(as it appears on the credit card)"
       sample_card_number: "(Test card number: 5555555555554444)"
       cancellation_policy: "Our Cancellation Policy"
       last_minute_booking_policy: "Please note: Last Minute Bookings"
-      last_minute_booking_statement: "Since this is a last minute booking, we will try our BEST to find you a match -- but no promises! Keep your fingers crossed! Don't worry, you will be refunded immediately if we don't manage to find you a last-minute Grouvly."
+      last_minute_booking_statement: "Since this is a last minute booking, we will try our BEST to find you a match -- but no promises! Keep your fingers crossed! Don't worry, you will be refunded immediately if we don't manage to find you a last-minute Port VGrouvly."
       cancellation_statement: "No refunds will be given if you cancel less than 72 hours in advance."
       card_number: "Card Number"
       change_date: "Change date"
@@ -616,14 +616,14 @@ en:
       credits_to_use: "You are going to use %{currency}%{amount} credit in this booking."
       cvv: "CVV"
       expiration: "This page will expire in"
-      pending_payment_info: "You have a Grouvly booked for %{date}."
+      pending_payment_info: "You have a Port VGrouvly booked for %{date}."
       expiry: "Expiry"
       last_minute_booking_fee_included: "First round of drinks + Table booking +<br/> Last minute booking fee"
       first_drink_included: "First round of drinks + Table booking"
       have_questions: "Have Questions?"
       its_all_set_for: "It's all set for <strong>%{date} at %{time}</strong>"
       name: "Name"
-      one_grouvly_ticket: "1 Grouvly Ticket + 2 Grouvly Wing%{gender} tickets."
+      one_grouvly_ticket: "1 Port VGrouvly Ticket + 2 Port VGrouvly Wing%{gender} tickets."
       oops: "Oops!"
       page_has_expired: "This page has expired."
       payment: "Payment"
@@ -653,7 +653,7 @@ en:
       errors:
         cannot_be_used: "cannot be used. You still have available credit."
         is_invalid: 'is invalid.'
-        needs_proper_wing_gender: "%{user} needs %{wing} for this Grouvly date."
+        needs_proper_wing_gender: "%{user} needs %{wing} for this Port VGrouvly date."
         paid_reservation_exists_error: "You already have an existing paid reservation on your chosen date. Please choose another one."
         you_have_already_paid_for_this_reservation: "You have already paid for this reservation."
         voucher_cannot_be_used: "You have credit available. You cannot use this promotional code."
@@ -667,7 +667,7 @@ en:
       date: "Date"
       go_on: "Go on"
       feeling_spontaneous: "Feeling spontaneous?"
-      last_minute_booking: "Book a <strong> Last-Minute Grouvly </strong> now!"
+      last_minute_booking: "Book a <strong> Last-Minute Port VGrouvly </strong> now!"
       prepay: "Pay now to confirm your booking"
       if_they_dont_pay: "If they don't pay, you'll be charged their share and you can settle up later"
       invite_them_or_send_this_link: "Invite them or send this link"
@@ -676,48 +676,48 @@ en:
       join: "Join"
       on_date: "On"
       or_find_another_time: "Or find another time:"
-      or_roll_your_unmatched_grouvly: "Or roll your unmatched grouvly"
+      or_roll_your_unmatched_grouvly: "Or roll your unmatched Port VGrouvly"
       pick_a_day: "Pick A Day"
       time: "Time"
       wingmen: "Wingmen"
       wingwomen: "Wingwomen"
-      you_have_already_preordered: "Yayy! You have already pre-ordered your grouvly ticket"
+      you_have_already_preordered: "Yayy! You have already pre-ordered your Port VGrouvly ticket"
       you_have_already_selected_invites: 'You have already selected your friends. You can change them by clicking on the X button at the top of their pictures.'
       you_will_receive_an_email: "You'll receive an email with the location of your Grouper and a reservation name in the afternoon of %{one_day_before_reservation_date}"
 
       confirmed:
         apply_for_membership: "Apply for Membership"
-        arrive_to_date: "Arrive to your Grouvly night"
+        arrive_to_date: "Arrive to your Port VGrouvly night"
         date: "Date"
         invite_your_wings: "Invite your wings"
-        pay_for_your_grouvly: "Pay For Your Grouvly"
+        pay_for_your_grouvly: "Pay For Your Port VGrouvly"
         pick_your_wings: "Pick Your %{wing}"
         receive_location_details: "Receive Location Details"
-        schedule_your_grouvly: "Schedule Your Grouvly"
+        schedule_your_grouvly: "Schedule Your Port VGrouvly"
         time: "Time"
         timeline: "Timeline"
-        upcoming_grouvly_confirmed: "Upcoming Grouvly Confirmed"
-        upcoming_pending_grouvly: "Upcoming Grouvly Pending"
-        want_to_become_a_member: "Want to become a member and lead your own Grouvly?"
+        upcoming_grouvly_confirmed: "Upcoming Port VGrouvly Confirmed"
+        upcoming_pending_grouvly: "Upcoming Port VGrouvly Pending"
+        want_to_become_a_member: "Want to become a member and lead your own Port VGrouvly?"
         where: "Where"
         working_on_it: "Working on it"
       roll:
-        title: "Roll grouvly"
-        roll_grouvly: "Roll my Grouvly booking!"
+        title: "Roll Port VGrouvly"
+        roll_grouvly: "Roll my Port VGrouvly booking!"
         schedule_label: "(1) Roll my booking to:"
         is_roll_label: "(2) Keep rolling my booking till I get a match!"
         rolling_info: "(We'll start rolling it from the date selected in (1))"
         confirm: "Confirm"
-        msg_roll_true: "Thank you! You have rolled your Grouvly booking to date:( %{date} ) and we will keep rolling your Grouvly until you get a match"
-        msg_roll_false: "Thank you! You have rolled your Grouvly booking to date: (%{date}) and we will not keep rolling your Grouvly until you get a match"
-        need_to_cancel: "Need to cancel? Email us at hello@grouvly.com"
-        refund_grouvly_amount: "No I don't wish to roll my Grouvly"
-        unmatched_info: "Occasionally, we might not be able to find you a suitable match for a Grouvly due to mismatch of gender numbers and/or age groups. Rolling allows you to automatically push your booking to the following week if there is no match for the current week."
+        msg_roll_true: "Thank you! You have rolled your Port VGrouvly booking to date:( %{date} ) and we will keep rolling your Port VGrouvly until you get a match"
+        msg_roll_false: "Thank you! You have rolled your Port VGrouvly booking to date: (%{date}) and we will not keep rolling your Port VGrouvly until you get a match"
+        need_to_cancel: "Need to cancel? Email us at hello@Port VGrouvly.com"
+        refund_grouvly_amount: "No I don't wish to roll my Port VGrouvly"
+        unmatched_info: "Occasionally, we might not be able to find you a suitable match for a Port VGrouvly due to mismatch of gender numbers and/or age groups. Rolling allows you to automatically push your booking to the following week if there is no match for the current week."
       refund_amount:
         refunded_successfully: "Your reservation cancelled successfully and you will get refund amount as soon as possible."
-        refunded_failed: "Something wen't wrong! please contact grouvly support team."
+        refunded_failed: "Something wen't wrong! please contact Port VGrouvly support team."
       wing_qunatity:
-        select_wing_quantity: "Can't wait for my Grouvly! I will be bringing"
+        select_wing_quantity: "Can't wait for my Port VGrouvly! I will be bringing"
         confirm: "confirm"
         male: "Wingmen."
         female: "Wingwomen."
@@ -727,12 +727,12 @@ en:
       errors:
         messages:
           already_have_a_reservation: "You already have a reservation on %{reservation_date}."
-          this_grouvly_date_is_already_full: "This Grouvly date is already full."
+          this_grouvly_date_is_already_full: "This Port VGrouvly date is already full."
           you_have_not_chosen_a_valid_schedule: "Chosen schedule is invalid"
           you_have_reached_maximum_reservation: "You have active/pending reservations for all the dates given."
 
       invite_wings:
-        confirm_your_grouvly: "Confirm your grouvly"
+        confirm_your_grouvly: "Confirm your Port VGrouvly"
         date: "Date"
         grab_two_friends: "Grab two friends to come with you"
         if_they_dont_pay: "You have signed up to bring %{wing_quantity} of your %{friend} to join you! <br/>It’s going to be an awesome night out!"
@@ -742,7 +742,7 @@ en:
         time: "Time"
         to_save_you_the_work: "to save you the work"
         send_this_message: "Send this message to your friends!"
-        an_email_has_been_sent: "An e-mail has been sent to you confirming the date and time of your Grouvly. An additional e-mail will be sent to you confirming the location nearer the date."
+        an_email_has_been_sent: "An e-mail has been sent to you confirming the date and time of your Port VGrouvly. An additional e-mail will be sent to you confirming the location nearer the date."
 
       join:
         accept_invitation: "Accept Invite to Join"
@@ -767,9 +767,9 @@ en:
 
     sessions:
       join:
-        applicant: "You have already signed up for Grouvly before. You cannot accept the invite of your friend."
-        member: "You have already signed up for Grouvly before. You cannot accept the invite of your friend."
-        new_applicant: "You have already signed up for Grouvly before. You cannot accept the invite of your friend. Please fill up the form."
+        applicant: "You have already signed up for Port VGrouvly before. You cannot accept the invite of your friend."
+        member: "You have already signed up for Port VGrouvly before. You cannot accept the invite of your friend."
+        new_applicant: "You have already signed up for Port VGrouvly before. You cannot accept the invite of your friend. Please fill up the form."
 
     users:
       dashboard:
@@ -783,7 +783,7 @@ en:
       wing:
         become_a_member: "Become a member"
         hey: "Hey, %{name}"
-        want_to_become_a_member: "Want to become a member and lead your own Grouvly?<br/>Apply for membership."
+        want_to_become_a_member: "Want to become a member and lead your own Port VGrouvly?<br/>Apply for membership."
 
   venues:
 
